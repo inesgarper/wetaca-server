@@ -1,0 +1,34 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "#### SERVER",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inesgarper/wetaca-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inesgarper/wetaca-server/issues"
+  },
+  "homepage": "https://github.com/inesgarper/wetaca-server#readme",
+  "dependencies": {
+    "apollo-server": "^3.10.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.1",
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "6.5.2",
+    "mongoose-unique-validator": "3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
