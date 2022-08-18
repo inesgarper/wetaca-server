@@ -24,12 +24,12 @@ const schema = new Schema(
             type: Number
         },
         images: {
-            finals: [{
-                type: String
-            }],
-            wip: [{
-                type: String
-            }]
+            finals: {
+                type: [String]
+            },
+            wip: {
+                type: [String]
+            }
         },
         description: {
             type: String

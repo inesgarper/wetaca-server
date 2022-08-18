@@ -51,10 +51,10 @@
 | `GET` | `/getActiveOrder` | Get Active Order |
 | `GET`| `/getNextOrder` | Get Next Order |
 | `GET`| `/getDeliveredOrders` | Get Delivered Orders |
-| `POST` | `/create` | Create Order |
+| `POST` | `/create` | Create Order | // Puede que haya que crear otro para la compra sin suscripción
 | `PUT` | `/:order_id/addMeal` | Add Meal to Order |
 | `PUT`| `/:order_id/removeMeal` | Remove Meal from Order |
-| `PUT`| `/:order_id/updateMealQuantity` | Update Meal Quantity |
+| `PUT`| `/:order_id/updateMealQuantity` | Update Meal Quantity | // Puede que haya que separarlo en 2 métodos, uno que incrementa y otro que resta
 
 
 ```http
@@ -78,4 +78,4 @@
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `GET` | `/:meal_id/reviews` | Get All Reviews for One Meal |
-| `POST` | `/create` | Create Rating and Post Comment |
+| `POST` | `/create` | Create Rating and Post Comment | // También actualiza el meal rating
