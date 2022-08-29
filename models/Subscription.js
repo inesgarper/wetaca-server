@@ -32,6 +32,23 @@ const schema = new Schema(
                 type: Number
             }
         },
+        address: {
+            street: {
+                type: String,
+            },
+            number: {
+                type: Number,
+            },
+            city: {
+                type: String,
+            },
+            province: {
+                type: String
+            },
+            postCode: {
+                type: Number
+            },
+        }
     },
     {
         timestamps: true

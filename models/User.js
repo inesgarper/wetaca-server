@@ -26,23 +26,6 @@ const schema = new Schema(
         birthDate: {
             type: Date
         },
-        address: {
-            street: {
-                type: String,
-            },
-            number: {
-                type: Number,
-            },
-            city: {
-                type: String,
-            },
-            province: {
-                type: String
-            },
-            postCode: {
-                type: Number
-            },
-        },
         paymentMethods: [{
             cardNumber: {
                 type: String
