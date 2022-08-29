@@ -15,7 +15,7 @@ const schema = new Schema(
         },
         category: [{
             type: String,
-            enum: ['Carne', 'Pollo', 'Pescado', 'Pasta', 'Gratinado', 'Arroz', 'Legumbres', 'Internacional']
+            enum: ['Carne', 'Pollo', 'Pescado', 'Pasta', 'Gratinado', 'Arroz', 'Legumbres', 'Internacional', 'Veggie', 'Entrante', 'Completo', 'Ligero', 'Postre']
         }],
         weight: {
             type: Number,
