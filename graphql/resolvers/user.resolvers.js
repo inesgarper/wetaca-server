@@ -1,6 +1,7 @@
 import User from './../../models/User.js'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
+import { UserInputError } from 'apollo-server'
 
 const saltRounds = 10
 
@@ -8,14 +9,24 @@ const saltRounds = 10
 const userResolvers = {
 
     Query: {
-        hello: () => 'Hello',
-        getCurrentUser: (_, args, context) => context.currentUser
+        getCurrentUser: (_, args, context) => context.currentUser,
+
+        getAllUsers: async () => {
+            const users = await User.find()
+            return users
+        },
     },
 
     Mutation: {
-        createUser: (_, args) => {
+        createUser: async (_, args) => {
 
             // checkear que no exista
+            const { email } = args.user
+            const foundUser = await User.findOne({ email })
+
+            if (foundUser) {
+                throw new UserInputError('Email already registered')
+            }
 
             const { password } = args.user
 
@@ -24,6 +35,18 @@ const userResolvers = {
 
             const user = new User({ ...args.user, password: hashedPassword })
             return user.save()
+        },
+
+        deleteUser: async (_, { id }) => {
+            await User.findByIdAndDelete(id)
+            return 'User deleted'
+        },
+
+        updateUser: async (_, { id, user }) => {
+            const updatedUser = await User.findByIdAndUpdate(id, {
+                $set: user
+            }, { new: true })
+            return updatedUser
         },
 
         login: async (_, args) => {
