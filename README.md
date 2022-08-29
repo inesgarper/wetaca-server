@@ -51,7 +51,7 @@
 | `GET` | `/getActiveOrder` | Get Active Order |
 | `GET`| `/getNextOrder` | Get Next Order |
 | `GET`| `/getDeliveredOrders` | Get Delivered Orders |
-| `POST` | `/create` | Create Order | // Puede que haya que crear otro para la compra sin suscripción
+| `POST` | `/create` | Create Order |
 | `PUT` | `/:order_id/addMeal` | Add Meal to Order |
 | `PUT`| `/:order_id/removeMeal` | Remove Meal from Order |
 | `PUT`| `/:order_id/updateMealQuantity` | Update Meal Quantity | // Puede que haya que separarlo en 2 métodos, uno que incrementa y otro que resta
@@ -66,7 +66,7 @@
 | `GET` | `/` | Get All Subscriptions |
 | `GET` | `/getUserSubscription/:user_id` | Get User's Subscription Details|
 | `GET` | `/getMySubsctiptionDetails` | Subscription's Details |
-| `POST` | `/create` | Create Subscription |
+| `POST` | `/create` | Create Subscription | // lógica para crear el menú base
 | `PUT`| `/:subscription_id/changeStatus` | Pause or Activate Subscription |
 | `DELETE` | `/:subscription_id/delete` | Cancel Subscription |
 

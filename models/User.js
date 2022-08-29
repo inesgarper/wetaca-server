@@ -56,14 +56,7 @@ const schema = new Schema(
             expiration: {
                 type: Date
             }
-        }],
-        lastOrders: [{
-
-        }],
-        nextOrder: {
-
-        }
-
+        }]
     },
     {
         timestamps: true
