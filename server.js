@@ -4,6 +4,7 @@ import './db/index.js'
 import { ApolloServer } from 'apollo-server'
 import { typeDefs } from './graphql/typeDefs/index.js'
 import { resolvers } from './graphql/resolvers/index.js'
+import { DateTimeTypeDefinition, DateTimeResolver } from "graphql-scalars"
 import User from './models/User.js'
 import jwt from 'jsonwebtoken'
 

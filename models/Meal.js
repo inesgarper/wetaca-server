@@ -13,10 +13,10 @@ const schema = new Schema(
         ingredients: {
             type: String,
         },
-        category: [{
+        category: {
             type: String,
             enum: ['Carne', 'Pollo', 'Pescado', 'Pasta', 'Gratinado', 'Arroz', 'Legumbres', 'Internacional', 'Veggie', 'Entrante', 'Completo', 'Ligero', 'Postre']
-        }],
+        },
         weight: {
             type: Number,
         },
@@ -105,7 +105,7 @@ const schema = new Schema(
             }
         },
         lastWeekInMenu: {
-            type: Date
+            type: String
         },
         popularity: {
             averageRating: {
