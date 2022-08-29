@@ -9,17 +9,8 @@ const userTypeDefs = gql`
         password: String!
         phoneNumber: Float
         # birthDate: Date
-        # address: Address
         paymentMethods: PaymentMethods
         id: ID!
-    }
-
-    type Address{
-        street: String
-        number: Float
-        city: String
-        province: String
-        postCode: Float
     }
 
     type PaymentMethods{
@@ -43,6 +34,16 @@ const userTypeDefs = gql`
         lastName: String
         email: String
         password: String
+        phoneNumber: Float
+        # birthDate: Date
+        paymentMethods: PaymentMethodsInput
+    }
+
+    input PaymentMethodsInput{
+        cardNumber: String
+        cardName: String
+        securityCode: Float
+        # expiration: Date
     }
 
     type Mutation{

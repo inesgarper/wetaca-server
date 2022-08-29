@@ -11,7 +11,7 @@ const reviewTypeDefs = gql`
     }
 
     input ReviewInput{
-        user: String
+        # user: String
         meal: String
         rating: Float
         comment: String
