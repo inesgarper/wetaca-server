@@ -105,7 +105,7 @@ const schema = new Schema(
             }
         },
         lastWeekInMenu: {
-            type: String
+            type: Date
         },
         popularity: {
             averageRating: {
