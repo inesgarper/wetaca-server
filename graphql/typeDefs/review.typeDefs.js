@@ -2,6 +2,8 @@ import { gql } from "apollo-server"
 
 const reviewTypeDefs = gql`
 
+    # Definitions
+
     type Review{
         user: String
         meal: String
@@ -10,19 +12,27 @@ const reviewTypeDefs = gql`
         id: ID!
     }
 
+
+    # Querys
+
     type Query{
         getReviews(mealId: ID!): [Review]
     }
 
+
+    # Inputs
+
     input ReviewInput{
-        # user: String
         meal: String
         rating: Float
         comment: String
     }
 
+
+    # Mutations
+
     type Mutation{
-        createReview(review: ReviewInput): Review
+        createReview(reviewData: ReviewInput): Review
     }
 
 `

@@ -2,13 +2,15 @@ import { gql } from "apollo-server"
 
 const userTypeDefs = gql`
 
+    # Definitions
+
     type User{
         name: String!
         lastName: String!
         email: String!
         password: String!
-        phoneNumber: Float
-        birthDate: Date
+        phoneNumber: Float!
+        birthDate: Date!
         paymentMethods: PaymentMethods
         id: ID!
     }
@@ -24,10 +26,16 @@ const userTypeDefs = gql`
         value: String!
     }
 
+
+    # Querys
+
     type Query{
         getCurrentUser: User
         getAllUsers: [User]
     }
+
+
+    # Inputs
 
     input UserInput{
         name: String
@@ -46,8 +54,11 @@ const userTypeDefs = gql`
         expiration: Date
     }
 
+
+    # Mutations
+
     type Mutation{
-        createUser(user: UserInput): User
+        createUser(userData: UserInput): User
         deleteUser(id: ID!): String
         updateUser(id: ID!, user: UserInput): User
         login(
@@ -55,6 +66,9 @@ const userTypeDefs = gql`
             password: String!
         ): Token
     }
+
+
+    # Custom Scalars
 
     scalar Date
 `

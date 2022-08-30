@@ -20,20 +20,37 @@ const userResolvers = {
     Mutation: {
         createUser: async (_, args) => {
 
-            // checkear que no exista
-            const { email } = args.user
+            const { userData } = args
+
+            // EMPTY FIELDS VALIDATION
+
+            for (const input in userData) {
+                if (userData[input] === '') throw new UserInputError('Provide all inputs')
+            }
+
+            // EMAIL VALIDATION
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+            if (!emailRegex.test(userData.email)) {
+                throw new UserInputError('Provide valid email address')
+            }
+
+
+            // CHECK DUPLICATED USERS
+
+            const { email } = userData
             const foundUser = await User.findOne({ email })
 
             if (foundUser) {
                 throw new UserInputError('Email already registered')
             }
 
-            const { password } = args.user
+            const { password } = userData
 
             const salt = bcrypt.genSaltSync(saltRounds)
             const hashedPassword = bcrypt.hashSync(password, salt)
 
-            const user = new User({ ...args.user, password: hashedPassword })
+            const user = new User({ ...userData, password: hashedPassword })
             return user.save()
         },
 
@@ -53,7 +70,17 @@ const userResolvers = {
 
             const { email, password } = args
 
+            // EMPTY FIELDS VALIDATION
+
+            if (email === '' || password === '') {
+                throw new UserInputError('Provide email and password')
+            }
+
             const foundUser = await User.findOne({ email })
+
+            if (!foundUser) {
+                throw new UserInputError('User not found')
+            }
 
             if (bcrypt.compareSync(password, foundUser.password)) {
                 const { name, lastName, email, _id } = foundUser
