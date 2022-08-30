@@ -1,5 +1,4 @@
 import { gql } from "apollo-server"
-import { DateTimeTypeDefinition } from "graphql-scalars"
 
 const mealTypeDefs = gql`
 
@@ -15,7 +14,7 @@ const mealTypeDefs = gql`
         description: String!
         allergens: Allergens!
         nutritionalValues: NutritionalValues!
-        lastWeekInMenu: String
+        lastWeekInMenu: Date
         popularity: Popularity!
         id: ID!
     }
@@ -74,7 +73,7 @@ const mealTypeDefs = gql`
         description: String!
         allergens: AllergensInput!
         nutritionalValues: NutritionalValuesInput!
-        lastWeekInMenu: String
+        lastWeekInMenu: Date
         popularity: PopularityInput!
     }
 
@@ -122,6 +121,10 @@ const mealTypeDefs = gql`
         #     password: String!
         # ): Token
     }
+
+
+    # Custom Scalars
+    scalar Date
 `
 
 export default mealTypeDefs
