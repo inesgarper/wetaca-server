@@ -2,13 +2,40 @@ import { gql } from "apollo-server"
 
 const mealTypeDefs = gql`
 
+    # Enums
+
+    enum MealType {
+        UNIQUE
+        LIGHT
+        FULL
+        VEGGIE
+        STARTER
+        DESSERT
+    }
+
+    enum MealCategory {
+        MEAT
+        CHICKEN
+        FISH
+        PASTA
+        RICE
+        GRATINATED
+        LEGUME
+        INTERNATIONAL
+        VEGGIE
+        STARTER
+        FULL
+        LIGHT
+        DESSERT
+    }
+
     # Definitions
 
     type Meal{
         name: String!
-        type: String!
+        type: MealType!
         ingredients: String!
-        category: String!
+        category: MealCategory!
         weight: Int!
         price: Float!
         description: String!
@@ -53,28 +80,20 @@ const mealTypeDefs = gql`
     }
 
 
-    # Querys
-
-    type Query{
-        hello: String
-        # getCurrentUser: User
-    }
-
-
     # Inputs
 
     input MealInput{
-        name: String!
-        type: String!
-        ingredients: String!
-        category: String!
-        weight: Int!
-        price: Float!
-        description: String!
-        allergens: AllergensInput!
-        nutritionalValues: NutritionalValuesInput!
+        name: String
+        type: MealType
+        ingredients: String
+        category: MealCategory
+        weight: Int
+        price: Float
+        description: String
+        allergens: AllergensInput
+        nutritionalValues: NutritionalValuesInput
         lastWeekInMenu: Date
-        popularity: PopularityInput!
+        popularity: PopularityInput
     }
 
     input AllergensInput{
@@ -111,15 +130,29 @@ const mealTypeDefs = gql`
     }
 
 
+    # Querys
+
+    type Query{
+        getAllMeals: [Meal],
+        getMealDetails(mealID: ID): Meal
+    }
+
+
     # Mutations
 
     type Mutation{
-        addMeal(mealData: MealInput): Meal
+        addMeal(
+            mealData: MealInput
+        ): Meal,
 
-        # login(
-        #     email: String!
-        #     password: String!
-        # ): Token
+        updateMeal(
+            mealID: ID, 
+            mealData: MealInput
+        ): Meal,
+
+        deleteMeal(
+            mealID: ID
+        ): String
     }
 
 

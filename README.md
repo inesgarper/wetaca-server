@@ -30,14 +30,14 @@
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `GET` | `/` | Get All Meals |
-| `GET` | `/:meal_id` | Meal's Details |
+| `GET` | `/` | Get All Meals | ✅
+| `GET` | `/:meal_id` | Meal's Details | ✅
 | `GET` | `/mealsFilter` | Meal's Filter |
-| `POST` | `/create` | Create Meal |
-| `PUT` | `/:meal_id/edit` | Edit Meal |
+| `POST` | `/create` | Create Meal | ✅
+| `PUT` | `/:meal_id/edit` | Edit Meal | ✅
 | `PUT` | `/:meal_id/addPicture` | Add Meal Picture |
 | `PUT` | `/:meal_id/deletePicture` | Delete Meal Picture |
-| `DELETE` | `/:meal_id/delete` | Delete Meal |
+| `DELETE` | `/:meal_id/delete` | Delete Meal | ✅
 
 
 
