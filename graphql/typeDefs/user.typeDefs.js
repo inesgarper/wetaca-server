@@ -8,7 +8,7 @@ const userTypeDefs = gql`
         email: String!
         password: String!
         phoneNumber: Float
-        # birthDate: Date
+        birthDate: Date
         paymentMethods: PaymentMethods
         id: ID!
     }
@@ -17,16 +17,16 @@ const userTypeDefs = gql`
         cardNumber: String
         cardName: String
         securityCode: Float
-        # expiration: Date
+        expiration: Date
     }
    
+    type Token{
+        value: String!
+    }
+
     type Query{
         getCurrentUser: User
         getAllUsers: [User]
-    }
-
-    type Token{
-        value: String!
     }
 
     input UserInput{
@@ -35,7 +35,7 @@ const userTypeDefs = gql`
         email: String
         password: String
         phoneNumber: Float
-        # birthDate: Date
+        birthDate: Date
         paymentMethods: PaymentMethodsInput
     }
 
@@ -43,7 +43,7 @@ const userTypeDefs = gql`
         cardNumber: String
         cardName: String
         securityCode: Float
-        # expiration: Date
+        expiration: Date
     }
 
     type Mutation{
@@ -55,6 +55,8 @@ const userTypeDefs = gql`
             password: String!
         ): Token
     }
+
+    scalar Date
 `
 
 export default userTypeDefs

@@ -10,6 +10,10 @@ const reviewTypeDefs = gql`
         id: ID!
     }
 
+    type Query{
+        getReviews(mealId: ID!): [Review]
+    }
+
     input ReviewInput{
         # user: String
         meal: String
