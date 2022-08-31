@@ -32,7 +32,8 @@
 | :-------- | :------- | :------------------------- |
 | `GET` | `/` | Get All Meals | ✅
 | `GET` | `/:meal_id` | Meal's Details | ✅
-| `GET` | `/mealsFilter` | Meal's Filter |
+| `GET` | `/mealsFilter` | Meal's Filter By Category | ✅
+| `GET` | `/:meal_id/getNutritionalValuesPerPortion` | Meal's Values Per Portion |
 | `POST` | `/create` | Create Meal | ✅
 | `PUT` | `/:meal_id/edit` | Edit Meal | ✅
 | `PUT` | `/:meal_id/addPicture` | Add Meal Picture |
@@ -47,14 +48,14 @@
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `GET` | `/` | Get All Orders |
+| `GET` | `/` | Get All Orders | ✅
 | `GET` | `/getActiveOrder` | Get Active Order |
 | `GET`| `/getNextOrder` | Get Next Order |
 | `GET`| `/getDeliveredOrders` | Get Delivered Orders |
-| `POST` | `/create` | Create Order |
-| `PUT` | `/:order_id/addMeal` | Add Meal to Order |
-| `PUT`| `/:order_id/removeMeal` | Remove Meal from Order |
-| `PUT`| `/:order_id/updateMealQuantity` | Update Meal Quantity | // Puede que haya que separarlo en 2 métodos, uno que incrementa y otro que resta
+| `POST` | `/create` | Create Order | 
+| `PUT` | `/:order_id/addMeal` | Add Meal to Order | ✅
+| `PUT`| `/:order_id/removeMeal` | Remove Meal from Order | ✅
+| `PUT`| `/:order_id/updateMealQuantity` | Update Meal Quantity | ✅
 
 
 ```http

@@ -29,7 +29,15 @@ const mealResolvers = {
 
     Query: {
         getAllMeals: async () => await Meal.find(),
-        getMealDetails: async (_, args) => await Meal.findById({ _id: args.mealID })
+
+        getMealDetails: async (_, args) => await Meal.findById({ _id: args.mealID }),
+
+        getMealsByCategory: async (_, args) => {
+            const { mealCategory } = args
+
+            const meals = await Meal.find({ category: mealCategory })
+            return meals
+        }
     },
 
     Mutation: {
@@ -51,7 +59,6 @@ const mealResolvers = {
             const deletedMeal = await Meal.findByIdAndDelete(mealID)
             return `The meal ${deletedMeal.name} was successfully deleted!`
         },
-
     }
 }
 

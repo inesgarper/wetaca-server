@@ -133,14 +133,23 @@ const mealTypeDefs = gql`
     # Querys
 
     type Query{
+
         getAllMeals: [Meal],
-        getMealDetails(mealID: ID): Meal
+
+        getMealDetails(
+            mealID: ID
+        ): Meal,
+
+        getMealsByCategory(
+            mealCategory: MealCategory
+        ): [Meal]
     }
 
 
     # Mutations
 
     type Mutation{
+        
         addMeal(
             mealData: MealInput
         ): Meal,

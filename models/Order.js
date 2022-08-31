@@ -3,12 +3,12 @@ const { Schema, model } = mongoose
 
 const schema = new Schema(
     {
-        user: {
+        subscription: {
             type: Schema.Types.ObjectId,
-            ref: 'User'
+            ref: 'Subscription'
         },
         meals: [{
-            idMeal: {
+            mealID: {
                 type: Schema.Types.ObjectId,
                 ref: 'Meal'
             },
@@ -17,7 +17,8 @@ const schema = new Schema(
             }
         }],
         price: {
-            type: Number
+            type: Number,
+            default: 0
         },
         status: {
             type: String,
