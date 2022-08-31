@@ -23,16 +23,16 @@ const reviewTypeDefs = gql`
     # Inputs
 
     input ReviewInput{
-        meal: String
-        rating: Float
-        comment: String
+        meal: String!
+        rating: Float!
+        comment: String!
     }
 
 
     # Mutations
 
     type Mutation{
-        createReview(reviewData: ReviewInput): Review
+        createReview(reviewData: ReviewInput!): Review
     }
 
 `

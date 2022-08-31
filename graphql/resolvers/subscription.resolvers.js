@@ -12,6 +12,7 @@ const subscriptionResolvers = {
 
         getOneUserSubs: async (_, { user }) => {
             const subs = await Subscription.find({ user })
+
             return subs
         },
 
@@ -32,14 +33,19 @@ const subscriptionResolvers = {
 
         createSubscription: (_, { subscriptionData }, context) => {
             const { _id } = context.currentUser
-            const { address } = subscriptionData
+            const { address, deliveryWeekDay } = subscriptionData
 
-            const subscription = new Subscription({ user: _id, address })
+            const subscription = new Subscription({ user: _id, address, deliveryWeekDay })
             return subscription.save()
         },
 
         updateStatus: async (_, { subs, status }) => {
             const updatedSubs = await Subscription.findByIdAndUpdate(subs, { status }, { new: true })
+            return updatedSubs
+        },
+
+        updateDeliveryWeekDay: async (_, { subs, day }) => {
+            const updatedSubs = await Subscription.findByIdAndUpdate(subs, { deliveryWeekDay: day }, { new: true })
             return updatedSubs
         },
 

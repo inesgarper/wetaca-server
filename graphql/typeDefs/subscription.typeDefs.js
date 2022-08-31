@@ -9,6 +9,7 @@ const subscriptionTypeDefs = gql`
         status: String!
         baseMenu: BaseMenu
         address: Address!
+        deliveryWeekDay: String!
         id: ID!
     }
 
@@ -55,6 +56,7 @@ const subscriptionTypeDefs = gql`
 
     input SubscriptionInput{
         address: AdressInput
+        deliveryWeekDay: String
     }
 
     input AdressInput {
@@ -69,8 +71,9 @@ const subscriptionTypeDefs = gql`
     # Mutations
 
     type Mutation{
-        createSubscription(subscriptionData: SubscriptionInput) : Subscription
-        updateStatus(subs: ID!, status: String): Subscription
+        createSubscription(subscriptionData: SubscriptionInput!) : Subscription
+        updateStatus(subs: ID!, status: String!): Subscription
+        updateDeliveryWeekDay(subs: ID!, day: String!): Subscription
         deleteSubscription(subs: ID!): String
     }
 
