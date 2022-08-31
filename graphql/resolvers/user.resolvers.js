@@ -37,6 +37,7 @@ const userResolvers = {
 
 
             // CHECK DUPLICATED USERS
+            console.log(userData)
 
             const { email } = userData
             const foundUser = await User.findOne({ email })

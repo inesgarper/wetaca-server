@@ -32,6 +32,7 @@ const subscriptionResolvers = {
 
         createSubscription: (_, { subscriptionData }, context) => {
             const { _id } = context.currentUser
+
             const { address } = subscriptionData
 
             const subscription = new Subscription({ user: _id, address })
