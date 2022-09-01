@@ -42,7 +42,6 @@ const mealResolvers = {
 
         getMealsToCook: async () => {
 
-            // ENCONTRAR TODOS LOS ORDERS
             const orders = await Order.find({ status: 'Actived' }).populate('meals.mealID')
             const mealsToCook = []
 
@@ -50,7 +49,6 @@ const mealResolvers = {
                 order.meals.forEach(meal => {
 
                     const mealInArr = mealsToCook.find(elm => elm.meal.name === meal.mealID.name)
-                    // console.log('mealinarr --->', mealInArr)
 
                     if (mealInArr) {
                         mealInArr.quantity += meal.quantity
@@ -60,14 +58,10 @@ const mealResolvers = {
                             quantity: meal.quantity
                         })
                     }
-
                 })
-
             })
 
             return mealsToCook
-
-            // CREAR UN ARRAY EN EL QUE SE PUSHEEN OBJETOS CON LAS MEALS Y SUS QUANTITIES
         }
     },
 
