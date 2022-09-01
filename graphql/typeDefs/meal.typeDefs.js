@@ -79,6 +79,11 @@ const mealTypeDefs = gql`
         timesOrdered: Int
     }
 
+    type MealToCook {
+        meal: Meal
+        quantity: Float
+    }
+
 
     # Inputs
 
@@ -143,6 +148,8 @@ const mealTypeDefs = gql`
         getMealsByCategory(
             mealCategory: MealCategory
         ): [Meal]
+
+        getMealsToCook: [MealToCook]
     }
 
 

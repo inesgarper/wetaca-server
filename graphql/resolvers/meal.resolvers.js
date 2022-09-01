@@ -1,4 +1,5 @@
 import Meal from '../../models/Meal.js'
+import Order from '../../models/Order.js'
 
 const mealResolvers = {
 
@@ -37,6 +38,36 @@ const mealResolvers = {
 
             const meals = await Meal.find({ category: mealCategory })
             return meals
+        },
+
+        getMealsToCook: async () => {
+
+            // ENCONTRAR TODOS LOS ORDERS
+            const orders = await Order.find({ status: 'Actived' }).populate('meals.mealID')
+            const mealsToCook = []
+
+            orders.forEach(order => {
+                order.meals.forEach(meal => {
+
+                    const mealInArr = mealsToCook.find(elm => elm.meal.name === meal.mealID.name)
+                    // console.log('mealinarr --->', mealInArr)
+
+                    if (mealInArr) {
+                        mealInArr.quantity += meal.quantity
+                    } else {
+                        mealsToCook.push({
+                            meal: meal.mealID,
+                            quantity: meal.quantity
+                        })
+                    }
+
+                })
+
+            })
+
+            return mealsToCook
+
+            // CREAR UN ARRAY EN EL QUE SE PUSHEEN OBJETOS CON LAS MEALS Y SUS QUANTITIES
         }
     },
 

@@ -19,7 +19,7 @@ const uploadTypeDefs = gql`
     # Mutations
 
     type Mutation {
-        uploadImage
+        # uploadImage
     }
 
 `
