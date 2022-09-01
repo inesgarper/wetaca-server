@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const MONGODB_URI = process.env.MONGODB_URI
+// const MONGODB_URI = process.env.MONGODB_URI
 
 // mongoose.connect(MONGODB_URI, {
 //     useNewParser: true,
@@ -8,10 +8,11 @@ const MONGODB_URI = process.env.MONGODB_URI
 //     useFindAndModify: false,
 //     useCreateIndex: true
 // })
-mongoose.connect(MONGODB_URI)
+mongoose.connect('mongodb://localhost/wetaca')
     .then((x) => {
         console.log(`Connected to MongoDB! Database name: ${x.connections[0].name}`)
     })
     .catch(error => {
         console.log('Error connection to MongoDB', error)
     })
+

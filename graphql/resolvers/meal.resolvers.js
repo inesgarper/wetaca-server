@@ -40,6 +40,8 @@ const mealResolvers = {
             return meals
         },
 
+        getMenu: async () => await Meal.find({ currentlyInMenu: true }),
+
         getMealsToCook: async () => {
 
             const orders = await Order.find({ status: 'Actived' }).populate('meals.mealID')
@@ -84,6 +86,20 @@ const mealResolvers = {
             const deletedMeal = await Meal.findByIdAndDelete(mealID)
             return `The meal ${deletedMeal.name} was successfully deleted!`
         },
+
+        addMealToMenu: async (_, args) => {
+            const { mealID } = args
+
+            const updatedMeal = await Meal.findByIdAndUpdate(mealID, { currentlyInMenu: true }, { new: true })
+            return updatedMeal
+        },
+
+        removeMealFromMenu: async (_, args) => {
+            const { mealID } = args
+
+            const updatedMeal = await Meal.findByIdAndUpdate(mealID, { currentlyInMenu: false }, { new: true })
+            return updatedMeal
+        }
     }
 }
 

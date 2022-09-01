@@ -41,6 +41,7 @@ const mealTypeDefs = gql`
         description: String!
         allergens: Allergens!
         nutritionalValues: NutritionalValues!
+        currentlyInMenu: Boolean
         lastWeekInMenu: Date
         popularity: Popularity!
         id: ID!
@@ -147,7 +148,9 @@ const mealTypeDefs = gql`
 
         getMealsByCategory(
             mealCategory: MealCategory
-        ): [Meal]
+        ): [Meal],
+
+        getMenu: [Meal]
 
         getMealsToCook: [MealToCook]
     }
@@ -168,7 +171,15 @@ const mealTypeDefs = gql`
 
         deleteMeal(
             mealID: ID
-        ): String
+        ): String,
+
+        addMealToMenu(
+            mealID: ID
+        ): Meal
+
+        removeMealFromMenu(
+            mealID: ID
+        ): Meal
     }
 
 

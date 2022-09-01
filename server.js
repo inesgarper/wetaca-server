@@ -15,7 +15,7 @@ const server = new ApolloServer({
 
         if (auth && (auth.startsWith('bearer ') || auth.startsWith('Bearer '))) {
             const token = auth.substring(7)
-            const { _id } = jwt.verify(token, process.env.TOKEN_SECRET)
+            const { _id } = jwt.verify(token, 'ginesecret')
             const currentUser = await User.findById(_id)
             return { currentUser }
         }

@@ -91,7 +91,7 @@ const userResolvers = {
 
                 const authToken = jwt.sign(
                     payload,
-                    process.env.TOKEN_SECRET,
+                    'ginesecret',
                     { algorithm: 'HS256', expiresIn: '6h' }
                 )
 
