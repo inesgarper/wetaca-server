@@ -18,14 +18,19 @@ const schema = new Schema(
                     type: Number
                 },
                 perCategory: {
-                    carne: Number,
-                    pollo: Number,
-                    pescado: Number,
+                    meat: Number,
+                    chicken: Number,
+                    fish: Number,
                     pasta: Number,
-                    gratinado: Number,
-                    arroz: Number,
-                    legumbres: Number,
-                    internacional: Number
+                    rice: Number,
+                    gratinated: Number,
+                    legume: Number,
+                    international: Number,
+                    veggie: Number,
+                    starter: Number,
+                    full: Number,
+                    light: Number,
+                    dessert: Number
                 }
             },
             maxPrice: {

@@ -24,14 +24,19 @@ const subscriptionTypeDefs = gql`
     }
 
     type Categories {
-        carne: Float
-        pollo: Float
-        pescado: Float
-        pasta: Float
-        gratinado: Float
-        arroz: Float
-        legumbres: Float
-        internacional: Float
+        meat: Int
+        chicken: Int
+        fish: Int
+        pasta: Int
+        rice: Int
+        gratinated: Int
+        legume: Int
+        international: Int
+        veggie: Int
+        starter: Int
+        full: Int
+        light: Int
+        dessert: Int
     }
 
     type Address {
@@ -74,7 +79,8 @@ const subscriptionTypeDefs = gql`
         createSubscription(subscriptionData: SubscriptionInput!) : Subscription
         updateStatus(subs: ID!, status: String!): Subscription
         updateDeliveryWeekDay(subs: ID!, day: String!): Subscription
-        deleteSubscription(subs: ID!): String
+        deleteSubscription(subs: ID!): String,
+        createBaseMenu(orderID: ID): BaseMenu
     }
 
 `

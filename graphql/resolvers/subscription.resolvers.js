@@ -1,4 +1,7 @@
 import Subscription from './../../models/Subscription.js'
+import Order from './../../models/Order.js'
+
+import setBaseMenu from '../../utils/setBaseMenu.js'
 
 const subscriptionResolvers = {
 
@@ -52,6 +55,17 @@ const subscriptionResolvers = {
         deleteSubscription: async (_, { subs }) => {
             await Subscription.findByIdAndDelete(subs)
             return 'Subscription deleted'
+        },
+
+        createBaseMenu: async (_, { orderID }) => {
+            const order = await Order.findById(orderID).populate('meals.mealID')
+
+            const baseMenu = setBaseMenu(order)
+
+            const updatedSub = await Subscription.findByIdAndUpdate(order.subscription, { baseMenu }, { new: true })
+            updatedSub.save()
+
+            return updatedSub.baseMenu
         }
 
     }
