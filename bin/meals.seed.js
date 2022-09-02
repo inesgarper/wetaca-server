@@ -1,3 +1,18 @@
+import mongoose from 'mongoose'
+import Meal from './../models/Meal.js'
+
+mongoose
+    .connect('mongodb://localhost/wetaca')
+    .then((x) => {
+        console.log(
+            `Connected to Mongo JEJE! Database name: "${x.connections[0].name}"`
+        );
+    })
+    .catch((err) => {
+        console.error("Error connecting to mongo: ", err);
+    });
+
+
 const meals = [
     {
         name: 'MERLUZA CON ALLADA GALLEGA, PANADERAS, CHAMPIÑONES Y CEBOLLITAS',
@@ -1741,3 +1756,10 @@ const meals = [
         }
     }
 ]
+
+Meal.create(meals)
+    .then(mealsFromDB => {
+        console.log(`He creado ${mealsFromDB.length} pelis`)
+        mongoose.connection.close()
+    })
+    .catch(err => console.log(`An error occurred while creating books from the DB: ${err}`))

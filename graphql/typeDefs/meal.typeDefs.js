@@ -150,7 +150,7 @@ const mealTypeDefs = gql`
             mealCategory: MealCategory
         ): [Meal],
 
-        getMenu: [Meal]
+        getMenu: [Meal],
 
         getMealsToCook: [MealToCook]
     }
@@ -175,7 +175,7 @@ const mealTypeDefs = gql`
 
         addMealToMenu(
             mealID: ID
-        ): Meal
+        ): Meal,
 
         removeMealFromMenu(
             mealID: ID

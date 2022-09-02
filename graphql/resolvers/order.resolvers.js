@@ -1,4 +1,6 @@
 import Order from '../../models/Order.js'
+import Subscription from '../../models/Subscription.js'
+import Meal from '../../models/Meal.js'
 
 const orderResolvers = {
 
@@ -15,23 +17,39 @@ const orderResolvers = {
 
     Query: {
         getAllOrders: async () => await Order.find(),
-
-        // getMealDetails: async (_, args) => await Meal.findById({ _id: args.mealID }),
-
-        // getMealsByCategory: async (_, args) => {
-        //     const { mealCategory } = args
-
-        //     const meals = await Meal.find({ category: mealCategory })
-        //     return meals
-        // }
     },
 
     Mutation: {
-        createOrder: (_, args) => {
-            const { subscriptionID } = args
+        createOrder: async (_, args) => {
 
-            const order = new Order({ subscription: subscriptionID })
-            return order.save()
+            const { subscriptionID } = args
+            const subscription = await Subscription.findById(subscriptionID)
+
+            if (!subscription.baseMenu) {
+
+                const order = new Order({ subscription: subscriptionID })
+                return order.save()
+
+            } else {
+
+                const mealCategorys = Object.entries(subscription.baseMenu.meals.perCategory)
+
+                let meals = await Promise.all(mealCategorys.map(async ([key, value]) => {
+                    return await Meal.aggregate([{ $match: { category: key, currentlyInMenu: true } }, { $sample: { size: value } }])
+                }))
+
+                meals = meals.flat()
+
+                const mealIDs = meals.map(meal => {
+                    return {
+                        mealID: meal._id,
+                        quantity: 1
+                    }
+                })
+
+                const order = new Order({ subscription: subscriptionID, meals: mealIDs })
+                return order.save()
+            }
         },
 
         addMealToOrder: async (_, args) => {

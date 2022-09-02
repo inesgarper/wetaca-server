@@ -13,19 +13,19 @@ const mealResolvers = {
     },
 
     MealCategory: {
-        MEAT: 'Carne',
-        CHICKEN: 'Pollo',
-        FISH: 'Pescado',
-        PASTA: 'Pasta',
-        RICE: 'Arroz',
-        GRATINATED: 'Gratinado',
-        LEGUME: 'Legumbres',
-        INTERNATIONAL: 'Internacional',
-        VEGGIE: 'Veggie',
-        STARTER: 'Entrante',
-        FULL: 'Completo',
-        LIGHT: 'Ligero',
-        DESSERT: 'Postre'
+        MEAT: 'meat',
+        CHICKEN: 'chicken',
+        FISH: 'fish',
+        PASTA: 'pasta',
+        RICE: 'rice',
+        GRATINATED: 'gratinated',
+        LEGUME: 'legume',
+        INTERNATIONAL: 'international',
+        VEGGIE: 'veggie',
+        STARTER: 'starter',
+        FULL: 'full',
+        LIGHT: 'light',
+        DESSERT: 'dessert'
     },
 
     Query: {

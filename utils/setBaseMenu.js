@@ -29,43 +29,43 @@ const setBaseMenu = (order) => {
         for (let i = 0; i < meal.quantity; i++) {
 
             switch (meal.mealID.category) {
-                case 'Carne':
+                case 'meat':
                     baseMenu.meals.perCategory.meat++
                     break
-                case 'Pollo':
+                case 'chicken':
                     baseMenu.meals.perCategory.chicken++
                     break
-                case 'Pescado':
+                case 'fish':
                     baseMenu.meals.perCategory.fish++
                     break
-                case 'Pasta':
+                case 'pasta':
                     baseMenu.meals.perCategory.pasta++
                     break
-                case 'Gratinado':
+                case 'gratinated':
                     baseMenu.meals.perCategory.gratinated++
                     break
-                case 'Arroz':
+                case 'rice':
                     baseMenu.meals.perCategory.rice++
                     break
-                case 'Legumbres':
+                case 'legume':
                     baseMenu.meals.perCategory.legume++
                     break
-                case 'Internacional':
+                case 'international':
                     baseMenu.meals.perCategory.international++
                     break
-                case 'Veggie':
+                case 'veggie':
                     baseMenu.meals.perCategory.veggie++
                     break
-                case 'Entrante':
+                case 'starter':
                     baseMenu.meals.perCategory.starter++
                     break
-                case 'Completo':
+                case 'full':
                     baseMenu.meals.perCategory.full++
                     break
-                case 'Ligero':
+                case 'light':
                     baseMenu.meals.perCategory.light++
                     break
-                case 'Postre':
+                case 'dessert':
                     baseMenu.meals.perCategory.dessert++
                     break
             }
