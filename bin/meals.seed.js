@@ -18,7 +18,7 @@ const meals = [
         name: 'MERLUZA CON ALLADA GALLEGA, PANADERAS, CHAMPIÑONES Y CEBOLLITAS',
         type: 'Platos Únicos',
         ingredients: 'Merluza (32.1%) con allada (fumet blanco (agua, espina de pescado, cebolla, puerro, vino blanco, aceite de oliva, sal), Oloroso, vino blanco, aceite de oliva virgen extra, pan de picos, ajo, sal, pimentón dulce, goma de maíz y laurel), patatas panaderas (20.5%), cebollitas francesas (10.3%), champiñones (10.3%), aceite de oliva, ajo, orégano, pimienta negra y laurel.',
-        category: 'Pescado',
+        category: 'fish',
         weight: 560,
         price: 7.45,
         images: {
@@ -65,7 +65,7 @@ const meals = [
         name: 'TACOS DE COCHINITA PIBIL',
         type: 'Platos Únicos',
         ingredients: 'Aguja de cerdo, tortillas mexicanas de trigo, cebolla morada, zumo de naranja, zumo de lima, manteca de cerdo ibérico, pasta de achiote, sofrito de cebolla, caldo de cerdo (agua, espinazo freso, cebolla, zanahoria, aceite de oliva, ajo, sal), cebolla encurtida (cebolla morada, vinagre de vino, azúcar blanco, agua), aceite de oliva, vinagre de vino, sal, ajo confitado, cilantro, pimienta negra, cayena, comino y coriandro.',
-        category: 'Internacional',
+        category: 'international',
         weight: 395,
         price: 6.95,
         images: {
@@ -112,7 +112,7 @@ const meals = [
         name: 'ARROZ DE TERNERA Y SETAS',
         type: 'Platos Únicos',
         ingredients: 'Caldo de ternera (agua, huesos de rodilla, cebolla, zanahoria, morcillo, pie de ternera, puerro, apio, aceite de oliva, ajo, pasta de tomate, sal y laurel), arroz carnarolli (22%), morcillo (16%), sofrito casero (setas variadas (15%), sofrito de cebolla, vino blanco, oloroso, ajo, aceite de oliva, agua, laurel, ñoras, sal, pimienta negra, pimentón dulce) y mantequilla.',
-        category: 'Arroz',
+        category: 'rice',
         weight: 450,
         price: 6.95,
         images: {
@@ -159,7 +159,7 @@ const meals = [
         name: 'SPAGHETTI CACIO E PEPE',
         type: 'Platos Únicos',
         ingredients: 'Espaguetis de trigo (58,8%), salsa (agua de pasta, parmesano (con leche pasteurizada), aceite de oliva, sal, pimienta negra) y queso de oveja curado (con leche pasteurizada).',
-        category: 'Pasta',
+        category: 'pasta',
         weight: 510,
         price: 5.95,
         images: {
@@ -206,7 +206,7 @@ const meals = [
         name: 'CAZUELA DE FIDEOS',
         type: 'Platos Únicos',
         ingredients: 'Caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), caldo de jamón (hueso de jamón y agua), fideo (25%), sofrito de cebolla, piquillo, jamón serrano, ajo asado, ñoras, aceite de oliva, espinacas y sal.',
-        category: 'Arroz',
+        category: 'rice',
         weight: 450,
         price: 6.45,
         images: {
@@ -253,7 +253,7 @@ const meals = [
         name: 'ALBÓNDIGAS AL POMODORO',
         type: 'Platos Únicos',
         ingredients: 'Albóndigas (carne picada de ternera, pan de molde, leche entera, aceite de oliva, ajo, sal, huevo, harina de trigo y proteína de soja) (25%), salsa de tomate casera (tomate, cebolla, aceite de oliva, agua, ajo, azúcar, pimienta y sal) y tagliatelle (de trigo).',
-        category: 'Pasta',
+        category: 'pasta',
         weight: 500,
         price: 6.75,
         images: {
@@ -300,7 +300,7 @@ const meals = [
         name: 'LASAGNA AL TONNO',
         type: 'Platos Únicos',
         ingredients: 'Bechamel casera (leche entera, mantequilla, harina de trigo, sal, nuez moscada y pimienta negra), tomate, atún, pasta de lasagna (de trigo), sofrito de cebolla, pasta de tomate, Grana Padano (con leche no pasteurizada), albahaca, sal y orégano.',
-        category: 'Gratinado',
+        category: 'gratinated',
         weight: 450,
         price: 6.45,
         images: {
@@ -347,7 +347,7 @@ const meals = [
         name: 'REDONDO CON SALSA DE CHAMPIÑONES A LA CREMA Y VERDURAS',
         type: 'Platos Únicos',
         ingredients: 'Verduras (patatas, brócoli, cebollitas francesas, aceite de oliva, ajo, pimienta negra, romero y sal) (50%), salsa (caldo de cerdo tostado (agua, espinazo fresco, cebolla, zanahoria, aceite de oliva, ajo pelado y sal), champiñones (4,6%), nata (4,4%), sofrito de cebolla, Oloroso, vino blanco, vermut rojo, maicena, ajo, sal, pimentón dulce, pimienta negra y laurel) y redondo de ternera (24%). ',
-        category: 'Carne',
+        category: 'meat',
         weight: 500,
         price: 6.95,
         images: {
@@ -394,7 +394,7 @@ const meals = [
         name: 'SOLOMILLO A LA PIMIENTA',
         type: 'Platos Únicos',
         ingredients: 'Solomillo de cerdo (24%), patatas, caldo de cerdo tostado (agua, espinazo fresco, cebolla, zanahoria, aceite de oliva, ajo pelado, sal), sofrito de cebolla, nata, ajo, harina de trigo, mantequilla, vino tinto, oloroso río viejo, ajo, aceite de oliva, laurel, miel, sal, pimienta verde (0,26%) y pimienta negra (0,07%).',
-        category: 'Carne',
+        category: 'meat',
         weight: 500,
         price: 6.95,
         images: {
@@ -441,7 +441,7 @@ const meals = [
         name: 'GARBANZOS CON BUTIFARRA Y SETAS',
         type: 'Platos Únicos',
         ingredients: 'Caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel y sal), garbanzos, sofrito de cebolla, butifarra blanca (6%), champiñones, setas variadas (8%), vino blanco, oloroso, tomate, perejil fresco, sal, chipotles, pimentón dulce, pimienta negra, laurel y comino.',
-        category: 'Legumbres',
+        category: 'legume',
         weight: 450,
         price: 6.45,
         images: {
@@ -488,7 +488,7 @@ const meals = [
         name: 'AGUJA CON SALSA MORUNA, COUS COUS Y VERDURA JULIANA',
         type: 'Platos Únicos',
         ingredients: 'Aguja de cerdo (33%), cous cous (25%), verduras (pimiento rojo, pimiento amarillo, cebolla morada, judías verdes, aceite de oliva, sal y pimienta negra) (25%) y salsa (caldo de cerdo tostado (agua, espinazo fresco, cebolla, zanahoria, aceite de oliva, ajo pelado y sal), cilantro, zumo de limón, ajo, sofrito de cebolla, maicena, ras al hanout (nuez moscada, comino, sal, pimentón dulce, canela, curcuma, pimienta negra, coriandro, jengibre, cacao, romero, cayena y ajo), salsa de soja, jengibre, sal y aceite de oliva).',
-        category: 'Carne',
+        category: 'meat',
         weight: 460,
         price: 6.45,
         images: {
@@ -536,7 +536,7 @@ const meals = [
         name: 'CURRY VERDE DE POLLO',
         type: 'Platos Únicos',
         ingredients: 'Pechuga de pollo (34%), arroz (con aceite de oliva, ajo, sal y pimienta), pasta de curry verde (1%), leche coco infusionada (leche de coco, jengibre fresco, lemongrass y hoja lima-kaffir), sofrito de cebolla, zumo de limón, ajo confitado, salsa de soja, fish sauce (anchoa, sal y azúcar), albahaca, cilantro, caldo de pollo (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel, sal), avellana tostada y espinacas.',
-        category: 'Arroz',
+        category: 'international',
         weight: 500,
         price: 6.45,
         images: {
@@ -583,7 +583,7 @@ const meals = [
         name: 'POLLO CON SALSA DE OLOROSO',
         type: 'Platos Únicos',
         ingredients: 'Contramuslo de pollo (30%), salsa (pasta de curry rojo, levadura de cerveza, caldo de cerdo tostado (agua, espinazo fresco, cebolla, zanahoria, aceite de oliva, ajo pelado y sal), sofrito de cebolla, jengibre, cayena, ciruelas pasas, vino tinto, roux (mantequilla y harina), ajo confitado, Oloroso Río Viejo, laurel, sal y pimienta negra) (21%), cebolla pochada y patatas asadas (aceite de oliva, ajo asado, sal, pimienta negra y romero).',
-        category: 'Pollo',
+        category: 'chicken',
         weight: 570,
         price: 6.45,
         images: {
@@ -630,7 +630,7 @@ const meals = [
         name: 'CANELONES DE PISTO',
         type: 'Platos Únicos',
         ingredients: 'Pasta de canelones (9%), bechamel (leche entera, mantequilla, harina de trigo, sal, pimienta negra, nuez moscada), pisto (calabacín, pimiento verde, pimiento rojo, tomate reducido, sofrito de cebolla, pasta de tomate, vino blanco, oloroso, aceite de oliva, laurel, ajo asado, pimentón dulce, pimienta negra y comino) (48%) y queso de oveja curado (con leche pasteurizada).',
-        category: 'Gratinado',
+        category: 'gratinated',
         weight: 475,
         price: 6.45,
         images: {
@@ -677,7 +677,7 @@ const meals = [
         name: 'RIGATONI ALLA NORMA',
         type: 'Platos Únicos',
         ingredients: 'Pasta rigatoni (55%) y salsa (tomate reducido 70%, berenjena, sofrito de cebolla, caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), pimiento rojo, pasta de tomate, queso de oveja curado (con leche pasteurizada), ajo asado, salsa de soja, albahaca, vino blanco, oloroso, sal, pimienta negra, orégano y cayena).',
-        category: 'Gratinado',
+        category: 'pasta',
         weight: 550,
         price: 6.45,
         images: {
@@ -724,7 +724,7 @@ const meals = [
         name: 'SALMÓN CON PATATAS ASADAS',
         type: 'Platos Únicos',
         ingredients: 'Patatas asadas (patatas, aceite de oliva, ajo, sal, pimienta negra y romero) (54%), salmón (37%) y salsa (fumet tostado (agua, espina de pescado, cebolla, zanahoria, vino blanco, apio, vermut rojo, aceite de oliva, ajo pelado, perejil fresco, katsuobushi y sal), vino blanco, oloroso, ajo asado, sal, perejil fresco, laurel, pimienta negra y goma de maíz).',
-        category: 'Pescado',
+        category: 'fish',
         weight: 460,
         price: 7.25,
         images: {
@@ -772,7 +772,7 @@ const meals = [
         name: 'AJÍ DE POLLO CON ARROZ',
         type: 'Platos Únicos',
         ingredients: 'Pechuga de pollo (22%), salsa (sofrito de cebolla, caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel y sal) leche entera, aceitunas negras pan de picos, queso grana padano (con leche no pasteurizada), almendra, pasta ají amarillo, sal y azafrán), aceitunas negras y arroz (con aceite de oliva, ajo, sal y pimienta) (46%).',
-        category: 'Arroz',
+        category: 'international',
         weight: 545,
         price: 6.45,
         images: {
@@ -819,7 +819,7 @@ const meals = [
         name: 'POLLO CON SALSA BRAVA',
         type: 'Platos Únicos',
         ingredients: 'Contramuslo de pollo (31%), salsa (cebolla morada, caldo de jamón (hueso de jamón y agua), caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel y sal), manteca de cerdo ibérico, jamón serrano, ajo confitado, sofrito de cebolla, vino blanco, oloroso, maicena, sal, pimentón dulce, pimentón picante y cayena) y patatas (patatas, aceite de oliva, ajo, sal, pimienta negra y romero).',
-        category: 'Pollo',
+        category: 'chicken',
         weight: 540,
         price: 6.45,
         images: {
@@ -866,7 +866,7 @@ const meals = [
         name: 'PAVO CON ROMESCU VERDE, PATATAS ASADAS Y VERDURAS',
         type: 'Platos Únicos',
         ingredients: 'Pechuga de pavo (32,6%) con salsa romescu (pimiento verde, sofrito de cebolla, avellana, almendra, caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil, ajo, aceite de oliva, jengibre y laurel), aceite de oliva, perejil, ajo confitado, vinagre de manzana, miel, sal, pimienta negra y comino), patatas (25%), cebolla morada, zanahoria, puerro, judias verdes, pimiento rojo, pimiento amarillo, pimiento verde, aceite de oliva, ajo, pimienta negra y romero.',
-        category: 'Pollo',
+        category: 'chicken',
         weight: 460,
         price: 6.49,
         images: {
@@ -913,7 +913,7 @@ const meals = [
         name: 'PECHUGA MORUNA CON COUSCOUS',
         type: 'Platos Únicos',
         ingredients: 'Pechuga de pollo (43%), caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel y sal), cous cous (25%), aceite de oliva, sal, especias morunas (cayena, comino, cúrcuma, jengibre, coriandro, canela, sal y pimienta) y menta.',
-        category: 'Pollo',
+        category: 'chicken',
         weight: 490,
         price: 6.49,
         images: {
@@ -960,7 +960,7 @@ const meals = [
         name: 'ARROZ MELOSO DE MARISCO',
         type: 'Platos Únicos',
         ingredients: 'Caldo de pescado roca (agua, cabezas de alistado, whisky, oloroso, pasta de tomate, ñoras, pimienta negra, laurel y eneldo), fumet blanco (agua, espina de pescado, cebolla, puerro, vino blanco, aceite de oliva, sal), sofrito (cebolla, pimiento rojo, puerro, pulpo, vino blanco, pasta de tomate, ajo confitado, ñoras, aceite de oliva, sal, cayena, pimienta negra), arroz carnarolli (35%), mejillones (46%), almejas (12%) y gambón (0,2%).',
-        category: 'Arroz',
+        category: 'rice',
         weight: 480,
         price: 6.95,
         images: {
@@ -1007,54 +1007,7 @@ const meals = [
         name: 'TACOS DE VERDURAS',
         type: 'Platos Únicos',
         ingredients: 'Verduras (puerro, pimiento rojo, apio nabo, zanahoria) (62%), demi-glace vegetal (agua, hinojo, coliflor, zanahoria, shitake, champiñones, cebolla, remolacha, apionabo, brócoli, pasta de tomate, aceite de oliva, ajo pelado, apio, alga kombu) sofrito de cebolla, fior di latte (con leche no pasteurizada), pasta de tomate, pasta de soja amarilla, chipotles, sal, pimienta negra, comino y tortillas de trigo.',
-        category: 'Internacional',
-        weight: 435,
-        price: 6.49,
-        images: {
-            finals: ['https://static.wetaca.com/products/371/detail/tacos-de-verduras_A.jpg',
-                'https://static.wetaca.com/products/371/detail/tacos-de-verduras_B.jpg'],
-            wip: ['https://static.wetaca.com/products/371/gallery/tacos-de-verduras_A.jpg',
-                'https://static.wetaca.com/products/371/gallery/tacos-de-verduras_B.jpg',
-                'https://static.wetaca.com/products/371/gallery/tacos-de-verduras_C.jpg']
-        },
-        description: 'Versionamos este plato típico de carne. Cocinamos las verduras cortadas muy finamente en un guiso de tomates y chipotle. Para completar este clásico de la cocina mexicana agregamos queso fundido. Acompañamos con tortillas de trigo.',
-        allergens: {
-            celery: true,
-            gluten: true,
-            crustaceans: false,
-            eggs: false,
-            fish: false,
-            lupin: false,
-            milk: true,
-            molluscs: false,
-            mustard: false,
-            peanuts: false,
-            sesame: false,
-            soybeans: true,
-            sulphurDioxide: false,
-            sulphites: false,
-        },
-        nutritionalValues: {
-            calories: 120.10,
-            totalFats: 4.90,
-            saturatedFat: 1.70,
-            carbs: 15.70,
-            protein: 3.70,
-            sugar: 2.90,
-            fiber: 1.40,
-            sodium: 0.90
-        },
-        lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
-    },
-    {
-        name: 'TACOS DE VERDURAS',
-        type: 'Platos Únicos',
-        ingredients: 'Verduras (puerro, pimiento rojo, apio nabo, zanahoria) (62%), demi-glace vegetal (agua, hinojo, coliflor, zanahoria, shitake, champiñones, cebolla, remolacha, apionabo, brócoli, pasta de tomate, aceite de oliva, ajo pelado, apio, alga kombu) sofrito de cebolla, fior di latte (con leche no pasteurizada), pasta de tomate, pasta de soja amarilla, chipotles, sal, pimienta negra, comino y tortillas de trigo.',
-        category: 'Internacional',
+        category: 'international',
         weight: 435,
         price: 6.49,
         images: {
@@ -1101,7 +1054,7 @@ const meals = [
         name: 'ESTOFADO DE TERNERA AL VINO TINTO',
         type: 'Platos Únicos',
         ingredients: 'Morcillo de ternera (21,4%), zanahoria, champiñones, salsa (caldo de ternera (agua, huesos de ternera, morcillo, cebolla, zanahoria, puerro, aceite de oliva, apio, pasta de tomate, sal y laurel), vino tinto (5,6%), champiñones, ajo asado, grasa de vacuno, harina de trigo, pasta de tomate, vino oporto de bandeira (0,7%), sal, pimienta negra, romero y tomillo) y parmentier casero (patatas, leche entera, mantequilla y sal).',
-        category: 'Carne',
+        category: 'meat',
         weight: 560,
         price: 6.75,
         images: {
@@ -1148,7 +1101,7 @@ const meals = [
         name: 'ARROZ MELOSO DE PATO Y GORGONZOLA',
         type: 'Platos Únicos',
         ingredients: 'Caldo de pollo (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel, sal), arroz carnarolli (41%), confit de pato (7%), setas en proporción variable: Seta de cardo, shitake, pholiota nameko, champiñón, vino blanco, oloroso, nata, pimientos del piquillo, sofrito de cebolla, grasa de pato, ajo tostado, queso emmental (con leche pasteurizada), queso gorgonzola (2%) (con leche pasteurizada), sal y romero.',
-        category: 'Arroz',
+        category: 'rice',
         weight: 450,
         price: 6.95,
         images: {
@@ -1195,7 +1148,7 @@ const meals = [
         name: 'GEMELLI CON SALSA SORRENTINA',
         type: 'Platos Únicos',
         ingredients: 'Pasta gemelli (48%) y salsa (tomate reducido 70%, tomates cherry, sofrito de cebolla, caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), pasta de tomate, queso parmesano (con leche pasteurizada), leche entera, fior di latte (con leche no pasteurizada), vino blanco, oloroso, ajo confitado, albahaca, sal y pimienta negra).',
-        category: 'Pasta',
+        category: 'pasta',
         weight: 515,
         price: 6.49,
         images: {
@@ -1242,7 +1195,7 @@ const meals = [
         name: 'ALBÓNDIGAS SUECAS',
         type: 'Platos Únicos',
         ingredients: 'Albóndigas (carne picada de ternera, pan de molde, leche entera, aceite de oliva, ajo, sal, huevo, harina de trigo y proteína de soja) (22%), caldo de ternera (agua, huesos de ternera, morcillo, cebolla, zanahoria, puerro, aceite de oliva, apio, tomate, sal y laurel), mantequilla, harina de trigo, nata, salsa de soja, salsa perrins (vinagre de malta (cebada), vinagre de alcohol, melaza, azúcar, sal, anchoas, tamarindo, cebolla, ajo y especias), pimienta negra y crema de patata (patatas, leche entera, mantequilla, sal).',
-        category: 'Carne',
+        category: 'meat',
         weight: 550,
         price: 6.75,
         images: {
@@ -1289,7 +1242,7 @@ const meals = [
         name: 'SOLOMILLO CON SALSA DE QUESO',
         type: 'Platos Únicos',
         ingredients: 'Solomillo de cerdo (29%), salsa (caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo, aceite de oliva, jengibre, sal, laurel), queso parmesano (con leche pasteurizada) (3,2%), queso crema (con leche no pasteurizada) (2,5%), grana padano (con leche no pasteurizada) (2%), scamorza afumicatto (con leche pasteurizada) (1,1%), emmental (con leche pasteurizada) (1,1%), gorgonzola (con leche pasteurizada) (0,7%), queso azul (con leche no pasteurizada) (0,7%), vino blanco, pan de picos, estragón y pimienta negra) y patatas panadera (aceite de oliva, sal, ajo confitado, pimienta negra, orégano).',
-        category: 'Carne',
+        category: 'meat',
         weight: 450,
         price: 7.45,
         images: {
@@ -1336,7 +1289,7 @@ const meals = [
         name: 'MAGRO CON TOMATE',
         type: 'Platos Únicos',
         ingredients: 'Aguja de cerdo, patatas, tomate (12%), sofrito de cebolla, pimiento rojo, ñoras, ajo, aceite de oliva, agua, laurel, romero, azúcar blanco, sal, pimentón dulce, pimienta negra y orégano.',
-        category: 'Carne',
+        category: 'meat',
         weight: 490,
         price: 7.25,
         images: {
@@ -1383,7 +1336,7 @@ const meals = [
         name: 'GRATINADO DE CARNE Y PATATA',
         type: 'Platos Únicos',
         ingredients: 'Puré de patata (patatas, leche entera, nata 36%, mantequilla, ajo asado, panko, sal, pimienta negra, nuez moscada) (55%), salsa (tomate reducido, carne picada de ternera (22%), sofrito de cebolla, zanahoria, vino tinto, apio, ajo confitado, laurel) (41%), panko, salsa perrins (vinagre de malta, vinagre de alcohol, melaza, azúcar, sal, anchoas, extracto de tamarindo, cebolla, ajo, especias), salsa de soja, sal, cayena, comino, pimienta negra, cheddar (con leche pasteurizada) y fior di latte (con leche no pasteurizada).',
-        category: 'Gratinado',
+        category: 'gratinated',
         weight: 460,
         price: 6.49,
         images: {
@@ -1430,7 +1383,7 @@ const meals = [
         name: 'LENTEJAS ESTOFADAS CON CHORIZO',
         type: 'Platos Únicos',
         ingredients: 'Puré de patata (patatas, leche entera, nata 36%, mantequilla, ajo asado, panko, sal, pimienta negra, nuez moscada) (55%), salsa (tomate reducido, carne picada de ternera (22%), sofrito de cebolla, zanahoria, vino tinto, apio, ajo confitado, laurel) (41%), panko, salsa perrins (vinagre de malta, vinagre de alcohol, melaza, azúcar, sal, anchoas, extracto de tamarindo, cebolla, ajo, especias), salsa de soja, sal, cayena, comino, pimienta negra, cheddar (con leche pasteurizada) y fior di latte (con leche no pasteurizada).',
-        category: 'Legumbres',
+        category: 'legume',
         weight: 500,
         price: 5.95,
         images: {
@@ -1477,7 +1430,7 @@ const meals = [
         name: 'POLLO ASADO A LA PERUANA',
         type: 'Platos Únicos',
         ingredients: 'Puré de patata (patatas, leche entera, nata 36%, mantequilla, ajo asado, panko, sal, pimienta negra, nuez moscada) (55%), salsa (tomate reducido, carne picada de ternera (22%), sofrito de cebolla, zanahoria, vino tinto, apio, ajo confitado, laurel) (41%), panko, salsa perrins (vinagre de malta, vinagre de alcohol, melaza, azúcar, sal, anchoas, extracto de tamarindo, cebolla, ajo, especias), salsa de soja, sal, cayena, comino, pimienta negra, cheddar (con leche pasteurizada) y fior di latte (con leche no pasteurizada).',
-        category: 'Pollo',
+        category: 'chicken',
         weight: 450,
         price: 6.95,
         images: {
@@ -1524,7 +1477,7 @@ const meals = [
         name: 'PASTA ALLA GRICIA',
         type: 'Platos Únicos',
         ingredients: 'Puré de patata (patatas, leche entera, nata 36%, mantequilla, ajo asado, panko, sal, pimienta negra, nuez moscada) (55%), salsa (tomate reducido, carne picada de ternera (22%), sofrito de cebolla, zanahoria, vino tinto, apio, ajo confitado, laurel) (41%), panko, salsa perrins (vinagre de malta, vinagre de alcohol, melaza, azúcar, sal, anchoas, extracto de tamarindo, cebolla, ajo, especias), salsa de soja, sal, cayena, comino, pimienta negra, cheddar (con leche pasteurizada) y fior di latte (con leche no pasteurizada).',
-        category: 'Pasta',
+        category: 'pasta',
         weight: 510,
         price: 6.49,
         images: {
@@ -1571,7 +1524,7 @@ const meals = [
         name: 'SALMÓN CON HUMMUS',
         type: 'Platos Únicos',
         ingredients: 'Hummus (garbanzos, agua, sofrito de cebolla, aceite de oliva, zumo de limón, ajo, sal, tahini, cilantro, comino y pimentón dulce) (54%), salmón (37%) y salsa (fumet tostado (agua, espina de pescado, cebolla, zanahoria, vino blanco, apio, vermut rojo, aceite de oliva, ajo pelado, perejil fresco, katsuobushi y sal), vino blanco, oloroso, ajo asado, sal, perejil fresco, laurel, pimienta negra y goma de maíz).',
-        category: 'Pescado',
+        category: 'fish',
         weight: 460,
         price: 7.45,
         images: {
@@ -1618,7 +1571,7 @@ const meals = [
         name: 'MERLUZA EN SALSA VERDE',
         type: 'Platos Únicos',
         ingredients: 'Merluza (31%), patatas (aceite de oliva, sal, ajo confitado, pimienta negra y orégano) y salsa (fumet blanco (agua, espina de pescado, cebolla, puerro, vino blanco, aceite de oliva, sal), aceite de oliva, vino blanco, oloroso río viejo, perejil, ajo confitado, sal, laurel, goma de maíz y cayena).',
-        category: 'Pescado',
+        category: 'fish',
         weight: 470,
         price: 7.45,
         images: {
@@ -1665,7 +1618,7 @@ const meals = [
         name: 'ALBÓNDIGAS THAI DE POLLO',
         type: 'Platos Únicos',
         ingredients: 'Albóndigas de pollo (pollo (67%), agua, pan rallado, harina de trigo, clara de huevo y leche) (21,4%), caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel y sal) , batata, curry (leche coco infusionada (leche de coco, jengibre fresco, lemongrass, hoja lima-kaffir), zumo de limón, ajo confitado, salsa de soja, fish sauce, albahaca, cilantro y sal), puerro, sofrito de cebolla, pimiento verde, ajo asado, aceite de oliva, pieles de pollo, pasta de curry verde, avellana, aceite de sésamo y arroz (arroz, aceite de oliva, agua, ajo confitado, sal y pimienta negra).',
-        category: 'Pollo',
+        category: 'international',
         weight: 560,
         price: 6.95,
         images: {
@@ -1712,7 +1665,7 @@ const meals = [
         name: 'POLLO EN SALMOREJO CANARIO',
         type: 'Platos Únicos',
         ingredients: 'Contramuslo de pollo (31%), salsa (caldo de pollo tostado (agua, carcasa de pollo, zanahoria, cebolla, alitas de pollo, aceite de oliva, ajo, laurel y sal), sofrito de cebolla, vino blanco, oloroso, pan de picos, pimienta negra, orégano, pimentón dulce, tomillo, comino y cayena) y verduras (batata, calabaza, zanahoria, sofrito de cebolla, caldo de verdura (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal, laurel), ajo confitado, aceite de oliva, sal orégano y pimienta negra).',
-        category: 'Pollo',
+        category: 'chicken',
         weight: 540,
         price: 6.49,
         images: {

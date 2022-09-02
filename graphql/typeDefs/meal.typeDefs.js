@@ -146,6 +146,10 @@ const mealTypeDefs = gql`
             mealID: ID
         ): Meal,
 
+        getNutritionalValues(
+            mealID: ID
+        ): NutritionalValues
+
         getMealsByCategory(
             mealCategory: MealCategory
         ): [Meal],
