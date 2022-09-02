@@ -1,4 +1,5 @@
 import Order from '../../models/Order.js'
+import Subscription from '../../models/Subscription.js'
 
 const orderResolvers = {
 
@@ -15,6 +16,38 @@ const orderResolvers = {
 
     Query: {
         getAllOrders: async () => await Order.find(),
+
+        getOneOrder: async (_, { orderID }) => await Order.findById(orderID).populate('meals.mealID'),
+
+        getActiveOrders: async (_, args, { currentUser }) => {
+            const { _id } = currentUser
+
+            // Encontrar las suscripciones de un usuario y guardar sus ids
+            const subs = (await Subscription.find({ user: _id })).map(elm => elm._id)
+
+            // Para cada id_suscripción encontrar los orders activos
+            const activeOrders = await Promise.all(subs.map(async (sub) => {
+                return await Order.findOne({ subscription: sub, status: 'Actived' }).populate('meals.mealID')
+            }))
+
+            return activeOrders
+        },
+
+        getNextOrders: async () => await Order.find({ status: 'Ordered' }).populate('meals.mealID'),
+
+        getMyNextOrder: async (_, args, { currentUser }) => {
+            const { _id } = currentUser
+
+            // Encontrar las suscripciones de un usuario y guardar sus ids
+            const subs = (await Subscription.find({ user: _id })).map(elm => elm._id)
+
+            // Para cada id_suscripción encontrar los orders ordered
+            const orderedOrder = await Promise.all(subs.map(async (sub) => {
+                return await Order.findOne({ subscription: sub, status: 'Ordered' }).populate('meals.mealID')
+            }))
+
+            return orderedOrder
+        }
 
         // getMealDetails: async (_, args) => await Meal.findById({ _id: args.mealID }),
 
@@ -96,3 +129,10 @@ const orderResolvers = {
 }
 
 export default orderResolvers
+
+// // Encontrar la suscripción para sacar el día de entrega de preferencia
+
+// const subs = await Subscription.findById(order.subscription)
+// const { deliveryWeekDay } = subs
+
+// console.log(deliveryWeekDay)
