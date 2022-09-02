@@ -47,6 +47,14 @@ const orderTypeDefs = gql`
     type Query{
 
         getAllOrders: [Order],
+        
+        getOneOrder(orderID: ID!): Order,
+
+        getActiveOrders: [Order],
+
+        getNextOrders: [Order],
+
+        getMyNextOrder: [Order]
 
         # getOrderDetails(
         #     orderID: ID
