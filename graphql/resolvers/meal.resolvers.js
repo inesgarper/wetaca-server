@@ -33,6 +33,20 @@ const mealResolvers = {
 
         getMealDetails: async (_, args) => await Meal.findById({ _id: args.mealID }),
 
+        getNutritionalValues: async (_, args) => {
+            const { mealID } = args
+            const meal = await Meal.findById(mealID)
+
+            const nutritionalValuesPerPortion = {}
+            const nutritionalValuesPer100g = Object.entries(meal.nutritionalValues)
+
+            nutritionalValuesPer100g.forEach(([key, value]) => {
+                nutritionalValuesPerPortion[key] = parseFloat((value * (meal.weight / 100)).toFixed(2))
+            })
+
+            return nutritionalValuesPerPortion
+        },
+
         getMealsByCategory: async (_, args) => {
             const { mealCategory } = args
 

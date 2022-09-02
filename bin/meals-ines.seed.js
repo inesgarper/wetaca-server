@@ -14,57 +14,10 @@ mongoose
 
 const meals = [
     {
-        name: 'MERLUZA CON ALLADA GALLEGA, PANADERAS, CHAMPIÑONES Y CEBOLLITAS',
-        type: 'Platos Únicos',
-        ingredients: 'Merluza (32.1%) con allada (fumet blanco (agua, espina de pescado, cebolla, puerro, vino blanco, aceite de oliva, sal), Oloroso, vino blanco, aceite de oliva virgen extra, pan de picos, ajo, sal, pimentón dulce, goma de maíz y laurel), patatas panaderas (20.5%), cebollitas francesas (10.3%), champiñones (10.3%), aceite de oliva, ajo, orégano, pimienta negra y laurel.',
-        category: 'Pescado',
-        weight: '560',
-        price: 7.45,
-        images: {
-            finals: ['https://static.wetaca.com/products/872/detail/merluza-con-allada-gallega-panaderas-champinones-y-cebollitas_A.jpg',
-                'https://static.wetaca.com/products/872/detail/merluza-con-allada-gallega-panaderas-champinones-y-cebollitas_B.jpg'],
-            wip: ['https://static.wetaca.com/products/872/gallery/merluza-con-allada-gallega-panaderas-champinones-y-cebollitas_A.jpg',
-                'https://static.wetaca.com/products/872/gallery/merluza-con-allada-gallega-panaderas-champinones-y-cebollitas_B.jpg',
-                'https://static.wetaca.com/products/872/gallery/merluza-con-allada-gallega-panaderas-champinones-y-cebollitas_C.jpg'],
-        },
-        description: 'Para la base de la allada partimos de nuestro caldo de pescados hecho a partir de espinas, vino blanco, pimentón, ajo y aceite de oliva. Cocinamos la merluza a baja temperatura dentro de la salsa para que quede jugosa. Para rematar acompañamos con unas patatas panaderas y un mix de verduras.',
-        allergens: {
-            celery: false,
-            gluten: true,
-            crustaceans: false,
-            eggs: false,
-            fish: true,
-            lupin: false,
-            milk: false,
-            molluscs: false,
-            mustard: false,
-            peanuts: false,
-            sesame: false,
-            soybeans: false,
-            sulphurDioxide: false,
-            sulphites: false,
-        },
-        nutritionalValues: {
-            calories: 120.00,
-            totalFats: 6.90,
-            saturatedFat: 1.00,
-            carbs: 7.80,
-            protein: 5.30,
-            sugar: 2.00,
-            fiber: 1.40,
-            sodium: 0.50
-        },
-        lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 3,
-            timesOrdered: 17
-        }
-    },
-    {
         name: 'QUESADA PASIEGA',
         type: 'Postres',
         ingredients: 'Requesón (con leche pasteurizada), azúcar blanco, huevo, mantequilla, yema, harina de trigo, yogur, limón, impulsor y canela.',
-        category: 'Postre',
+        category: 'dessert',
         weight: '180',
         price: 2.99,
         images: {
@@ -110,8 +63,8 @@ const meals = [
     {
         name: 'NATILLAS CASERAS',
         type: 'Postres',
-        ingredients: 'Leche entera, yema de huevo, azúcar, maicena, limón, naranja, canela en rama, sal y hojas de gelatina. Lácteos y huevo.',
-        category: 'Postre',
+        ingredients: 'Leche entera, yema de huevo, azúcar, maicena, limón, naranja, canela en rama, sal y hojas de gelatina.',
+        category: 'dessert',
         weight: '215',
         price: 3.75,
         images: {
@@ -157,8 +110,8 @@ const meals = [
     {
         name: 'TARTA VEGGIE DE ZANAHORIA',
         type: 'Postres',
-        ingredients: 'Leche de coco, zanahoria (24%), azúcar moreno, harina de trigo, harina de almendra, puré de manzanas asadas, jengibre, bicarbonato de sodio, ralladura de naranja y canela. Gluten y frutos secos.',
-        category: 'Postre',
+        ingredients: 'Leche de coco, zanahoria (24%), azúcar moreno, harina de trigo, harina de almendra, puré de manzanas asadas, jengibre, bicarbonato de sodio, ralladura de naranja y canela.',
+        category: 'dessert',
         weight: '200',
         price: 3.75,
         images: {
@@ -204,8 +157,8 @@ const meals = [
     {
         name: 'FLAN DE HUEVO CON TOFFEE',
         type: 'Postres',
-        ingredients: 'Nata, leche entera, toffee (azúcar blanco, nata, mantequilla, sal, agua) (18%), huevo (14%), leche condensada, yema de huevo, azúcar blanco, limón (piel), naranja (piel) y hojas de gelatina. Lácteos y huevo.',
-        category: 'Postre',
+        ingredients: 'Nata, leche entera, toffee (azúcar blanco, nata, mantequilla, sal, agua) (18%), huevo (14%), leche condensada, yema de huevo, azúcar blanco, limón (piel), naranja (piel) y hojas de gelatina.',
+        category: 'dessert',
         weight: '170',
         price: 2.99,
         images: {
@@ -251,8 +204,8 @@ const meals = [
     {
         name: 'SALMOREJO',
         type: 'Entrantes',
-        ingredients: 'Tomate natural, pan de picos, agua, huevo, piquillo, aceite de oliva virgen extra, jamón serrano, ajo, vinagre de Jerez y sal.  Gluten y huevo.',
-        category: 'Entrante',
+        ingredients: 'Tomate natural, pan de picos, agua, huevo, piquillo, aceite de oliva virgen extra, jamón serrano, ajo, vinagre de Jerez y sal.',
+        category: 'starter',
         weight: '355',
         price: 2.99,
         images: {
@@ -298,8 +251,8 @@ const meals = [
     {
         name: 'GAZPACHO',
         type: 'Entrantes',
-        ingredients: 'Tomate, agua, pepino, pimiento verde, aceite de oliva, pan de picos, vinagre de jerez, aceite de oliva virgen extra, pasta de tomate, cebolla morada, sal y ajo confitado. Gluten.',
-        category: 'Entrante',
+        ingredients: 'Tomate, agua, pepino, pimiento verde, aceite de oliva, pan de picos, vinagre de jerez, aceite de oliva virgen extra, pasta de tomate, cebolla morada, sal y ajo confitado.',
+        category: 'starter',
         weight: '300',
         price: 2.99,
         images: {
@@ -345,8 +298,8 @@ const meals = [
     {
         name: 'GUISANTES CON JAMÓN',
         type: 'Entrantes',
-        ingredients: 'Guisantes (29%), patatas, caldo de jamón (hueso de jamón y agua), caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal, laurel) sofrito de cebolla, jamón serrano (4%), ajo asado, aceite de oliva, pasta de tomate y sal.  Apio.',
-        category: 'Entrante',
+        ingredients: 'Guisantes (29%), patatas, caldo de jamón (hueso de jamón y agua), caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal, laurel) sofrito de cebolla, jamón serrano (4%), ajo asado, aceite de oliva, pasta de tomate y sal.',
+        category: 'starter',
         weight: '250',
         price: 3.29,
         images: {
@@ -392,8 +345,8 @@ const meals = [
     {
         name: 'CREMA DE ESPINACAS',
         type: 'Entrantes',
-        ingredients: 'Espinacas (36%), caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal, laurel), patata, sofrito casero (cebolla, aceite de oliva, ajo y sal), zanahoria, mantequilla y sal. Lácteos y apio.',
-        category: 'Entrante',
+        ingredients: 'Espinacas (36%), caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal, laurel), patata, sofrito casero (cebolla, aceite de oliva, ajo y sal), zanahoria, mantequilla y sal.',
+        category: 'starter',
         weight: '300',
         price: 2.99,
         images: {
@@ -439,8 +392,8 @@ const meals = [
     {
         name: 'MENESTRA CON JAMÓN',
         type: 'Entrantes',
-        ingredients: 'Guisantes, zanahoria, champiñones, alcachofa, judías verdes, nabo, jamón serrano (4%), caldo de jamón (hueso de jamón y agua), aceite de oliva y harina de trigo.  Gluten.',
-        category: 'Entrante',
+        ingredients: 'Guisantes, zanahoria, champiñones, alcachofa, judías verdes, nabo, jamón serrano (4%), caldo de jamón (hueso de jamón y agua), aceite de oliva y harina de trigo.',
+        category: 'starter',
         weight: '250',
         price: 3.25,
         images: {
@@ -486,8 +439,8 @@ const meals = [
     {
         name: 'CREMA DE CALABAZA AL CURRY',
         type: 'Entrantes',
-        ingredients: 'Calabaza (35%), agua, patata, sofrito casero (cebolla, aceite de oliva, ajo y sal), zanahoria, nata, curry Madrás (0,2%) y sal. Lácteos.',
-        category: 'Entrante',
+        ingredients: 'Calabaza (35%), agua, patata, sofrito casero (cebolla, aceite de oliva, ajo y sal), zanahoria, nata, curry Madrás (0,2%) y sal.',
+        category: 'starter',
         weight: '300',
         price: 2.99,
         images: {
@@ -533,8 +486,8 @@ const meals = [
     {
         name: 'GUISO DE LEGUMBRETA Y SETAS',
         type: 'Veggie',
-        ingredients: 'Caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo, aceite de oliva, jengibre fresco, sal y laurel), sofrito de cebolla, pimiento rojo, champiñones, legumbreta (harina de soja no OGM desgrasada, harina de arroz y harina de alubia) (6%), boletus, vino blanco, oloroso, aceite de oliva, ajo asado, salsa de soja, pasta de tomate, apio, pulpa de choricero, perejil, sal, pimentón dulce, pimienta negra y patatas rústicas (con aceite de oliva, ajo confitado, sal, orégano y pimienta negra). Gluten, soja y apio.',
-        category: 'Veggie',
+        ingredients: 'Caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo, aceite de oliva, jengibre fresco, sal y laurel), sofrito de cebolla, pimiento rojo, champiñones, legumbreta (harina de soja no OGM desgrasada, harina de arroz y harina de alubia) (6%), boletus, vino blanco, oloroso, aceite de oliva, ajo asado, salsa de soja, pasta de tomate, apio, pulpa de choricero, perejil, sal, pimentón dulce, pimienta negra y patatas rústicas (con aceite de oliva, ajo confitado, sal, orégano y pimienta negra).',
+        category: 'veggie',
         weight: '480',
         price: 6.75,
         images: {
@@ -580,8 +533,8 @@ const meals = [
     {
         name: 'DHAL DE LENTEJAS ROJAS',
         type: 'Veggie',
-        ingredients: 'Caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), lentejas rojas (17%), sofrito de cebolla, ajo confitado, tomate, ñoras, sal, salsa de soja, cilantro, jengibre, curcuma, curry madrás, comino y cayena. Gluten, soja y apio.',
-        category: 'Veggie',
+        ingredients: 'Caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), lentejas rojas (17%), sofrito de cebolla, ajo confitado, tomate, ñoras, sal, salsa de soja, cilantro, jengibre, curcuma, curry madrás, comino y cayena.',
+        category: 'veggie',
         weight: '450',
         price: 6.45,
         images: {
@@ -627,8 +580,8 @@ const meals = [
     {
         name: 'HEURA CON SALSA BILBAÍNA',
         type: 'Veggie',
-        ingredients: 'Patatas (aceite de oliva, sal, ajo confitado, pimienta negra, orégano), salsa (caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), sofrito de cebolla, piquillos, ajo confitado, laurel, ñoras, salsa de soja, vinagre de manzana, sal, maicena, pimentón dulce, pimienta negra, cayena), heura (soja, agua, aceite de oliva, pimentón, jengibre, nuez moscada, cardamomo, macis y pimienta) (15%) y verduras (calabacín, champiñones, zanahoria, patatas, batata y espárragos). Gluten, soja y apio.',
-        category: 'Veggie',
+        ingredients: 'Patatas (aceite de oliva, sal, ajo confitado, pimienta negra, orégano), salsa (caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), sofrito de cebolla, piquillos, ajo confitado, laurel, ñoras, salsa de soja, vinagre de manzana, sal, maicena, pimentón dulce, pimienta negra, cayena), heura (soja, agua, aceite de oliva, pimentón, jengibre, nuez moscada, cardamomo, macis y pimienta) (15%) y verduras (calabacín, champiñones, zanahoria, patatas, batata y espárragos).',
+        category: 'veggie',
         weight: '460',
         price: 7.25,
         images: {
@@ -674,8 +627,8 @@ const meals = [
     {
         name: 'PASTA AL PESTO VEGGIE',
         type: 'Veggie',
-        ingredients: 'Pesto vegano (aceite de oliva, agua, tofu, piñones, albahaca, salsa de soja, sal, ajo confitado y zumo de limón) (26%), tomate seco y espagueti (56%). Gluten, frutos secos y soja.',
-        category: 'Veggie',
+        ingredients: 'Pesto vegano (aceite de oliva, agua, tofu, piñones, albahaca, salsa de soja, sal, ajo confitado y zumo de limón) (26%), tomate seco y espagueti (56%).',
+        category: 'veggie',
         weight: '430',
         price: 6.45,
         images: {
@@ -721,8 +674,8 @@ const meals = [
     {
         name: 'CHILI CON LEGUMBRETA',
         type: 'Veggie',
-        ingredients: 'Tomate reducido 70%, alubias rojas, mozzarella vegana, legumbreta (harina de soja no OGM desgrasada, harina de arroz y harina de alubia) (4%), zanahoria, caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), sofrito de cebolla, vino tinto, oloroso, apio, salsa de soja, aceite de oliva, ajo confitado, pimentón dulce, coriandro, pimienta negra, comino, sal, cayena, anís, clavo, laurel, albahaca y arroz (con aceite de oliva, ajo confitado, sal y pimienta negra). Gluten, soja y apio.',
-        category: 'Veggie',
+        ingredients: 'Tomate reducido 70%, alubias rojas, mozzarella vegana, legumbreta (harina de soja no OGM desgrasada, harina de arroz y harina de alubia) (4%), zanahoria, caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), sofrito de cebolla, vino tinto, oloroso, apio, salsa de soja, aceite de oliva, ajo confitado, pimentón dulce, coriandro, pimienta negra, comino, sal, cayena, anís, clavo, laurel, albahaca y arroz (con aceite de oliva, ajo confitado, sal y pimienta negra).',
+        category: 'veggie',
         weight: '540',
         price: 6.75,
         images: {
@@ -768,8 +721,8 @@ const meals = [
     {
         name: 'ALUBIAS ESTILO SRI LANKA',
         type: 'Veggie',
-        ingredients: 'Alubias blancas (41%), cebolla, pimiento rojo, pimiento verde, pimiento amarillo, leche coco infusionada (leche de coco, jengibre fresco, lemongrass y hoja lima-kaffir), caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo, aceite de oliva, jengibre fresco, sal y laurel), sofrito de cebolla, puerro, zanahoria, piquillos, zumo de limón, salsa de soja, aceite de oliva, ajo asado, pasta de curry rojo, zumo de lima, sal, albahaca, cilantro, pasta de soja amarilla y jengibre.  Gluten, soja y apio.',
-        category: 'Veggie',
+        ingredients: 'Alubias blancas (41%), cebolla, pimiento rojo, pimiento verde, pimiento amarillo, leche coco infusionada (leche de coco, jengibre fresco, lemongrass y hoja lima-kaffir), caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo, aceite de oliva, jengibre fresco, sal y laurel), sofrito de cebolla, puerro, zanahoria, piquillos, zumo de limón, salsa de soja, aceite de oliva, ajo asado, pasta de curry rojo, zumo de lima, sal, albahaca, cilantro, pasta de soja amarilla y jengibre.',
+        category: 'veggie',
         weight: '450',
         price: 5.99,
         images: {
@@ -815,8 +768,8 @@ const meals = [
     {
         name: 'OLLA RECAO',
         type: 'Veggie',
-        ingredients: 'Caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), alubias blancas, arroz (con aceite de oliva, ajo confitado, sal y pimienta negra), patatas, sofrito de cebolla, pimiento verde, vino blanco, oloroso, zanahoria, apio, ajo asado, salsa de soja, pulpa de choricero, aceite de oliva, sal, laurel, jengibre, pimentón dulce, tomillo, comino y orégano. Gluten, soja y apio.',
-        category: 'Veggie',
+        ingredients: 'Caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), alubias blancas, arroz (con aceite de oliva, ajo confitado, sal y pimienta negra), patatas, sofrito de cebolla, pimiento verde, vino blanco, oloroso, zanahoria, apio, ajo asado, salsa de soja, pulpa de choricero, aceite de oliva, sal, laurel, jengibre, pimentón dulce, tomillo, comino y orégano.',
+        category: 'veggie',
         weight: '450',
         price: 6.25,
         images: {
@@ -862,8 +815,8 @@ const meals = [
     {
         name: 'HEURA CON SALSA SATAY Y VERDURAS',
         type: 'Veggie',
-        ingredients: 'Heura (soja, agua, aceite de oliva y especias como pimentón, jengibre, nuez moscada, cardamomo, macis y pimienta) (23%), verduras (cebolla morada, repollo, pimiento rojo, maíz, judías verdes) (14%), salsa (agua, cacahuete, caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal, laurel), aceite de oliva, salsa de soja, azúcar moreno, aceite de sésamo, vinagre de Jerez, vinagre de arroz, zumo de lima, ajo confitado y chipotles) y arroz (con aceite de oliva, ajo, sal y pimienta). Gluten, cacahuete, soja, apio y sésamo.',
-        category: 'Veggie',
+        ingredients: 'Heura (soja, agua, aceite de oliva y especias como pimentón, jengibre, nuez moscada, cardamomo, macis y pimienta) (23%), verduras (cebolla morada, repollo, pimiento rojo, maíz, judías verdes) (14%), salsa (agua, cacahuete, caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal, laurel), aceite de oliva, salsa de soja, azúcar moreno, aceite de sésamo, vinagre de Jerez, vinagre de arroz, zumo de lima, ajo confitado y chipotles) y arroz (con aceite de oliva, ajo, sal y pimienta).',
+        category: 'veggie',
         weight: '490',
         price: 7.45,
         images: {
@@ -910,7 +863,7 @@ const meals = [
         name: 'ESCALIVADA DE VERDURA, POLLO Y PATATAS',
         type: 'Platos Completos',
         ingredients: 'Verduras escalivadas (cebolla, pimiento verde, pimiento roja, aceite de oliva y sal) (49%), contramuslo de pollo (22%), salsa (caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel, sal), patata cocida, vino blanco, oloroso, pasta de tomate, ajo asado, sal, pimienta negra, pimentón dulce y tomillo) y patatas rústicas (aceite de oliva, sal, ajo confitado, pimienta negra y orégano) (22%).',
-        category: 'Completo',
+        category: 'full',
         weight: '510',
         price: 6.75,
         images: {
@@ -954,8 +907,8 @@ const meals = [
     {
         name: 'PISTO MANCHEGO CON SALMÓN Y PATATAS RÚSTICAS',
         type: 'Platos Completos',
-        ingredients: 'Pisto manchego (tomate reducido 70%, calabacín, pimiento verde, pimiento rojo, pasta de tomate, vino blanco, oloroso, sofrito de cebolla, aceite de oliva, sal, ajo asado, laurel, pimentón dulce, pimienta negra y comino) (49%), patatas rústicas (con aceite de oliva, sal, ajo confitado, orégano y pimienta negra) (22%), salmón (22%) y salsa (fumet tostado (agua, espina de pescado, cebolla, zanahoria, vino blanco, apio, vermut rojo, aceite de oliva, ajo pelado, perejil fresco, katsuobushi y sal), vino blanco, oloroso, ajo asado, sal, perejil fresco, pimienta negra, laurel y goma de maíz). Pescado y apio.',
-        category: 'Completo',
+        ingredients: 'Pisto manchego (tomate reducido 70%, calabacín, pimiento verde, pimiento rojo, pasta de tomate, vino blanco, oloroso, sofrito de cebolla, aceite de oliva, sal, ajo asado, laurel, pimentón dulce, pimienta negra y comino) (49%), patatas rústicas (con aceite de oliva, sal, ajo confitado, orégano y pimienta negra) (22%), salmón (22%) y salsa (fumet tostado (agua, espina de pescado, cebolla, zanahoria, vino blanco, apio, vermut rojo, aceite de oliva, ajo pelado, perejil fresco, katsuobushi y sal), vino blanco, oloroso, ajo asado, sal, perejil fresco, pimienta negra, laurel y goma de maíz).',
+        category: 'full',
         weight: '510',
         price: 7.95,
         images: {
@@ -999,8 +952,8 @@ const meals = [
     {
         name: 'SALTEADO DE VERDURAS CON LENTEJAS Y ARROZ LARGO',
         type: 'Platos Completos',
-        ingredients: 'Verduras (pimiento rojo, pimiento verde, zanahoria, cebolla morada, setas, bok choi, aceite de oliva, ajo asado y aceite de sésamo) (54%), lentejas (con sofrito de cebolla, caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), jengibre, pimienta negra, pimentón dulce, orégano y tomillo) (23%) y arroz (con aceite de oliva, ajo confitado, sal y pimienta negra) (23%). Apio y sésamo.',
-        category: 'Completo',
+        ingredients: 'Verduras (pimiento rojo, pimiento verde, zanahoria, cebolla morada, setas, bok choi, aceite de oliva, ajo asado y aceite de sésamo) (54%), lentejas (con sofrito de cebolla, caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), jengibre, pimienta negra, pimentón dulce, orégano y tomillo) (23%) y arroz (con aceite de oliva, ajo confitado, sal y pimienta negra) (23%).',
+        category: 'full',
         weight: '470',
         price: 6.45,
         images: {
@@ -1044,8 +997,8 @@ const meals = [
     {
         name: 'VERDURITAS, SECRETO Y PENNE INTEGRAL',
         type: 'Platos Completos',
-        ingredients: 'Verduras (pimiento rojo, pimiento verde, pimiento amarillo, zanahoria, cebolla morada, aceite de oliva, sal y pimienta negra) (49%), secreto ibérico (22%), salsa (caldo de cerdo tostado (agua, espinazo fresco, cebolla, zanahoria, aceite de oliva, ajo pelado y sal), champiñones, vino blanco, oloroso, ajo asado, laurel, pimienta negra y romero) y penne integral (22%). Gluten.',
-        category: 'Completo',
+        ingredients: 'Verduras (pimiento rojo, pimiento verde, pimiento amarillo, zanahoria, cebolla morada, aceite de oliva, sal y pimienta negra) (49%), secreto ibérico (22%), salsa (caldo de cerdo tostado (agua, espinazo fresco, cebolla, zanahoria, aceite de oliva, ajo pelado y sal), champiñones, vino blanco, oloroso, ajo asado, laurel, pimienta negra y romero) y penne integral (22%).',
+        category: 'full',
         weight: '510',
         price: 6.95,
         images: {
@@ -1089,8 +1042,8 @@ const meals = [
     {
         name: 'PISTO CON PAVO, JUDÍAS Y COUSCOUS',
         type: 'Platos Completos',
-        ingredients: 'Pisto (tomate reducido 70%, calabacín, pimiento verde, pimiento rojo, pasta de tomate, vino blanco, sofrito de cebolla, aceite de oliva, sal, ajo asado, pimentón dulce, pimienta negra y comino) (54%), couscous (caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel) y menta) (24%), pechuga de pavo (9%), alubias blancas (sofrito de cebolla, caldo de verduras, ajo confitado, sal, pimienta negra, comino, pimentón dulce y orégano) (9%) y queso feta (con leche pasteurizada). Gluten, lácteos y apio.',
-        category: 'Completo',
+        ingredients: 'Pisto (tomate reducido 70%, calabacín, pimiento verde, pimiento rojo, pasta de tomate, vino blanco, sofrito de cebolla, aceite de oliva, sal, ajo asado, pimentón dulce, pimienta negra y comino) (54%), couscous (caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel) y menta) (24%), pechuga de pavo (9%), alubias blancas (sofrito de cebolla, caldo de verduras, ajo confitado, sal, pimienta negra, comino, pimentón dulce y orégano) (9%) y queso feta (con leche pasteurizada).',
+        category: 'full',
         weight: '460',
         price: 6.75,
         images: {
@@ -1134,8 +1087,8 @@ const meals = [
     {
         name: 'MIX DE VERDURAS CON BACALAO EN SALSA VERDE Y PATATAS',
         type: 'Platos Completos',
-        ingredients: 'Verduras (cebolla morada, zanahoria, puerro, judías verdes, pimiento rojo, pimiento amarillo, pimiento verde, aceite de oliva y sal) (49%), patatas (con aceite de oliva, ajo confitado, orégano y pimienta negra) (22%), bacalao (22%) y salsa (fumet blanco (agua, espina de pescado, cebolla, puerro, vino blanco, aceite de oliva, sal), aceite de oliva, vino blanco, oloroso, perejil fresco, ajo confitado, laurel, sal, goma de maíz y cayena). Pescado.',
-        category: 'Completo',
+        ingredients: 'Verduras (cebolla morada, zanahoria, puerro, judías verdes, pimiento rojo, pimiento amarillo, pimiento verde, aceite de oliva y sal) (49%), patatas (con aceite de oliva, ajo confitado, orégano y pimienta negra) (22%), bacalao (22%) y salsa (fumet blanco (agua, espina de pescado, cebolla, puerro, vino blanco, aceite de oliva, sal), aceite de oliva, vino blanco, oloroso, perejil fresco, ajo confitado, laurel, sal, goma de maíz y cayena).',
+        category: 'full',
         weight: '510',
         price: 7.95,
         images: {
@@ -1179,8 +1132,8 @@ const meals = [
     {
         name: 'VERDURA SALTEADA CON HUMMUS DE PIQUILLO Y ARROZ IMPERIAL',
         type: 'Platos Completos',
-        ingredients: 'Verduras (pimiento rojo, pimiento verde, zanahoria, cebolla morada, setas, bok choi, aceite de oliva, ajo asado y aceite de sésamo) (53%), arroz imperial (23,5%) y hummus de piquillo (garbanzos, piquillo, agua, sofrito de cebolla, aceite de oliva, zumo de lima, ajo confitado, sal, tahini, cilantro, comino y pimentón dulce) (23,5%). Sésamo.',
-        category: 'Completo',
+        ingredients: 'Verduras (pimiento rojo, pimiento verde, zanahoria, cebolla morada, setas, bok choi, aceite de oliva, ajo asado y aceite de sésamo) (53%), arroz imperial (23,5%) y hummus de piquillo (garbanzos, piquillo, agua, sofrito de cebolla, aceite de oliva, zumo de lima, ajo confitado, sal, tahini, cilantro, comino y pimentón dulce) (23,5%).',
+        category: 'full',
         weight: '470',
         price: 6.45,
         images: {
@@ -1224,8 +1177,8 @@ const meals = [
     {
         name: 'RAGÚ DE VERDURAS CON SOLOMILLO Y QUINOA',
         type: 'Platos Completos',
-        ingredients: 'Ragú de verduras (tomate reducido 70%, sofrito de cebolla, berenjenas, champiñones, pimiento rojo, pimiento verde, vino tinto, zanahoria, apio, albahaca, sal, y pimienta negra) (49%), solomillo (22%), salsa (caldo de cerdo tostado (agua, espinazo fresco, cebolla, zanahoria, aceite de oliva, ajo pelado y sal), champiñones, vino blanco, oloroso, laurel, sal, ajo asado, pimienta negra y romero) y quinoa (22%). Apio.',
-        category: 'Completo',
+        ingredients: 'Ragú de verduras (tomate reducido 70%, sofrito de cebolla, berenjenas, champiñones, pimiento rojo, pimiento verde, vino tinto, zanahoria, apio, albahaca, sal, y pimienta negra) (49%), solomillo (22%), salsa (caldo de cerdo tostado (agua, espinazo fresco, cebolla, zanahoria, aceite de oliva, ajo pelado y sal), champiñones, vino blanco, oloroso, laurel, sal, ajo asado, pimienta negra y romero) y quinoa (22%).',
+        category: 'full',
         weight: '510',
         price: 6.95,
         images: {
@@ -1269,8 +1222,8 @@ const meals = [
     {
         name: 'POLLO SALSA LIGERA Y VERDURAS OTOÑALES',
         type: 'Platos Ligeros',
-        ingredients: 'Verduras (batata, calabaza, zanahoria y aliño (sofrito de cebolla, caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), ajo confitado, aceite de oliva, sal, orégano y pimienta negra)) (54%), contramuslo de pollo (37%) y salsa (caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel y sal), vino blanco, oloroso, pasta de tomate, ajo, sal, pimentón dulce, tomillo, pimienta negra, laurel y goma de maíz). Apio.',
-        category: 'Ligero',
+        ingredients: 'Verduras (batata, calabaza, zanahoria y aliño (sofrito de cebolla, caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), ajo confitado, aceite de oliva, sal, orégano y pimienta negra)) (54%), contramuslo de pollo (37%) y salsa (caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel y sal), vino blanco, oloroso, pasta de tomate, ajo, sal, pimentón dulce, tomillo, pimienta negra, laurel y goma de maíz).',
+        category: 'light',
         weight: '460',
         price: 6.95,
         images: {
@@ -1314,8 +1267,8 @@ const meals = [
     {
         name: 'MERLUZA BAJA TEMPERATURA CON VERDURITAS',
         type: 'Platos Ligeros',
-        ingredients: 'Verduras (brócoli, coliflor, guisantes, zanahoria y champiñones) (52%) con salsa (caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), vinagre de manzana, ajo asado, sal y goma de maíz), merluza (35%) y salsa (sofrito de cebolla, sal, pimienta negra, vino blanco, ajo confitado, jengibre, harina de trigo, caldo de pescado (agua, fumet blanco (agua, espina de pescado, cebolla, puerro, vino blanco, aceite de oliva, sal), cabezas de alistado, whisky, oloroso, pasta de tomate, ñoras, pimienta negra, laurel, eneldo y aceite de oliva). Gluten, crustáceos, pescado y apio.',
-        category: 'Ligero',
+        ingredients: 'Verduras (brócoli, coliflor, guisantes, zanahoria y champiñones) (52%) con salsa (caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), vinagre de manzana, ajo asado, sal y goma de maíz), merluza (35%) y salsa (sofrito de cebolla, sal, pimienta negra, vino blanco, ajo confitado, jengibre, harina de trigo, caldo de pescado (agua, fumet blanco (agua, espina de pescado, cebolla, puerro, vino blanco, aceite de oliva, sal), cabezas de alistado, whisky, oloroso, pasta de tomate, ñoras, pimienta negra, laurel, eneldo y aceite de oliva).',
+        category: 'light',
         weight: '480',
         price: 7.95,
         images: {
@@ -1360,7 +1313,7 @@ const meals = [
         name: 'PAVO CON VERDURAS',
         type: 'Platos Ligeros',
         ingredients: 'Verduras (cebolla morada, zanahoria, puerro, judías verdes, pimiento rojo, pimiento amarillo, pimiento verde, aceite de oliva y sal) (54,3%), pechuga de pavo (37%) y salsa (caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel y sal), champiñones, vino blanco, oloroso, ajo, sal, pimienta negra, tomillo, laurel y goma de maíz).',
-        category: 'Ligero',
+        category: 'light',
         weight: '460',
         price: 6.95,
         images: {
@@ -1404,8 +1357,8 @@ const meals = [
     {
         name: 'TERNERA CON ESCALIVADA',
         type: 'Platos Ligeros',
-        ingredients: 'Verduras escalivadas (cebolla, pimiento verde, pimiento rojo, aceite de oliva, sal) (54%), ternera (37%) y salsa (caldo de ternera (agua, huesos de ternera, morcillo, cebolla, zanahoria, puerro, aceite de oliva, apio, pasta de tomate, sal y laurel), pasta de tomate, ajo asado, sal, orégano y pimienta negra). Apio.',
-        category: 'Ligero',
+        ingredients: 'Verduras escalivadas (cebolla, pimiento verde, pimiento rojo, aceite de oliva, sal) (54%), ternera (37%) y salsa (caldo de ternera (agua, huesos de ternera, morcillo, cebolla, zanahoria, puerro, aceite de oliva, apio, pasta de tomate, sal y laurel), pasta de tomate, ajo asado, sal, orégano y pimienta negra).',
+        category: 'light',
         weight: '460',
         price: 7.45,
         images: {
@@ -1449,8 +1402,8 @@ const meals = [
     {
         name: 'PECHUGA DE POLLO CON ESCALIVADA',
         type: 'Platos Ligeros',
-        ingredients: 'Verduras escalivadas (cebolla, pimiento verde, pimiento rojo, aceite de oliva, sal) (54%), pechuga de pollo (37%) y salsa (caldo de pollo (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel, sal), patata cocida, vino blanco, ajo asado, sal, limón, pimienta negra, orégano y goma de maíz). .',
-        category: 'Ligero',
+        ingredients: 'Verduras escalivadas (cebolla, pimiento verde, pimiento rojo, aceite de oliva, sal) (54%), pechuga de pollo (37%) y salsa (caldo de pollo (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel, sal), patata cocida, vino blanco, ajo asado, sal, limón, pimienta negra, orégano y goma de maíz).',
+        category: 'light',
         weight: '460',
         price: 6.95,
         images: {
@@ -1494,8 +1447,8 @@ const meals = [
     {
         name: 'MERLUZA BAJA TEMPERATURA CON PISTO SICILIANO',
         type: 'Platos Ligeros',
-        ingredients: 'Pisto siciliano (tomate reducido 70%, berenjenas, pimiento rojo, pimiento verde, sofrito de cebolla, aceitunas negras, alcaparras, albahaca, cayena y aceite de oliva) (54%), merluza (37%) y salsa (caldo de pescado de roca (agua, cabezas de alistado, espina de pescado, whisky, oloroso río viejo, pasta de tomate, ñoras, pimienta negra, laurel y eneldo), aceite de oliva, sofrito de cebolla, vino blanco, oloroso, harina de trigo, ajo confitado, sal, pimienta negra y jengibre). Gluten, crustáceos y pescado.',
-        category: 'Ligero',
+        ingredients: 'Pisto siciliano (tomate reducido 70%, berenjenas, pimiento rojo, pimiento verde, sofrito de cebolla, aceitunas negras, alcaparras, albahaca, cayena y aceite de oliva) (54%), merluza (37%) y salsa (caldo de pescado de roca (agua, cabezas de alistado, espina de pescado, whisky, oloroso río viejo, pasta de tomate, ñoras, pimienta negra, laurel y eneldo), aceite de oliva, sofrito de cebolla, vino blanco, oloroso, harina de trigo, ajo confitado, sal, pimienta negra y jengibre).',
+        category: 'light',
         weight: '460',
         price: 7.95,
         images: {
@@ -1539,8 +1492,8 @@ const meals = [
     {
         name: 'PAVO CON VERDURAS SALTEADAS',
         type: 'Platos Ligeros',
-        ingredients: 'Verduras salteadas (pimiento rojo, pimiento verde, zanahoria, cebolla morada, setas, bok choi, aceite de oliva, ajo asado y aceite de sésamo) (54%), pechuga de pavo (37%) y salsa (caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel, sal), patata cocida, vino blanco, ajo asado, sal, limón (ralladura), pimienta negra, orégano y goma de maíz). Sésamo.',
-        category: 'Ligero',
+        ingredients: 'Verduras salteadas (pimiento rojo, pimiento verde, zanahoria, cebolla morada, setas, bok choi, aceite de oliva, ajo asado y aceite de sésamo) (54%), pechuga de pavo (37%) y salsa (caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel, sal), patata cocida, vino blanco, ajo asado, sal, limón (ralladura), pimienta negra, orégano y goma de maíz).',
+        category: 'light',
         weight: '460',
         price: 6.95,
         images: {
@@ -1584,8 +1537,8 @@ const meals = [
     {
         name: 'SOLOMILLO CON ZANAHORIAS GLASEADAS Y PIQUILLOS A LA BRASA',
         type: 'Platos Ligeros',
-        ingredients: 'Piquillos asados (28%), zanahorias glaseadas (zanahoria, sofrito de cebolla, aceite de oliva, sal, azúcar moreno, ajo confitado, pimienta negra, orégano y comino) (28%), solomillo (36%) y salsa (caldo de cerdo (agua, espinazo fresco, cebolla, zanahoria, aceite de oliva, ajo pelado y sal), champiñones, vino blanco, oloroso, sal, ajo asado, laurel, pimienta negra y romero). .',
-        category: 'Ligero',
+        ingredients: 'Piquillos asados (28%), zanahorias glaseadas (zanahoria, sofrito de cebolla, aceite de oliva, sal, azúcar moreno, ajo confitado, pimienta negra, orégano y comino) (28%), solomillo (36%) y salsa (caldo de cerdo (agua, espinazo fresco, cebolla, zanahoria, aceite de oliva, ajo pelado y sal), champiñones, vino blanco, oloroso, sal, ajo asado, laurel, pimienta negra y romero).',
+        category: 'light',
         weight: '470',
         price: 7.45,
         images: {

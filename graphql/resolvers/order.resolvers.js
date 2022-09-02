@@ -90,6 +90,7 @@ const orderResolvers = {
                 meals = meals.flat()
 
                 const mealIDs = meals.map(meal => {
+
                     return {
                         mealID: meal._id,
                         quantity: 1
@@ -97,7 +98,9 @@ const orderResolvers = {
                 })
 
                 const order = new Order({ subscription: subscriptionID, meals: mealIDs })
-                return order.save()
+                await order.save()
+
+                return await Order.findById(order._id).populate('meals.mealID')
             }
         },
 
@@ -105,7 +108,7 @@ const orderResolvers = {
 
             const { orderID, mealID } = args
 
-            const order = await Order.findById(orderID)
+            const order = await Order.findById(orderID).populate('meals.mealID')
 
             if (order.status !== 'Actived') return // lanzar un error. No se puede modificar un pedido si está 'ordered' o 'delivered'
 
@@ -114,7 +117,7 @@ const orderResolvers = {
             if (mealIsInOrder) mealIsInOrder.quantity++
             else order.meals.push({ mealID, quantity: 1 })
 
-            order.save()
+            await order.save()
             return order.meals
         },
 
@@ -148,7 +151,7 @@ const orderResolvers = {
 
             order.price = parseFloat(price.toFixed(2))
 
-            return order.save()
+            return await order.save()
         },
 
         updateDeliveryDate: async (_, args) => {
