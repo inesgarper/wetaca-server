@@ -38,9 +38,9 @@ const schema = new Schema(
             }
         },
         deliveryWeekDay: {
-            type: String,
-            enum: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
-            default: 'Sábado'
+            type: Number,
+            enum: [1, 2, 3, 6, 0],
+            default: 6
         },
         address: {
             street: {

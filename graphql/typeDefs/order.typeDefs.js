@@ -38,9 +38,10 @@ const orderTypeDefs = gql`
 
     # Inputs
 
-    # input OrderInput{
-    #     subscription: ID
-    # }
+    input DeliveryDateInput{
+        day: Date
+        hour: TimeSlot
+    }
 
     # Querys
 
@@ -49,20 +50,15 @@ const orderTypeDefs = gql`
         getAllOrders: [Order],
         
         getOneOrder(orderID: ID!): Order,
-
-        getActiveOrders: [Order],
-
+        
         getNextOrders: [Order],
 
-        getMyNextOrder: [Order]
+        getMyActiveOrder: Order,
 
-        # getOrderDetails(
-        #     orderID: ID
-        # ): Order,
+        getMyNextOrder: Order,
 
-        # getOrdersByStatus(
-        #     orderStatus: OrderStatus
-        # ): [Order]
+        getMyDeliveredOrders: [Order]
+
     }
 
 
@@ -86,6 +82,11 @@ const orderTypeDefs = gql`
 
         updateOrderPrice(
             orderID: ID, 
+        ): Order,
+
+        updateDeliveryDate(
+            orderID: ID,
+            deliveryDate: DeliveryDateInput
         ): Order,
 
         confirmOrder(

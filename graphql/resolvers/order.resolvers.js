@@ -20,34 +20,33 @@ const orderResolvers = {
 
         getOneOrder: async (_, { orderID }) => await Order.findById(orderID).populate('meals.mealID'),
 
-        getActiveOrders: async (_, args, { currentUser }) => {
+        getNextOrders: async () => await Order.find({ status: 'Ordered' }).populate('meals.mealID'),
+
+        getMyActiveOrder: async (_, args, { currentUser }) => {
             const { _id } = currentUser
 
-            // Encontrar las suscripciones de un usuario y guardar sus ids
-            const subs = (await Subscription.find({ user: _id })).map(elm => elm._id)
+            const subs = await Subscription.findOne({ user: _id })
+            const activeOrder = await Order.findOne({ subscription: subs._id, status: 'Actived' }).populate('meals.mealID')
 
-            // Para cada id_suscripción encontrar los orders activos
-            const activeOrders = await Promise.all(subs.map(async (sub) => {
-                return await Order.findOne({ subscription: sub, status: 'Actived' }).populate('meals.mealID')
-            }))
-
-            return activeOrders
+            return activeOrder
         },
-
-        getNextOrders: async () => await Order.find({ status: 'Ordered' }).populate('meals.mealID'),
 
         getMyNextOrder: async (_, args, { currentUser }) => {
             const { _id } = currentUser
 
-            // Encontrar las suscripciones de un usuario y guardar sus ids
-            const subs = (await Subscription.find({ user: _id })).map(elm => elm._id)
-
-            // Para cada id_suscripción encontrar los orders ordered
-            const orderedOrder = await Promise.all(subs.map(async (sub) => {
-                return await Order.findOne({ subscription: sub, status: 'Ordered' }).populate('meals.mealID')
-            }))
+            const subs = await Subscription.findOne({ user: _id })
+            const orderedOrder = await Order.findOne({ subscription: subs._id, status: 'Ordered' }).populate('meals.mealID')
 
             return orderedOrder
+        },
+
+        getMyDeliveredOrders: async(_, args, {currentUser}) => {
+            const { _id } = currentUser
+
+            const subs = await Subscription.findOne({ user: _id })
+            const deliveredOrders = await Order.find({ subscription: subs._id, status: 'Delivered' }).populate('meals.mealID')
+
+            return deliveredOrders
         }
     },
 
@@ -57,9 +56,27 @@ const orderResolvers = {
             const { subscriptionID } = args
             const subscription = await Subscription.findById(subscriptionID)
 
+            // DELIVERY DATE
+
+            const subs = await Subscription.findById(subscriptionID)
+            const { deliveryWeekDay } = subs
+
+            if (deliveryWeekDay === 0) deliveryWeekDay = 7
+
+            const todayDate = new Date()  // ---> 2022-09-02...
+            const todayWeekDay = todayDate.getDay() // ---> 5 === viernes
+
+            let daysToDeliver = deliveryWeekDay - todayWeekDay
+
+            if (daysToDeliver < 0) daysToDeliver = 7 + daysToDeliver
+
+            const deliveryDate = new Date(todayDate.setDate(todayDate.getDate() + daysToDeliver))
+
+
+            // BASE MENU
             if (!subscription.baseMenu) {
 
-                const order = new Order({ subscription: subscriptionID })
+                const order = new Order({ subscription: subscriptionID, deliveryDate: { day: deliveryDate } })
                 return order.save()
 
             } else {
@@ -134,6 +151,16 @@ const orderResolvers = {
             return order.save()
         },
 
+        updateDeliveryDate: async (_, args) => {
+            const { orderID, deliveryDate } = args
+
+            const order = await Order.findById(orderID)
+            order.deliveryDate = deliveryDate
+
+            return order.save()
+
+        },
+
         confirmOrder: async (_, args) => {
             const { orderID } = args
 
@@ -146,10 +173,3 @@ const orderResolvers = {
 }
 
 export default orderResolvers
-
-// // Encontrar la suscripción para sacar el día de entrega de preferencia
-
-// const subs = await Subscription.findById(order.subscription)
-// const { deliveryWeekDay } = subs
-
-// console.log(deliveryWeekDay)
