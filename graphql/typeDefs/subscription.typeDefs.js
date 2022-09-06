@@ -2,14 +2,30 @@ import { gql } from "apollo-server"
 
 const subscriptionTypeDefs = gql`
 
+    # Enums
+
+    enum DayOfTheWeek {
+        SATURDAY
+        SUNDAY
+        MONDAY
+        TUESDAY
+        WEDNESDAY
+    }
+
+    enum SubscriptionStatus {
+        ACTIVED
+        PAUSED
+        CANCELLED
+    }
+
     # Definitions
 
     type Subscription{
         user: User
-        status: String!
+        status: SubscriptionStatus!
         baseMenu: BaseMenu
         address: Address!
-        deliveryWeekDay: String!
+        deliveryWeekDay: DayOfTheWeek!
         id: ID!
     }
 
@@ -41,10 +57,10 @@ const subscriptionTypeDefs = gql`
 
     type Address {
         street: String!
-        number: Float!
+        number: Int!
         city: String!
         province: String!
-        postCode: Float!
+        postCode: Int!
     }
 
     # Querys
@@ -66,10 +82,10 @@ const subscriptionTypeDefs = gql`
 
     input AdressInput {
         street: String!
-        number: Float!
+        number: Int!
         city: String!
         province: String!
-        postCode: Float!
+        postCode: Int!
     }
 
 

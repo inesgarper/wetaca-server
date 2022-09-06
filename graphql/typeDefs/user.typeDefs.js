@@ -9,17 +9,17 @@ const userTypeDefs = gql`
         lastName: String!
         email: String!
         password: String!
-        phoneNumber: Float!
+        phoneNumber: Int!
         birthDate: Date!
         paymentMethods: PaymentMethods
         id: ID!
     }
 
     type PaymentMethods{
-        cardNumber: String
-        cardName: String
-        securityCode: Float
-        expiration: Date
+        cardNumber: String!
+        cardName: String!
+        securityCode: Int!
+        expiration: Date!
     }
    
     type Token{
@@ -38,20 +38,20 @@ const userTypeDefs = gql`
     # Inputs
 
     input UserInput{
-        name: String
-        lastName: String
-        email: String
-        password: String
-        phoneNumber: Float
-        birthDate: Date
+        name: String!
+        lastName: String!
+        email: String!
+        password: String!
+        phoneNumber: Int!
+        birthDate: Date!
         paymentMethods: PaymentMethodsInput
     }
 
     input PaymentMethodsInput{
-        cardNumber: String
-        cardName: String
-        securityCode: Float
-        expiration: Date
+        cardNumber: String!
+        cardName: String!
+        securityCode: Int!
+        expiration: Date!
     }
 
 

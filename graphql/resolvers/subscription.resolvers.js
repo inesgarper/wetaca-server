@@ -5,6 +5,20 @@ import setBaseMenu from '../../utils/setBaseMenu.js'
 
 const subscriptionResolvers = {
 
+    DayOfTheWeek: {
+        SATURDAY: 6,
+        SUNDAY: 0,
+        MONDAY: 1,
+        TUESDAY: 2,
+        WEDNESDAY: 3
+    },
+
+    SubscriptionStatus: {
+        ACTIVED: 'Actived',
+        PAUSED: 'Paused',
+        CANCELLED: 'Cancelled'
+    },
+
     Query: {
 
         getAllSubs: async () => {

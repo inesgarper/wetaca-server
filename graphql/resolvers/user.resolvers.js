@@ -87,7 +87,7 @@ const userResolvers = {
                 const { name, lastName, email, _id } = foundUser
                 const payload = { name, lastName, email, _id }
 
-                console.log('el pauload', payload)
+                console.log('el payload', payload)
 
                 const authToken = jwt.sign(
                     payload,
@@ -98,6 +98,8 @@ const userResolvers = {
                 return {
                     value: authToken
                 }
+            } else {
+                throw new UserInputError('Wrong credentials')
             }
         }
 
