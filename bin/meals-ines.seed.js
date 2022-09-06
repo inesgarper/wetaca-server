@@ -1579,6 +1579,147 @@ const meals = [
             timesOrdered: 17
         }
     },
+    {
+        name: 'CURRY MASSAMAN DE CARRILLERAS, ARROZ Y VERDURAS',
+        type: 'Platos Únicos',
+        ingredients: 'Carrilleras de cerdo (27.4%) con curry (caldo de cerdo tostado (agua, espinazo fresco, cebolla, zanahoria, aceite de oliva, ajo y sal), leche de coco, hoja lima-kaffir, lemongrass, sofrito de cebolla, zumo de limón, salsa de soja, fish sauce, albahaca, cilantro, pimiento amarillo, avellana, pasta de curry amarillo, zumo de lima, maicena, azúcar moreno, jengibre, aceite de oliva, sal y laurel), arroz largo (22.5%), pimiento rojo, pimiento amarillo, cebolla morada, zanahoria, bok choi, shitake, aceite de oliva y sal.',
+        category: 'international',
+        weight: '510',
+        price: 7.45,
+        images: {
+            finals: ['https://static.wetaca.com/products/845/detail/curry-massaman-de-carrilleras-arroz-y-verduras_A.jpg',
+                'https://static.wetaca.com/products/845/detail/curry-massaman-de-carrilleras-arroz-y-verduras_B.jpg'],
+            wip: ['https://static.wetaca.com/products/845/gallery/curry-massaman-de-carrilleras-arroz-y-verduras_A.jpg',
+                'https://static.wetaca.com/products/845/gallery/curry-massaman-de-carrilleras-arroz-y-verduras_B.jpg',
+                'https://static.wetaca.com/products/845/gallery/curry-massaman-de-carrilleras-arroz-y-verduras_C.jpg'],
+        },
+        description: 'Cocinamos las carrilleras a baja temperatura asegurándonos que queden muy melosas. Para la salsa sofreímos lentamente pimiento amarillo junto con zumo de lima, jengibre y pasta de curry massaman. Mojamos con leche de coco y nuestro caldo de cerdo casero. Para rematar acompañamos con arroz largo y un mix de verduras.',
+        allergens: {
+            celery: false,
+            gluten: true,
+            crustaceans: false,
+            eggs: false,
+            fish: true,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: true,
+            sesame: false,
+            soybeans: true,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 194.20,
+            totalFats: 12.40,
+            saturatedFat: 1.50,
+            carbs: 12.20,
+            protein: 8.80,
+            sugar: 2.40,
+            fiber: 1.90,
+            sodium: 0.60
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 3,
+            timesOrdered: 17
+        }
+    },
+    {
+        name: 'ENSALADILLA RUSA DE ATÚN',
+        type: 'Platos Únicos',
+        ingredients: 'Patata, mayonesa (aceite de oliva, huevo pasteurizado, mostaza dijon, salsa de soja, zumo de limón, sal, ajo, goma de maíz y laurel), zanahoria, atún (9.5%) y huevo cocido.',
+        category: 'fish',
+        weight: '430',
+        price: 5.95,
+        images: {
+            finals: ['https://static.wetaca.com/products/876/detail/ensaladilla-rusa-de-atun_A.jpg',
+                'https://static.wetaca.com/products/876/detail/ensaladilla-rusa-de-atun_B.jpg'],
+            wip: ['https://static.wetaca.com/products/876/gallery/ensaladilla-rusa-de-atun_A.jpg',
+                'https://static.wetaca.com/products/876/gallery/ensaladilla-rusa-de-atun_B.jpg',
+                'https://static.wetaca.com/products/876/gallery/ensaladilla-rusa-de-atun_C.jpg'],
+        },
+        description: 'Nuestra versión de este clásico. Cocinamos la patata y la zanahoria hasta que queden muy cremosas, la mayonesa la enriquecemos con atún para potenciar el sabor. Rompemos un poco la verdura con la mayonesa para hacerla mas cremosa. Para rematar incorporamos huevo duro cocido y atún en conserva.',
+        allergens: {
+            celery: false,
+            gluten: true,
+            crustaceans: false,
+            eggs: true,
+            fish: true,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: true,
+            peanuts: false,
+            sesame: false,
+            soybeans: true,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 122.10,
+            totalFats: 7.60,
+            saturatedFat: 1.40,
+            carbs: 13.40,
+            protein: 4.70,
+            sugar: 2.50,
+            fiber: 1.30,
+            sodium: 0.90
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 3,
+            timesOrdered: 17
+        }
+    },
+    {
+        name: 'LASAÑA FLORENTINA',
+        type: 'Platos Únicos',
+        ingredients: 'Ragout blanco (carne picada de cerdo, sofrito de cebolla, caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel y sal), parmesano (con leche pasteurizada), apio, vino blanco, nata 36%, ajo, sal, salvia, pimienta negra), espinacas, bechamel (leche entera, mantequilla, harina de trigo, sal, pimienta negra, nuez moscada), pasta de lasaña de sémola y queso grana padano (con leche pasteurizada).',
+        category: 'gratinated',
+        weight: '450',
+        price: 6.49,
+        images: {
+            finals: ['https://static.wetaca.com/products/384/detail/lasana-florentina_A.jpg',
+                'https://static.wetaca.com/products/384/detail/lasana-florentina_B.jpg'],
+            wip: ['https://static.wetaca.com/products/384/gallery/lasana-florentina_A.jpg',
+                'https://static.wetaca.com/products/384/gallery/lasana-florentina_B.jpg',
+                'https://static.wetaca.com/products/384/gallery/lasana-florentina_C.jpg'],
+        },
+        description: 'Hacemos un ragout con dos cortes distintos de cerdo para aportar sabor y melosidad, saborizamos con salvia. Aparte cocinamos espinacas a las que le agregamos bechamel para potenciar la cremosidad. Intercalamos capas de ragout, pasta de lasagna y espinacas con bechamel. Por último incorporamos bechamel, queso parmesano y gratinamos.',
+        allergens: {
+            celery: true,
+            gluten: true,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: true,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: false,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 219.60,
+            totalFats: 12.20,
+            saturatedFat: 5.80,
+            carbs: 17.30,
+            protein: 9.70,
+            sugar: 2.80,
+            fiber: 0.80,
+            sodium: 0.20
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 3,
+            timesOrdered: 17
+        }
+    },
 
 ]
 
