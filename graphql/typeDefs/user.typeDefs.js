@@ -38,12 +38,12 @@ const userTypeDefs = gql`
     # Inputs
 
     input UserInput{
-        name: String!
-        lastName: String!
-        email: String!
-        password: String!
-        phoneNumber: Int!
-        birthDate: Date!
+        name: String
+        lastName: String
+        email: String
+        password: String
+        phoneNumber: Int
+        birthDate: Date
         paymentMethods: PaymentMethodsInput
     }
 

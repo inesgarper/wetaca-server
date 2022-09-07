@@ -37,7 +37,6 @@ const userResolvers = {
 
 
             // CHECK DUPLICATED USERS
-            console.log(userData)
 
             const { email } = userData
             const foundUser = await User.findOne({ email })
@@ -86,8 +85,6 @@ const userResolvers = {
             if (bcrypt.compareSync(password, foundUser.password)) {
                 const { name, lastName, email, _id } = foundUser
                 const payload = { name, lastName, email, _id }
-
-                console.log('el payload', payload)
 
                 const authToken = jwt.sign(
                     payload,
