@@ -104,6 +104,9 @@ const schema = new Schema(
                 type: Number
             }
         },
+        nextWeekInMenu: {
+            type: Boolean
+        },
         currentlyInMenu: {
             type: Boolean
         },
