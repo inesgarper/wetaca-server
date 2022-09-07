@@ -1707,6 +1707,772 @@ const meals = [
             averageRating: 4.6,
             timesOrdered: 48
         }
+    },
+    {
+        name: 'TERNERA CON SALSA LIGERA Y MIX DE VERDURAS',
+        type: 'Platos Ligeros',
+        ingredients: 'Verduras (piquillos, cebollitas francesas y zanahorias glaseadas (con sofrito de cebolla, aceite de oliva, sal, azúcar moreno, ajo confitado, pimienta negra, orégano y comino) (55%), vacío de ternera (37%) y salsa (caldo de ternera (agua, huesos de rodilla, cebolla, zanahoria, pie de ternera, morcillo, puerro, apio, aceite de oliva y laurel), pasta de tomate, ajo, sal, orégano y pimienta negra).',
+        category: 'light',
+        weight: 465,
+        price: 7.45,
+        images: {
+            finals: ['https://static.wetaca.com/products/817/detail/ternera-con-salsa-ligera-y-mix-de-verduras_A.jpg',
+                'https://static.wetaca.com/products/817/detail/ternera-con-salsa-ligera-y-mix-de-verduras_B.jpg'],
+            wip: []
+        },
+        description: 'Cocinamos el vacío a baja temperatura asegurándonos que quede cocido y a la vez jugoso, lo rematamos en plancha obteniendo una bonita caramelización en la superficie. En este caso hemos elegido un mix de verduras tales como piquillos, cebollitas y zanahorias que aliñamos ligeramente.',
+        allergens: {
+            celery: true,
+            gluten: false,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: false,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 123.10,
+            totalFats: 5.80,
+            saturatedFat: 2.00,
+            carbs: 5.10,
+            protein: 13.00,
+            sugar: 4.20,
+            fiber: 1.50,
+            sodium: 0.60
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 4.6
+        }
+    },
+    {
+        name: 'PAVO CON ESCALIVADA',
+        type: 'Platos Ligeros',
+        ingredients: 'Verduras escalivadas (cebolla, pimiento verde, pimiento rojo, aceite de oliva y sal) (54%), pechuga de pavo (37%) y salsa (caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel, sal), patata cocida, vino blanco, ajo asado, sal, limón (ralladura), pimienta negra, orégano y goma de maíz).',
+        category: 'light',
+        weight: 460,
+        price: 6.95,
+        images: {
+            finals: ['https://static.wetaca.com/products/573/detail/pavo-con-escalivada_A.jpg',
+                'https://static.wetaca.com/products/573/detail/pavo-con-escalivada_B.jpg'],
+            wip: []
+        },
+        description: 'Cortamos las verduras en trozos grandes, aderezamos con sal y aceite y asamos hasta conseguir una buena textura firme y carnosa. Cocinamos las pechugas de pavo a baja temperatura para asegurarnos que queden perfectamente cocidas y a la vez jugosa. Acompañamos con una salsa ligera a partir de carcasas tostadas.',
+        allergens: {
+            celery: false,
+            gluten: false,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: false,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 97.00,
+            totalFats: 3.60,
+            saturatedFat: 0.50,
+            carbs: 5.30,
+            protein: 11.70,
+            sugar: 3.70,
+            fiber: 1.80,
+            sodium: 1.20
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'CORVINA CON VERDURAS',
+        type: 'Platos Ligeros',
+        ingredients: 'Verduras (cebolla morada, zanahoria, puerro, judías verdes, pimiento rojo, pimiento amarillo, pimiento verde, aceite de oliva y sal) (54%), corvina (37%) y salsa (caldo de pescado de roca (agua, cabezas de alistado, espina de pescado, whisky, oloroso río viejo, pasta de tomate, ñoras, pimienta negra, laurel y eneldo), aceite de oliva, sofrito de cebolla, vino blanco, oloroso, harina de trigo, ajo confitado, sal, pimienta negra y jengibre).',
+        category: 'light',
+        weight: 460,
+        price: 7.95,
+        images: {
+            finals: ['https://static.wetaca.com/products/697/detail/corvina-con-verduras_A.jpg',
+                'https://static.wetaca.com/products/697/detail/corvina-con-verduras_B.jpg'],
+            wip: []
+        },
+        description: 'Cocinamos la corvina a baja temperatura asegurándonos que quede perfectamente cocida y a la vez jugosa, incorporamos una salsa ligera hecha a partir de caldo de roca. Para acompañar cocinamos un mix de verduras la vapor.',
+        allergens: {
+            celery: false,
+            gluten: true,
+            crustaceans: true,
+            eggs: false,
+            fish: true,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: false,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 79.10,
+            totalFats: 2.50,
+            saturatedFat: 0.90,
+            carbs: 5.70,
+            protein: 9.30,
+            sugar: 3.30,
+            fiber: 2.20,
+            sodium: 0.60
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'POLLO CON SALSA LIGERA Y VERDURAS',
+        type: 'Platos Ligeros',
+        ingredients: 'Verduras (brócoli, champiñones y zanahorias glaseadas (con azúcar moreno, orégano, comino, sofrito de cebolla, aceite de oliva, ajo confitado, pimienta negra y sal) (54%), contramuslo de pollo (37%) y salsa (caldo de pollo tostado (agua, carcasa de pollo, alitas de pollo, zanahoria, aceite de oliva, ajo, laurel y sal), vino blanco, oloroso, pasta de tomate, ajo, pimentón dulce, tomillo, pimienta negra y goma de maíz).',
+        category: 'light',
+        weight: 460,
+        price: 6.95,
+        images: {
+            finals: ['https://static.wetaca.com/products/815/detail/pollo-con-salsa-ligera-y-verduras_A.jpg',
+                'https://static.wetaca.com/products/815/detail/pollo-con-salsa-ligera-y-verduras_B.jpg'],
+            wip: []
+        },
+        description: 'Cocinamos los contramuslos a alta temperatura en el horno asegurándonos que queden cocidos y con un bonito color dorado. Acompañamos con una salsa ligera hecha a partir de las carcasas. Como guarnición en este caso tenemos un mix de verduras aliñadas.',
+        allergens: {
+            celery: false,
+            gluten: false,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: false,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 100.90,
+            totalFats: 3.40,
+            saturatedFat: 1.00,
+            carbs: 6.10,
+            protein: 11.70,
+            sugar: 3.50,
+            fiber: 2.60,
+            sodium: 0.60
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'SALTEADO DE VERDURAS CON TERNERA Y PATATAS',
+        type: 'Platos Completos',
+        ingredients: 'Salteado de verduras (pimiento rojo, pimiento amarillo, cebolla morada, judías verdes, aceite de oliva, sal y pimienta negra) (49%), patatas (romero, pimienta negra, sal, aceite de oliva y ajo asado) (22%), ternera (22%) y salsa (caldo de ternera (agua, huesos de ternera, morcillo, cebolla, zanahoria, puerro, aceite de oliva, apio, pasta de tomate, sal y laurel), pasta de tomate, ajo asado, sal, orégano y pimienta negra).',
+        category: 'full',
+        weight: 510,
+        price: 7.25,
+        images: {
+            finals: ['https://static.wetaca.com/products/612/detail/salteado-de-verduras-con-ternera-y-patatas_A.jpg',
+                'https://static.wetaca.com/products/612/detail/salteado-de-verduras-con-ternera-y-patatas_B.jpg'],
+            wip: []
+        },
+        description: 'Salteamos el mix de verduras con apenas sal, pimienta y aceite de oliva. Cocinamos el vacío de ternera a baja temperatura asegurándonos que quede perfectamente cocido y jugoso, incorporamos una salsa ligera hecha a partir de huesos tostados. Para completar y equilibrar el plato incorporamos patatas asadas.',
+        allergens: {
+            celery: true,
+            gluten: false,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: false,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 113.30,
+            totalFats: 4.20,
+            saturatedFat: 1.30,
+            carbs: 10.30,
+            protein: 9.00,
+            sugar: 3.40,
+            fiber: 2.20,
+            sodium: 0.60
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'PISTO CON LEGUMBRETA MASALA Y COUS COUS',
+        type: 'Platos Completos',
+        ingredients: 'Pisto (tomate reducido 70%, calabacín, pimiento verde y rojo, pasta de tomate, vino blanco, oloroso, sofrito de cebolla, aceite de oliva, sal, ajo, laurel, pimentón, pimienta y comino) (52%), cous cous (24%), caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil, jengibre y laurel), tofu, sofrito de cebolla, pimiento verde y rojo, zanahoria, legumbreta (harina de soja no OGM desgrasada, harina de arroz y harina de alubia) (1.6%), pasta de soja, maicena, cilantro y tandoori masala (0.11%).',
+        category: 'full',
+        weight: 480,
+        price: 6.75,
+        images: {
+            finals: ['https://static.wetaca.com/products/853/detail/pisto-con-legumbreta-masala-y-cous-cous_A.jpg',
+                'https://static.wetaca.com/products/853/detail/pisto-con-legumbreta-masala-y-cous-cous_B.jpg'],
+            wip: []
+        },
+        description: 'Nuesto clásico pisto manchego es la base de este plato que se completa con proteína 100% vegetal cocinada con nuesta propia mezcla de especias tandoori. Para rematar acompañamos con cous cous.',
+        allergens: {
+            celery: true,
+            gluten: true,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: true,
+            peanuts: false,
+            sesame: false,
+            soybeans: true,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 105.90,
+            totalFats: 3.90,
+            saturatedFat: 0.60,
+            carbs: 14.10,
+            protein: 3.60,
+            sugar: 0.80,
+            fiber: 2.00,
+            sodium: 0.80
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'VERDURAS SALTEADAS CON CURRY VERDE, BACALAO Y ARROZ',
+        type: 'Platos Completos',
+        ingredients: 'Verduras (pimiento rojo, pimiento amarillo, cebolla morada, judías verdes, aceite de oliva, sal y pimienta negra) (48%), arroz (21%), bacalao (21%) y curry verde (leche coco infusionada (con jengibre, lemongrass y hoja lima-Kaffir), sofrito de cebolla, fumet blanco (agua, espina de pescado, cebolla, puerro, vino blanco, aceite de oliva, sal), zumo de limón, ajo confitado, pasta de curry verde, avellana, salsa de soja, fish sauce, espinaca, albahaca, cilantro y sal) (10%).',
+        category: 'full',
+        weight: 520,
+        price: 7.95,
+        images: {
+            finals: ['https://static.wetaca.com/products/737/detail/verduras-salteadas-con-curry-verde-bacalao-y-arroz_A.jpg',
+                'https://static.wetaca.com/products/737/detail/verduras-salteadas-con-curry-verde-bacalao-y-arroz_B.jpg'],
+            wip: []
+        },
+        description: 'Cocinamos el bacalao a baja temperatura asegurándonos que quede jugoso y a la vez cocido. Para el curry verde incorporamos leche de coco previamente infusionada y avellanas. Realzamos con cilantro y albahaca. Para acompañar nada mejor que nuestro arroz de grano largo.',
+        allergens: {
+            celery: false,
+            gluten: true,
+            crustaceans: false,
+            eggs: false,
+            fish: true,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: true,
+            sesame: false,
+            soybeans: true,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 99.40,
+            totalFats: 3.50,
+            saturatedFat: 1.00,
+            carbs: 12.80,
+            protein: 5.20,
+            sugar: 2.70,
+            fiber: 1.60,
+            sodium: 0.80
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'VERDURAS CON POLLO Y ARROZ IMPERIAL',
+        type: 'Platos Completos',
+        ingredients: 'Verduras (brócoli, zanahoria, guisantes y judías verdes) (49%), pechuga de pollo (22%), salsa (caldo de pollo (agua, carcasa de pollo, alitas de pollo, zanahoria, cebolla, aceite de oliva, ajo pelado, laurel y sal), patata cocida, vino blanco, ajo asado, sal, limón (ralladura), pimienta negra, orégano y goma de maíz) y arroz imperial (22%).',
+        category: 'full',
+        weight: 510,
+        price: 6.75,
+        images: {
+            finals: ['https://static.wetaca.com/products/617/detail/verduras-con-pollo-y-arroz-imperial_A.jpg',
+                'https://static.wetaca.com/products/617/detail/verduras-con-pollo-y-arroz-imperial_B.jpg'],
+            wip: []
+        },
+        description: 'Cocinamos las distintas verduras procurando que queden perfectamente en su punto y las aliñamos apenas. Cocinamos las pechugas de pollo asegurándonos que queden perfectamente cocidas y jugosas, incorporamos una salsa ligera. El equilibrio justo en este plato lo aporta el arroz integral negro aliñado.',
+        allergens: {
+            celery: false,
+            gluten: false,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: false,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 107.60,
+            totalFats: 2.80,
+            saturatedFat: 0.50,
+            carbs: 11.60,
+            protein: 9.60,
+            sugar: 2.80,
+            fiber: 2.80,
+            sodium: 0.40
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'NOODLES DE BONIATO CON SALSA ASIÁTICA DE TOFU',
+        type: 'Veggie',
+        ingredients: 'Udón de batata (44%), verduras (pimiento rojo, pimiento amarillo, cebolla morada, zanahoria, bok choi, shitake, aceite de oliva y sal), salsa (tofu (10%), sofrito de cebolla, caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), salsa de soja, setas, salsa mirin, ajo, aceite de sésamo, vinagre de arroz y cebollino) y sésamo.',
+        category: 'veggie',
+        weight: 455,
+        price: 6.49,
+        images: {
+            finals: ['https://static.wetaca.com/products/646/detail/noodles-de-boniato-con-salsa-asiatica-de-tofu_A.jpg',
+                'https://static.wetaca.com/products/646/detail/noodles-de-boniato-con-salsa-asiatica-de-tofu_B.jpg'],
+            wip: ['https://static.wetaca.com/products/646/gallery/noodles-de-boniato-con-salsa-asiatica-de-tofu_A.jpg',
+                'https://static.wetaca.com/products/646/gallery/noodles-de-boniato-con-salsa-asiatica-de-tofu_B.jpg',
+                'https://static.wetaca.com/products/646/gallery/noodles-de-boniato-con-salsa-asiatica-de-tofu_C.jpg']
+        },
+        description: 'Para esta salsa tan particular comenzamos sofriendo lentamente cebolla junto con ajo asado, setas y vinagre de arroz, el tofu le aporta además de una textura muy agradable, un sabor sobresaliente. Las verduras elegidas hacen un balance perfecto por el matiz de dulzor con el que cuentan. La nota que realza el plato son los noodles de boniato, ya que no aportan especial sabor, pero sí una textura única.',
+        allergens: {
+            celery: true,
+            gluten: true,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: true,
+            soybeans: true,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 122.10,
+            totalFats: 4.30,
+            saturatedFat: 0.80,
+            carbs: 18.40,
+            protein: 2.10,
+            sugar: 2.20,
+            fiber: 1.40,
+            sodium: 0.70
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'HEURA CON SALSA DE AJO Y PIQUILLOS',
+        type: 'Veggie',
+        ingredients: 'Patatas (con aceite de oliva, ajo, pimienta negra, romero y sal), brócoli, champiñones, salsa (caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), sofrito de cebolla, piquillos (4%), vino blanco, oloroso, tomate reducido 70%, pulpa de choricero, salsa de soja, maicena, ajo confitado (1,2%), sal, pimentón dulce, pimienta negra, orégano, comino y laurel) y heura (soja, agua, aceite de oliva y especias como pimentón, jengibre, nuez moscada, cardamomo, macis y pimienta) (17%).',
+        category: 'veggie',
+        weight: 410,
+        price: 7.45,
+        images: {
+            finals: ['https://static.wetaca.com/products/773/detail/heura-con-salsa-de-ajo-y-piquillos_A.jpg',
+                'https://static.wetaca.com/products/773/detail/heura-con-salsa-de-ajo-y-piquillos_B.jpg'],
+            wip: ['https://static.wetaca.com/products/773/gallery/heura-con-salsa-de-ajo-y-piquillos_A.jpg',
+                'https://static.wetaca.com/products/773/gallery/heura-con-salsa-de-ajo-y-piquillos_B.jpg',
+                'https://static.wetaca.com/products/773/gallery/heura-con-salsa-de-ajo-y-piquillos_C.jpg']
+        },
+        description: 'Para la salsa comenzamos sofriendo lentamente cebolla junto con ajo y piquillos. Incorporamos pulpa de choricero y mojamos con vino. Doramos la proteína 100% vegetal para que adquiera un bonito color dorado. En este caso para acompañar nada mejor que un mix de patatas, champiñones y brócoli.',
+        allergens: {
+            celery: true,
+            gluten: true,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: true,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 108.00,
+            totalFats: 3.90,
+            saturatedFat: 0.60,
+            carbs: 11.30,
+            protein: 5.90,
+            sugar: 2.90,
+            fiber: 3.80,
+            sodium: 1.00
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'GARBANZOS CON ESPINACAS',
+        type: 'Veggie',
+        ingredients: 'Garbanzos (33%), caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), sofrito de cebolla, piquillos, espinacas (8%), ajo confitado, tomate reducido 70%, vino blanco, oloroso, pasta de tomate, ñoras, pasta de soja amarilla, sal y pimentón dulce.',
+        category: 'veggie',
+        weight: 450,
+        price: 5.95,
+        images: {
+            finals: ['https://static.wetaca.com/products/167/detail/garbanzos-con-espinacas_A.jpg',
+                'https://static.wetaca.com/products/167/detail/garbanzos-con-espinacas_B.jpg'],
+            wip: ['https://static.wetaca.com/products/167/gallery/garbanzos-con-espinacas_A.jpg',
+                'https://static.wetaca.com/products/167/gallery/garbanzos-con-espinacas_B.jpg',
+                'https://static.wetaca.com/products/167/gallery/garbanzos-con-espinacas_C.jpg']
+        },
+        description: 'Con un suave sofrito de cebolla, pimiento rojo y verde, cocemos lentamente los garbanzos hasta que quedan tiernos. Terminamos con hojas frescas de espinaca.',
+        allergens: {
+            celery: true,
+            gluten: true,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: true,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 81.10,
+            totalFats: 3.40,
+            saturatedFat: 0.60,
+            carbs: 9.00,
+            protein: 3.10,
+            sugar: 2.20,
+            fiber: 2.00,
+            sodium: 0.60
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'FILETE DE LEGUMEAT A LA PARMIGIANA CON GEMELLI',
+        type: 'Veggie',
+        ingredients: 'Pasta gemelli (44%), filete de legumeat (harina de soja no OGM desgrasada, harina de arroz y harina de alubia) (35%), tomate reducido 70%, mozzarella vegana (margarina (coco y girasol), almidón, agua, aroma de queso, sal y antiaglomerante (almidón de maíz)), sofrito de cebolla, ajo confitado, albahaca, orégano, sal y pimienta negra.',
+        category: 'veggie',
+        weight: 570,
+        price: 6.75,
+        images: {
+            finals: ['https://static.wetaca.com/products/713/detail/filete-de-legumeat-a-la-parmigiana-con-gemelli_A.jpg',
+                'https://static.wetaca.com/products/713/detail/filete-de-legumeat-a-la-parmigiana-con-gemelli_B.jpg'],
+            wip: ['https://static.wetaca.com/products/713/gallery/filete-de-legumeat-a-la-parmigiana-con-gemelli_A.jpg',
+                'https://static.wetaca.com/products/713/gallery/filete-de-legumeat-a-la-parmigiana-con-gemelli_B.jpg',
+                'https://static.wetaca.com/products/713/gallery/filete-de-legumeat-a-la-parmigiana-con-gemelli_C.jpg']
+        },
+        description: 'Cocinamos las piezas de Sanygran con una mezcla de agua y sal, para que se hidraten y queden al punto. Lo cubrimos con nuestra mezcla de tomate casero con albaca y gratinamos con mozzarella vegana. Para rematar este plato hemos elegido una pasta corta muy interesante, que por su forma recoge abundante salsa.',
+        allergens: {
+            celery: false,
+            gluten: true,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: true,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 138.80,
+            totalFats: 3.10,
+            saturatedFat: 1.20,
+            carbs: 20.10,
+            protein: 6.70,
+            sugar: 2.40,
+            fiber: 2.00,
+            sodium: 0.70
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'CREMA DE TOMATE',
+        type: 'Entrantes',
+        ingredients: 'Caldo de verduras (agua, cebolla, zanahoria, puerro, apio, champiñones, perejil fresco, ajo pelado, aceite de oliva, jengibre fresco, sal y laurel), tomate reducido 70% (32%), pasta de tomate, queso crema (con leche no pasteurizada), pimiento rojo, patatas, sofrito de cebolla, aceite de oliva, apio, ajo confitado, sal, albahaca y pimienta negra.',
+        category: 'starter',
+        weight: 300,
+        price: 2.99,
+        images: {
+            finals: ['https://static.wetaca.com/products/695/detail/crema-de-tomate_A.jpg',
+                'https://static.wetaca.com/products/695/detail/crema-de-tomate_B.jpg'],
+            wip: ['https://static.wetaca.com/products/695/gallery/crema-de-tomate_A.jpg',
+                'https://static.wetaca.com/products/695/gallery/crema-de-tomate_B.jpg',
+                'https://static.wetaca.com/products/695/gallery/crema-de-tomate_C.jpg']
+        },
+        description: 'Para este clásico comenzamos sofriendo lentamente cebolla junto con ajo y apio. Incorporamos pimientos y patatas. Incorporamos pasta de tomate y mojamos con nuestro caldo de verduras. Perfumamos con albahaca fresca.',
+        allergens: {
+            celery: true,
+            gluten: false,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: true,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: false,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 86.40,
+            totalFats: 6.20,
+            saturatedFat: 2.10,
+            carbs: 7.00,
+            protein: 1.60,
+            sugar: 4.70,
+            fiber: 1.00,
+            sodium: 1.20
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'ESPINACAS CON MORNAY',
+        type: 'Entrantes',
+        ingredients: 'Espinacas (61%), bechamel casera (leche, mantequilla, harina de trigo, sal, nuez moscada y pimienta negra) y queso emmental (con leche pasteurizada).',
+        category: 'starter',
+        weight: 250,
+        price: 3.25,
+        images: {
+            finals: ['https://static.wetaca.com/products/136/detail/espinacas-con-mornay_A.jpg',
+                'https://static.wetaca.com/products/136/detail/espinacas-con-mornay_B.jpg'],
+            wip: ['https://static.wetaca.com/products/136/gallery/espinacas-con-mornay_A.jpg',
+                'https://static.wetaca.com/products/136/gallery/espinacas-con-mornay_B.jpg',
+                'https://static.wetaca.com/products/136/gallery/espinacas-con-mornay_C.jpg']
+        },
+        description: 'Elaboramos una bechamel tradicional a varilla, la terminamos con un punto de queso emmental. Cocinamos ligeramente al vapor las espinacas para mantener sus propiedades y las terminamos con la bechamel.',
+        allergens: {
+            celery: false,
+            gluten: true,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: true,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: false,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 82.40,
+            totalFats: 5.10,
+            saturatedFat: 2.60,
+            carbs: 4.00,
+            protein: 5.10,
+            sugar: 1.30,
+            fiber: 2.40,
+            sodium: 0.20
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'COULANT DE CHOCOLATE',
+        type: 'Postres',
+        ingredients: 'Chocolate (26%), mantequilla, azúcar, harina de trigo, huevos y yema de huevo.',
+        category: 'dessert',
+        weight: 170,
+        price: 2.99,
+        images: {
+            finals: ['https://static.wetaca.com/products/281/detail/coulant-de-chocolate_A.jpg',
+                'https://static.wetaca.com/products/281/detail/coulant-de-chocolate_B.jpg'],
+            wip: ['https://static.wetaca.com/products/281/gallery/coulant-de-chocolate_A.jpg',
+                'https://static.wetaca.com/products/281/gallery/coulant-de-chocolate_B.jpg',
+                'https://static.wetaca.com/products/281/gallery/coulant-de-chocolate_C.jpg']
+        },
+        description: 'El postre de chocolate por antonomasia: un exterior de esponjoso bizcocho con un interior fundente de chocolate negro. Delicioso.',
+        allergens: {
+            celery: false,
+            gluten: true,
+            crustaceans: false,
+            eggs: true,
+            fish: false,
+            lupin: false,
+            milk: true,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: false,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 333.20,
+            totalFats: 22.80,
+            saturatedFat: 12.60,
+            carbs: 25.40,
+            protein: 6.10,
+            sugar: 20.80,
+            fiber: 0.20,
+            sodium: 0.20
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'COCA LLANDA DE NARANJA',
+        type: 'Postres',
+        ingredients: 'Azúcar blanco, huevo, harina de trigo, leche entera, harina de almendra, aceite de oliva, zumo de naranja (5,4%), yogur natural, ralladura de naranja (1%) e impulsor.',
+        category: 'dessert',
+        weight: 155,
+        price: 2.99,
+        images: {
+            finals: ['https://static.wetaca.com/products/682/detail/coca-llanda-de-naranja_A.jpg',
+                'https://static.wetaca.com/products/682/detail/coca-llanda-de-naranja_B.jpg'],
+            wip: ['https://static.wetaca.com/products/682/gallery/coca-llanda-de-naranja_A.jpg',
+                'https://static.wetaca.com/products/682/gallery/coca-llanda-de-naranja_B.jpg',
+                'https://static.wetaca.com/products/682/gallery/coca-llanda-de-naranja_C.jpg']
+        },
+        description: 'Para este clásico de la Comunidad Valenciana trituramos la harina de almendras junto con el yogur y el zumo de naranja. Incorporamos ralladura de naranja que le aporta un perfume muy especial, tan característico de la zona del Levante.',
+        allergens: {
+            celery: false,
+            gluten: true,
+            crustaceans: false,
+            eggs: true,
+            fish: false,
+            lupin: false,
+            milk: true,
+            molluscs: false,
+            mustard: false,
+            peanuts: true,
+            sesame: false,
+            soybeans: false,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 357.00,
+            totalFats: 18.90,
+            saturatedFat: 2.90,
+            carbs: 40.80,
+            protein: 6.60,
+            sugar: 27.40,
+            fiber: 2.00,
+            sodium: 0.10
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
+    },
+    {
+        name: 'FLAN DE FRESAS VEGANO',
+        type: 'Postres',
+        ingredients: 'Leche de coco, fresas (40%), azúcar blanco y agar agar.',
+        category: 'dessert',
+        weight: 170,
+        price: 3.75,
+        images: {
+            finals: ['https://static.wetaca.com/products/661/detail/flan-de-fresas-vegano_A.jpg',
+                'https://static.wetaca.com/products/661/detail/flan-de-fresas-vegano_B.jpg'],
+            wip: ['https://static.wetaca.com/products/661/gallery/flan-de-fresas-vegano_A.jpg',
+                'https://static.wetaca.com/products/661/gallery/flan-de-fresas-vegano_B.jpg',
+                'https://static.wetaca.com/products/661/gallery/flan-de-fresas-vegano_C.jpg']
+        },
+        description: 'Para este postre 100% vegetal trituramos la leche de coco junto con las fresas y el azúcar. Llevamos a hervor y espesamos.',
+        allergens: {
+            celery: false,
+            gluten: false,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: false,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 177.10,
+            totalFats: 8.60,
+            saturatedFat: 7.70,
+            carbs: 24.00,
+            protein: 0.70,
+            sugar: 22.10,
+            fiber: 0.80,
+            sodium: 0.00
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 0
+        }
     }
 ]
 
