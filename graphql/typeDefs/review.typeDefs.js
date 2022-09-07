@@ -13,11 +13,6 @@ const reviewTypeDefs = gql`
     }
 
 
-    # Querys
-
-    type Query{
-        getReviews(mealId: ID!): [Review]
-    }
 
 
     # Inputs
@@ -28,11 +23,22 @@ const reviewTypeDefs = gql`
         comment: String!
     }
 
+    # Querys
+
+    type Query{
+
+        getReviews(
+            mealId: ID!
+        ): [Review]
+    }
 
     # Mutations
 
     type Mutation{
-        createReview(reviewData: ReviewInput!): Review
+        
+        createReview(
+            reviewData: ReviewInput!
+        ): Review
     }
 
 `

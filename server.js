@@ -15,7 +15,7 @@ const server = new ApolloServer({
 
         if (auth && (auth.startsWith('bearer ') || auth.startsWith('Bearer '))) {
             const token = auth.substring(7)
-            const { _id } = jwt.verify(token, 'ginesecret')
+            const { _id } = jwt.verify(token, 'secret')
             const currentUser = await User.findById(_id)
             return { currentUser }
         }
@@ -26,4 +26,4 @@ server.listen().then(({ url }) => {
     console.log(`Server ready at ${url}`)
 })
 
-module.exports = server
+export default server

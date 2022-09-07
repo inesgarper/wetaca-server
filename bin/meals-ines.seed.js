@@ -1720,6 +1720,53 @@ const meals = [
             timesOrdered: 17
         }
     },
+    {
+        name: 'CERDO CON SALSA JARDINERA',
+        type: 'Platos Únicos',
+        ingredients: 'Aguja de cerdo (26%), salsa (caldo de cerdo tostado (agua, espinazo fresco, cebolla, zanahoria, aceite de oliva, ajo pelado y sal), zanahoria, sofrito de cebolla, guisantes, salsa de soja, vino tinto, oloroso, manteca de cerdo ibérico, harina de trigo, ajo asado, sal, tomillo y laurel) y patatas rústicas (con aceite de oliva, ajo confitado, sal, orégano y pimienta negra).',
+        category: 'meat',
+        weight: '460',
+        price: 5.95,
+        images: {
+            finals: ['https://static.wetaca.com/products/764/detail/cerdo-con-salsa-jardinera_A.jpg',
+                'https://static.wetaca.com/products/764/detail/cerdo-con-salsa-jardinera_B.jpg'],
+            wip: ['https://static.wetaca.com/products/764/gallery/cerdo-con-salsa-jardinera_A.jpg',
+                'https://static.wetaca.com/products/764/gallery/cerdo-con-salsa-jardinera_B.jpg',
+                'https://static.wetaca.com/products/764/gallery/cerdo-con-salsa-jardinera_C.jpg'],
+        },
+        description: 'Cocinamos la aguja de cerdo a baja temperatura asegurándonos que quede bien melosa y perfectamente tierna. Para la salsa comenzamos sofriendo lentamente cebolla junto con zanahoria y hierbas. A último momento incorporamos guisantes. Para acompañar en este caso unas patatas rústicas.',
+        allergens: {
+            celery: false,
+            gluten: true,
+            crustaceans: false,
+            eggs: false,
+            fish: false,
+            lupin: false,
+            milk: false,
+            molluscs: false,
+            mustard: false,
+            peanuts: false,
+            sesame: false,
+            soybeans: true,
+            sulphurDioxide: false,
+            sulphites: false,
+        },
+        nutritionalValues: {
+            calories: 164.70,
+            totalFats: 8.10,
+            saturatedFat: 2.90,
+            carbs: 14.80,
+            protein: 7.20,
+            sugar: 3.20,
+            fiber: 1.90,
+            sodium: 1.00
+        },
+        lastWeekInMenu: new Date(),
+        popularity: {
+            averageRating: 3,
+            timesOrdered: 17
+        }
+    },
 
 ]
 

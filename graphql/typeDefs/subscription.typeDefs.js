@@ -63,16 +63,6 @@ const subscriptionTypeDefs = gql`
         postCode: Int!
     }
 
-    # Querys
-    
-    type Query{
-        getAllSubs: [Subscription]
-        getOneUserSubs(user: ID!): [Subscription]
-        getMySubs: [Subscription]
-        getOneSub(subs: ID!): Subscription
-    }
-
-
     # Inputs
 
     input SubscriptionInput{
@@ -88,15 +78,48 @@ const subscriptionTypeDefs = gql`
         postCode: Int!
     }
 
+    # Querys
+    
+    type Query{
+
+        getAllSubs: [Subscription]
+
+        getOneUserSubs(
+            user: ID!
+        ): [Subscription]
+
+        getMySubs: [Subscription]
+
+        getOneSub(
+            subs: ID!
+        ): Subscription
+    }
 
     # Mutations
 
     type Mutation{
-        createSubscription(subscriptionData: SubscriptionInput!) : Subscription
-        updateStatus(subs: ID!, status: String!): Subscription
-        updateDeliveryWeekDay(subs: ID!, day: String!): Subscription
-        deleteSubscription(subs: ID!): String,
-        createBaseMenu(orderID: ID): BaseMenu
+
+        createSubscription(
+            subscriptionData: SubscriptionInput!
+        ) : Subscription
+
+        updateStatus(
+            subs: ID!, 
+            status: String!
+        ): Subscription
+
+        updateDeliveryWeekDay(
+            subs: ID!, 
+            day: String!
+        ): Subscription
+
+        deleteSubscription(
+            subs: ID!
+        ): String
+
+        createBaseMenu(
+            orderID: ID
+        ): BaseMenu
     }
 
 `

@@ -49,7 +49,9 @@ const orderTypeDefs = gql`
 
         getAllOrders: [Order],
         
-        getOneOrder(orderID: ID!): Order,
+        getOneOrder(
+            orderID: ID!
+        ): Order,
         
         getNextOrders: [Order],
 
@@ -68,12 +70,12 @@ const orderTypeDefs = gql`
         
         createOrder(
             subscriptionID: ID,
-        ): Order,
+        ): Order
 
         addMealToOrder(
             orderID: ID,
             mealID: ID
-        ): [OrderMeals],
+        ): [OrderMeals]
 
         removeMealFromOrder(
             orderID: ID,
@@ -82,20 +84,16 @@ const orderTypeDefs = gql`
 
         updateOrderPrice(
             orderID: ID, 
-        ): Order,
+        ): Order
 
         updateDeliveryDate(
             orderID: ID,
             deliveryDate: DeliveryDateInput
-        ): Order,
+        ): Order
 
         confirmOrder(
             orderID: ID,
-        ): Order,
-
-        # deleteOrder(
-        #     orderID: ID
-        # ): String
+        ): Order
     }
 
 
