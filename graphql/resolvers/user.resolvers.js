@@ -1,7 +1,7 @@
 import User from './../../models/User.js'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
-import { UserInputError } from 'apollo-server'
+import { ApolloError, UserInputError } from 'apollo-server'
 
 const saltRounds = 10
 
@@ -9,18 +9,24 @@ const saltRounds = 10
 const userResolvers = {
 
     Query: {
-        getCurrentUser: (_, args, context) => context.currentUser,
 
-        getAllUsers: async () => {
-            const users = await User.find()
-            return users
+        getCurrentUser: (_, args, { currentUser }) => {
+
+            if (!currentUser) throw new ApolloError('Log in required')
+
+            return currentUser
+        },
+
+        getAllUsers: async (_, args, { currentUser }) => {
+
+            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+
+            return await User.find()
         },
     },
 
     Mutation: {
-        createUser: async (_, args) => {
-
-            const { userData } = args
+        createUser: async (_, { userData }) => {
 
             // EMPTY FIELDS VALIDATION
 
@@ -35,17 +41,14 @@ const userResolvers = {
                 throw new UserInputError('Provide valid email address')
             }
 
-
             // CHECK DUPLICATED USERS
 
-            const { email } = userData
+            const { email, password } = userData
             const foundUser = await User.findOne({ email })
 
             if (foundUser) {
                 throw new UserInputError('Email already registered')
             }
-
-            const { password } = userData
 
             const salt = bcrypt.genSaltSync(saltRounds)
             const hashedPassword = bcrypt.hashSync(password, salt)
@@ -54,21 +57,27 @@ const userResolvers = {
             return user.save()
         },
 
-        deleteUser: async (_, { id }) => {
-            await User.findByIdAndDelete(id)
-            return 'User deleted'
-        },
+        updateUser: async (_, { userData }, { currentUser }) => {
 
-        updateUser: async (_, { id, user }) => {
-            const updatedUser = await User.findByIdAndUpdate(id, {
-                $set: user
+            const { _id } = currentUser
+
+            const updatedUser = await User.findByIdAndUpdate(_id, {
+                $set: userData
             }, { new: true })
+
             return updatedUser
         },
 
-        login: async (_, args) => {
+        deleteUser: async (_, { id }, { currentUser }) => {
 
-            const { email, password } = args
+            if (!currentUser || currentUser.role !== 'ADMIN') return null
+
+            const deletedUser = await User.findByIdAndDelete(id)
+            return `User ${deletedUser.name} ${deletedUser.lastName} was deleted!`
+        },
+
+
+        login: async (_, { email, password }) => {
 
             // EMPTY FIELDS VALIDATION
 
@@ -83,12 +92,12 @@ const userResolvers = {
             }
 
             if (bcrypt.compareSync(password, foundUser.password)) {
-                const { name, lastName, email, _id } = foundUser
-                const payload = { name, lastName, email, _id }
+                const { name, lastName, email, role, _id } = foundUser
+                const payload = { name, lastName, email, role, _id }
 
                 const authToken = jwt.sign(
                     payload,
-                    'ginesecret',
+                    'secret',
                     { algorithm: 'HS256', expiresIn: '6h' }
                 )
 

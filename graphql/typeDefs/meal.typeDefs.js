@@ -177,13 +177,19 @@ const mealTypeDefs = gql`
             mealID: ID
         ): String,
 
+        # Cambiaría la propiedad nextWeekInMenu a true
         addMealToMenu(
             mealID: ID
         ): Meal,
 
+        # Cambiaría la propiedad nextWeekInMenu a false
         removeMealFromMenu(
             mealID: ID
-        ): Meal
+        ): Meal,
+
+        # A todas las meals con nextWeekInMenu en true les pondría currentlyInMenu a true, y después pondría nextWeekInMenu a false
+        # Actualizaría la fecha de lastWeekInMenu
+        publishNewMenu: [Meal]
     }
 
 

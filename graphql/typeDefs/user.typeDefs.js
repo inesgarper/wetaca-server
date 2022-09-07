@@ -11,27 +11,19 @@ const userTypeDefs = gql`
         password: String!
         phoneNumber: Int!
         birthDate: Date!
-        paymentMethods: PaymentMethods
+        paymentMethods: [PaymentMethods]
         id: ID!
     }
 
     type PaymentMethods{
-        cardNumber: String!
-        cardName: String!
-        securityCode: Int!
-        expiration: Date!
+        cardNumber: String
+        cardName: String
+        securityCode: Int
+        expiration: Date
     }
    
     type Token{
         value: String!
-    }
-
-
-    # Querys
-
-    type Query{
-        getCurrentUser: User
-        getAllUsers: [User]
     }
 
 
@@ -48,19 +40,37 @@ const userTypeDefs = gql`
     }
 
     input PaymentMethodsInput{
-        cardNumber: String!
-        cardName: String!
-        securityCode: Int!
-        expiration: Date!
+        cardNumber: String
+        cardName: String
+        securityCode: Int
+        expiration: Date
     }
 
+    # Querys
+
+    type Query{
+
+        getCurrentUser: User
+
+        getAllUsers: [User]
+    }
 
     # Mutations
 
     type Mutation{
-        createUser(userData: UserInput): User
-        deleteUser(id: ID!): String
-        updateUser(id: ID!, user: UserInput): User
+
+        createUser(
+            userData: UserInput
+        ): User
+
+        updateUser(
+            userData: UserInput
+        ): User
+
+        deleteUser(
+            id: ID!
+        ): String
+
         login(
             email: String!
             password: String!
