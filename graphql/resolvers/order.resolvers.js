@@ -16,11 +16,11 @@ const orderResolvers = {
     },
 
     Query: {
-        getAllOrders: async () => await Order.find(),
+        getAllOrders: async () => await Order.find(), // solo admin
 
-        getOneOrder: async (_, { orderID }) => await Order.findById(orderID).populate('meals.mealID'),
+        getOneOrder: async (_, { orderID }) => await Order.findById(orderID).populate('meals.mealID'), // solo admin
 
-        getNextOrders: async () => await Order.find({ status: 'Ordered' }).populate('meals.mealID'),
+        getNextOrders: async () => await Order.find({ status: 'Ordered' }).populate('meals.mealID'), // solo admin
 
         getMyActiveOrder: async (_, args, { currentUser }) => {
             const { _id } = currentUser
@@ -40,7 +40,7 @@ const orderResolvers = {
             return orderedOrder
         },
 
-        getMyDeliveredOrders: async(_, args, {currentUser}) => {
+        getMyDeliveredOrders: async (_, args, { currentUser }) => {
             const { _id } = currentUser
 
             const subs = await Subscription.findOne({ user: _id })
@@ -51,12 +51,12 @@ const orderResolvers = {
     },
 
     Mutation: {
-        createOrder: async (_, args) => {
+        createOrder: async (_, args) => { // sacarla a partir del id del usuario y no de la suscripción
 
             const { subscriptionID } = args
             const subscription = await Subscription.findById(subscriptionID)
 
-            // DELIVERY DATE
+            // DELIVERY DATE -- pasar a un util 
 
             const subs = await Subscription.findById(subscriptionID)
             const { deliveryWeekDay } = subs
@@ -97,7 +97,7 @@ const orderResolvers = {
                     }
                 })
 
-                const order = new Order({ subscription: subscriptionID, meals: mealIDs })
+                const order = new Order({ subscription: subscriptionID, meals: mealIDs, deliveryDate: { day: deliveryDate } })
                 await order.save()
 
                 return await Order.findById(order._id).populate('meals.mealID')
@@ -114,8 +114,15 @@ const orderResolvers = {
 
             const mealIsInOrder = order.meals.find(meal => meal.mealID == mealID)
 
-            if (mealIsInOrder) mealIsInOrder.quantity++
-            else order.meals.push({ mealID, quantity: 1 })
+            if (mealIsInOrder) {
+                mealIsInOrder.quantity++
+
+            } else {
+                order.meals.push({
+                    mealID,
+                    quantity: 1
+                })
+            }
 
             await order.save()
             return order.meals
@@ -129,16 +136,16 @@ const orderResolvers = {
             if (order.status !== 'Actived') return // lanzar un error. No se puede modificar un pedido si está 'ordered' o 'delivered'
 
             const meal = order.meals.find(meal => meal.mealID == mealID)
-            const mealIndex = order.meals.indexOf(meal)
+            const mealIndex = order.meals.indexOf(meal) // mirar .findIndexOf
 
-            if (meal.quantity > 1) meal.quantity--
+            if (meal.quantity > 1) meal.quantity-- // abrir
             else if (meal.quantity === 1) order.meals.splice(mealIndex, 1)
 
             order.save()
             return order.meals
         },
 
-        updateOrderPrice: async (_, args) => {
+        updateOrderPrice: async (_, args) => { // volver a intentar sacarlo a un util
             const { orderID } = args
 
             const order = await Order.findById(orderID).populate('meals.mealID')

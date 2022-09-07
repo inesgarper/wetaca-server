@@ -5,7 +5,7 @@ import Meal from '../../models/Meal.js'
 const reviewResolvers = {
 
     Query: {
-        getReviews: async (_, { mealId }) => {
+        getReviews: async (_, { mealId }) => { // admin
 
             const reviews = await Review.find({ meal: mealId })
             if (reviews.length !== 0) return reviews
@@ -24,7 +24,7 @@ const reviewResolvers = {
             await review.save()
 
 
-            // UPDATE MEAL AVG RATING
+            // UPDATE MEAL AVG RATING -- llevar a un util
 
             const allReviews = await Review.find({ meal: args.reviewData.meal })
             const ratings = allReviews.map(elm => elm.rating)

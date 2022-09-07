@@ -21,26 +21,26 @@ const subscriptionResolvers = {
 
     Query: {
 
-        getAllSubs: async () => {
+        getAllSubs: async () => { // admin
             const allSubs = await Subscription.find().populate('user')
             console.log(allSubs)
             return allSubs
         },
 
-        getOneUserSubs: async (_, { user }) => {
+        getOneUserSubs: async (_, { user }) => {  // admin
             const subs = await Subscription.find({ user })
 
             return subs
         },
 
-        getMySubs: async (_, args, { currentUser }) => {
+        getMySubs: async (_, args, { currentUser }) => { // login
             const { _id } = currentUser
 
             const mySubs = await Subscription.find({ user: _id })
             return mySubs
         },
 
-        getOneSub: async (_, { subs }) => {
+        getOneSub: async (_, { subs }) => { // BORRAR
             const subscription = await Subscription.findById(subs)
             return subscription
         }
@@ -48,7 +48,7 @@ const subscriptionResolvers = {
 
     Mutation: {
 
-        createSubscription: (_, { subscriptionData }, context) => {
+        createSubscription: (_, { subscriptionData }, context) => { // login
             const { _id } = context.currentUser
             const { address, deliveryWeekDay } = subscriptionData
 
@@ -56,22 +56,22 @@ const subscriptionResolvers = {
             return subscription.save()
         },
 
-        updateStatus: async (_, { subs, status }) => {
+        updateStatus: async (_, { subs, status }) => { // login
             const updatedSubs = await Subscription.findByIdAndUpdate(subs, { status }, { new: true })
             return updatedSubs
         },
 
-        updateDeliveryWeekDay: async (_, { subs, day }) => {
+        updateDeliveryWeekDay: async (_, { subs, day }) => { // login
             const updatedSubs = await Subscription.findByIdAndUpdate(subs, { deliveryWeekDay: day }, { new: true })
             return updatedSubs
         },
 
-        deleteSubscription: async (_, { subs }) => {
+        deleteSubscription: async (_, { subs }) => { // admin
             await Subscription.findByIdAndDelete(subs)
             return 'Subscription deleted'
         },
 
-        createBaseMenu: async (_, { orderID }) => {
+        createBaseMenu: async (_, { orderID }) => { // login
             const order = await Order.findById(orderID).populate('meals.mealID')
 
             const baseMenu = setBaseMenu(order)
