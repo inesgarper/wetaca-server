@@ -56,10 +56,7 @@ const meals = [
             sodium: 0.50
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 3,
-            timesOrdered: 17
-        }
+        averageRating: 3
     },
     {
         name: 'TACOS DE COCHINITA PIBIL',
@@ -103,10 +100,7 @@ const meals = [
             sodium: 1.00
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 3.9,
-            timesOrdered: 25
-        }
+        averageRating: 3.9
     },
     {
         name: 'ARROZ DE TERNERA Y SETAS',
@@ -150,10 +144,7 @@ const meals = [
             sodium: 0.90
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.4,
-            timesOrdered: 37
-        }
+        averageRating: 4.4
     },
     {
         name: 'SPAGHETTI CACIO E PEPE',
@@ -197,10 +188,7 @@ const meals = [
             sodium: 0.60
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.1,
-            timesOrdered: 28
-        }
+        averageRating: 4.1
     },
     {
         name: 'CAZUELA DE FIDEOS',
@@ -244,10 +232,7 @@ const meals = [
             sodium: 0.40
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.3,
-            timesOrdered: 22
-        }
+        averageRating: 4.3
     },
     {
         name: 'ALBÓNDIGAS AL POMODORO',
@@ -291,10 +276,7 @@ const meals = [
             sodium: 1.40
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 3.7,
-            timesOrdered: 27
-        }
+        averageRating: 3.7
     },
     {
         name: 'LASAGNA AL TONNO',
@@ -338,10 +320,7 @@ const meals = [
             sodium: 0.70
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 43
-        }
+        averageRating: 4.6
     },
     {
         name: 'REDONDO CON SALSA DE CHAMPIÑONES A LA CREMA Y VERDURAS',
@@ -385,10 +364,7 @@ const meals = [
             sodium: 0.60
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 3.6,
-            timesOrdered: 31
-        }
+        averageRating: 3.6
     },
     {
         name: 'SOLOMILLO A LA PIMIENTA',
@@ -432,10 +408,7 @@ const meals = [
             sodium: 0.50
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.1,
-            timesOrdered: 33
-        }
+        averageRating: 4.1
     },
     {
         name: 'GARBANZOS CON BUTIFARRA Y SETAS',
@@ -479,10 +452,7 @@ const meals = [
             sodium: 1.20
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.2,
-            timesOrdered: 26
-        }
+        averageRating: 4.2
     },
     {
         name: 'AGUJA CON SALSA MORUNA, COUS COUS Y VERDURA JULIANA',
@@ -526,10 +496,7 @@ const meals = [
             sodium: 0.70
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 3.8,
-            timesOrdered: 28
-        }
+        averageRating: 3.8
     },
     {
         // hay que arreglar los alergenos de frutos secos
@@ -574,10 +541,7 @@ const meals = [
             sodium: 0.30
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.2,
-            timesOrdered: 21
-        }
+        averageRating: 4.2
     },
     {
         name: 'POLLO CON SALSA DE OLOROSO',
@@ -621,10 +585,7 @@ const meals = [
             sodium: 0.60
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 3.5,
-            timesOrdered: 36
-        }
+        averageRating: 3.5
     },
     {
         name: 'CANELONES DE PISTO',
@@ -668,10 +629,7 @@ const meals = [
             sodium: 0.30
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 3.7,
-            timesOrdered: 34
-        }
+        averageRating: 3.7
     },
     {
         name: 'RIGATONI ALLA NORMA',
@@ -715,10 +673,7 @@ const meals = [
             sodium: 0.40
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.4,
-            timesOrdered: 30
-        }
+        averageRating: 4.4
     },
     {
         name: 'SALMÓN CON PATATAS ASADAS',
@@ -762,10 +717,7 @@ const meals = [
             sodium: 0.40
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.3,
-            timesOrdered: 27
-        }
+        averageRating: 4.5
     },
     {
         // frutos secos
@@ -810,10 +762,7 @@ const meals = [
             sodium: 0.60
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 3.2,
-            timesOrdered: 21
-        }
+        averageRating: 3.2
     },
     {
         name: 'POLLO CON SALSA BRAVA',
@@ -857,10 +806,7 @@ const meals = [
             sodium: 0.40
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 3.7,
-            timesOrdered: 25
-        }
+        averageRating: 3.7
     },
     {
         name: 'PAVO CON ROMESCU VERDE, PATATAS ASADAS Y VERDURAS',
@@ -951,10 +897,7 @@ const meals = [
             sodium: 1.49
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 2.3,
-            timesOrdered: 11
-        }
+        averageRating: 4.3
     },
     {
         name: 'ARROZ MELOSO DE MARISCO',
@@ -998,10 +941,7 @@ const meals = [
             sodium: 1.10
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4.6
     },
     {
         name: 'TACOS DE VERDURAS',
@@ -1045,10 +985,7 @@ const meals = [
             sodium: 0.90
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4.6
     },
     {
         name: 'ESTOFADO DE TERNERA AL VINO TINTO',
@@ -1092,10 +1029,7 @@ const meals = [
             sodium: 0.30
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4.6
     },
     {
         name: 'ARROZ MELOSO DE PATO Y GORGONZOLA',
@@ -1139,10 +1073,7 @@ const meals = [
             sodium: 0.81
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4.2
     },
     {
         name: 'GEMELLI CON SALSA SORRENTINA',
@@ -1186,10 +1117,7 @@ const meals = [
             sodium: 0.40
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 3.9
     },
     {
         name: 'ALBÓNDIGAS SUECAS',
@@ -1233,10 +1161,7 @@ const meals = [
             sodium: 1.00
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4
     },
     {
         name: 'SOLOMILLO CON SALSA DE QUESO',
@@ -1280,10 +1205,7 @@ const meals = [
             sodium: 0.70
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 3.8
     },
     {
         name: 'MAGRO CON TOMATE',
@@ -1327,10 +1249,7 @@ const meals = [
             sodium: 0.30
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4.1
     },
     {
         name: 'GRATINADO DE CARNE Y PATATA',
@@ -1374,10 +1293,7 @@ const meals = [
             sodium: 1.30
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4.3
     },
     {
         name: 'LENTEJAS ESTOFADAS CON CHORIZO',
@@ -1421,10 +1337,7 @@ const meals = [
             sodium: 1.18
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4.7
     },
     {
         name: 'POLLO ASADO A LA PERUANA',
@@ -1468,10 +1381,7 @@ const meals = [
             sodium: 1.90
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4.6
     },
     {
         name: 'PASTA ALLA GRICIA',
@@ -1515,10 +1425,7 @@ const meals = [
             sodium: 0.60
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4.6
     },
     {
         name: 'SALMÓN CON HUMMUS',
@@ -1562,10 +1469,7 @@ const meals = [
             sodium: 0.90
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4.4
     },
     {
         name: 'MERLUZA EN SALSA VERDE',
@@ -1609,10 +1513,7 @@ const meals = [
             sodium: 0.50
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 3.4
     },
     {
         name: 'ALBÓNDIGAS THAI DE POLLO',
@@ -1656,10 +1557,7 @@ const meals = [
             sodium: 0.50
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4.5
     },
     {
         name: 'POLLO EN SALMOREJO CANARIO',
@@ -1703,10 +1601,7 @@ const meals = [
             sodium: 0.70
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6,
-            timesOrdered: 48
-        }
+        averageRating: 4.1
     },
     {
         name: 'TERNERA CON SALSA LIGERA Y MIX DE VERDURAS',
@@ -1748,9 +1643,7 @@ const meals = [
             sodium: 0.60
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 4.6
-        }
+        averageRating: 0
     },
     {
         name: 'PAVO CON ESCALIVADA',
@@ -1792,9 +1685,7 @@ const meals = [
             sodium: 1.20
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'CORVINA CON VERDURAS',
@@ -1836,9 +1727,7 @@ const meals = [
             sodium: 0.60
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'POLLO CON SALSA LIGERA Y VERDURAS',
@@ -1880,9 +1769,7 @@ const meals = [
             sodium: 0.60
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'SALTEADO DE VERDURAS CON TERNERA Y PATATAS',
@@ -1924,9 +1811,7 @@ const meals = [
             sodium: 0.60
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'PISTO CON LEGUMBRETA MASALA Y COUS COUS',
@@ -1968,9 +1853,7 @@ const meals = [
             sodium: 0.80
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'VERDURAS SALTEADAS CON CURRY VERDE, BACALAO Y ARROZ',
@@ -2012,9 +1895,7 @@ const meals = [
             sodium: 0.80
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'VERDURAS CON POLLO Y ARROZ IMPERIAL',
@@ -2056,9 +1937,7 @@ const meals = [
             sodium: 0.40
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'NOODLES DE BONIATO CON SALSA ASIÁTICA DE TOFU',
@@ -2102,9 +1981,7 @@ const meals = [
             sodium: 0.70
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'HEURA CON SALSA DE AJO Y PIQUILLOS',
@@ -2148,9 +2025,7 @@ const meals = [
             sodium: 1.00
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'GARBANZOS CON ESPINACAS',
@@ -2194,9 +2069,7 @@ const meals = [
             sodium: 0.60
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'FILETE DE LEGUMEAT A LA PARMIGIANA CON GEMELLI',
@@ -2240,9 +2113,7 @@ const meals = [
             sodium: 0.70
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'CREMA DE TOMATE',
@@ -2286,9 +2157,7 @@ const meals = [
             sodium: 1.20
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'ESPINACAS CON MORNAY',
@@ -2332,9 +2201,7 @@ const meals = [
             sodium: 0.20
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'COULANT DE CHOCOLATE',
@@ -2378,9 +2245,7 @@ const meals = [
             sodium: 0.20
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'COCA LLANDA DE NARANJA',
@@ -2424,9 +2289,7 @@ const meals = [
             sodium: 0.10
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     },
     {
         name: 'FLAN DE FRESAS VEGANO',
@@ -2470,9 +2333,7 @@ const meals = [
             sodium: 0.00
         },
         lastWeekInMenu: new Date(),
-        popularity: {
-            averageRating: 0
-        }
+        averageRating: 0
     }
 ]
 

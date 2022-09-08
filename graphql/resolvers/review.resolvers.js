@@ -1,40 +1,30 @@
 import Review from './../../models/Review.js'
 import { AuthenticationError } from 'apollo-server'
 import Meal from '../../models/Meal.js'
+import updateMealRating from '../../utils/updateMealRating.js'
 
 const reviewResolvers = {
 
     Query: {
-        getReviews: async (_, { mealId }) => { // admin
+        getReviews: async (_, { mealID }, { currentUser }) => {
 
-            const reviews = await Review.find({ meal: mealId })
-            if (reviews.length !== 0) return reviews
-            else throw new Error('No reviews for this meal')
-            // no podemos devolver una string porque debe devolver un array
+            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+
+            return await Review.find({ meal: mealID }).populate('meal')
         }
     },
 
     Mutation: {
-        createReview: async (_, args, context) => {
+        createReview: async (_, { reviewData }, { currentUser }) => {
 
-            const { _id } = context.currentUser
-            if (!context.currentUser) throw new AuthenticationError('not authenticated')
+            if (!currentUser) throw new AuthenticationError('not authenticated')
 
-            const review = new Review({ ...args.reviewData, user: _id })
+            const review = new Review({ ...reviewData, user: currentUser._id })
             await review.save()
 
+            updateMealRating(reviewData.meal)
 
-            // UPDATE MEAL AVG RATING -- llevar a un util
-
-            const allReviews = await Review.find({ meal: args.reviewData.meal })
-            const ratings = allReviews.map(elm => elm.rating)
-
-            const total = ratings.reduce((acc, elm) => acc + elm)
-            const average = total / ratings.length
-
-            await Meal.findByIdAndUpdate(args.reviewData.meal, { popularity: { averageRating: average } })
-
-            return review
+            return await Review.findById(review._id).populate('meal')
         }
     }
 }

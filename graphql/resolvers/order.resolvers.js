@@ -3,6 +3,7 @@ import Subscription from '../../models/Subscription.js'
 import Meal from '../../models/Meal.js'
 import { ApolloError } from 'apollo-server'
 import { calculateDeliveryDate, getOrder, getOrders } from '../../utils/guille.js'
+import updateOrderPrice from '../../utils/updateOrderPrice.js'
 
 const orderResolvers = {
 
@@ -52,7 +53,6 @@ const orderResolvers = {
         getMyDeliveredOrders: async (_, args, { currentUser }) => {
 
             return getOrders(currentUser, 'Delivered')
-
         }
     },
 
@@ -63,14 +63,16 @@ const orderResolvers = {
 
             const { _id } = currentUser
             const subscription = await Subscription.findOne({ user: _id })
+            const isFirstOrder = !subscription.baseMenu.maxPrice
 
 
             const { deliveryWeekDay } = subscription
             const deliveryDate = calculateDeliveryDate(deliveryWeekDay)
 
 
+
             // BASE MENU
-            if (!subscription.baseMenu) {
+            if (isFirstOrder) {
 
                 const order = new Order({ subscription: subscription._id, deliveryDate: { day: deliveryDate } })
                 return order.save()
@@ -99,15 +101,12 @@ const orderResolvers = {
                 return await Order.findById(order._id).populate('meals.mealID')
             }
         },
-        
+
         addMealToOrder: async (_, args) => {
 
             const { orderID, mealID } = args
 
-            const order = await Order.findById(orderID).populate('meals.mealID')
-
-            // es realmente necesario ??? si el id va a salir del contexto del cliente 
-            if (order.status !== 'Actived') throw new ApolloError('Not able to add meal to the order')
+            const order = await Order.findById(orderID)
 
             const mealIsInOrder = order.meals.find(meal => meal.mealID == mealID)
 
@@ -121,16 +120,16 @@ const orderResolvers = {
             }
 
             await order.save()
-            return order.meals
+
+            const updatedOrder = await updateOrderPrice(orderID)
+
+            return updatedOrder.meals
         },
-        
+
         removeMealFromOrder: async (_, args) => {
             const { orderID, mealID } = args
 
             const order = await Order.findById(orderID)
-
-            // es realmente necesario ??? si el id va a salir del contexto del cliente 
-            if (order.status !== 'Actived') throw new ApolloError('Not able to remove meal from the order')
 
             const meal = order.meals.find(meal => meal.mealID == mealID)
             const mealIndex = order.meals.indexOf(meal) // mirar .findIndexOf
@@ -141,24 +140,11 @@ const orderResolvers = {
                 order.meals.splice(mealIndex, 1)
             }
 
-            order.save()
-            return order.meals
-        },
+            await order.save()
 
-        updateOrderPrice: async (_, args) => { // volver a intentar sacarlo a un util
-            const { orderID } = args
+            const updatedOrder = await updateOrderPrice(orderID)
 
-            const order = await Order.findById(orderID).populate('meals.mealID')
-
-            let price = 0
-
-            order.meals.forEach(meal => {
-                price += (meal.mealID.price * meal.quantity)
-            })
-
-            order.price = parseFloat(price.toFixed(2))
-
-            return await order.save()
+            return updatedOrder.meals
         },
 
         updateDeliveryDate: async (_, { orderID, deliveryDate }) => {

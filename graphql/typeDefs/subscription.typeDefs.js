@@ -67,7 +67,7 @@ const subscriptionTypeDefs = gql`
 
     input SubscriptionInput{
         address: AdressInput
-        deliveryWeekDay: String
+        deliveryWeekDay: DayOfTheWeek
     }
 
     input AdressInput {

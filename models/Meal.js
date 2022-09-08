@@ -113,14 +113,10 @@ const schema = new Schema(
         lastWeekInMenu: {
             type: Date
         },
-        popularity: {
-            averageRating: {
-                type: Number
-            },
-            timesOrdered: {
-                type: Number
-            }
-        }
+        averageRating: {
+            type: Number
+        },
+
     },
     {
         timestamps: true

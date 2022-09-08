@@ -80,10 +80,6 @@ const orderTypeDefs = gql`
             mealID: ID
         ): [OrderMeals]
 
-        updateOrderPrice(
-            orderID: ID, 
-        ): Order
-
         updateDeliveryDate(
             orderID: ID,
             deliveryDate: DeliveryDateInput
