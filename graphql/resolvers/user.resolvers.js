@@ -68,6 +68,29 @@ const userResolvers = {
             return updatedUser
         },
 
+        addPaymentMethod: async (_, { paymentMethodData }, { currentUser }) => {
+
+            const { _id } = currentUser
+
+            const updatedUser = await User.findByIdAndUpdate(_id, {
+                $addToSet: { paymentMethods: paymentMethodData }
+            }, { new: true })
+
+            return updatedUser
+
+        },
+
+        deletePaymentMethod: async (_, { paymentMethodID }, { currentUser }) => {
+
+            const { _id } = currentUser
+
+            const updatedUser = await User.findByIdAndUpdate(_id, {
+                $pull: { paymentMethods: { _id: { $eq: paymentMethodID } } }
+            }, { new: true })
+
+            return updatedUser
+        },
+
         deleteUser: async (_, { id }, { currentUser }) => {
 
             if (!currentUser || currentUser.role !== 'ADMIN') return null

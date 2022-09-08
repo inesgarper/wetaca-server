@@ -68,9 +68,7 @@ const orderTypeDefs = gql`
 
     type Mutation{
         
-        createOrder(
-            subscriptionID: ID,
-        ): Order
+        createOrder: Order
 
         addMealToOrder(
             orderID: ID,

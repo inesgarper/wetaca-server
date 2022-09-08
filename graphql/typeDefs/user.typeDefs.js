@@ -20,6 +20,7 @@ const userTypeDefs = gql`
         cardName: String
         securityCode: Int
         expiration: Date
+        id: ID!
     }
    
     type Token{
@@ -36,7 +37,6 @@ const userTypeDefs = gql`
         password: String
         phoneNumber: Int
         birthDate: Date
-        paymentMethods: PaymentMethodsInput
     }
 
     input PaymentMethodsInput{
@@ -65,6 +65,14 @@ const userTypeDefs = gql`
 
         updateUser(
             userData: UserInput
+        ): User
+
+        addPaymentMethod(
+            paymentMethodData: PaymentMethodsInput!
+        ): User
+
+        deletePaymentMethod(
+            paymentMethodID: ID!
         ): User
 
         deleteUser(
