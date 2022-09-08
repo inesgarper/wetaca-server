@@ -58,7 +58,6 @@ const orderResolvers = {
 
     Mutation: {
 
-        // TESTEAR UTIL CON BBDD CON BASE MENU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         createOrder: async (_, args, { currentUser }) => {
 
             const { _id } = currentUser
@@ -68,7 +67,6 @@ const orderResolvers = {
 
             const { deliveryWeekDay } = subscription
             const deliveryDate = calculateDeliveryDate(deliveryWeekDay)
-
 
 
             // BASE MENU
