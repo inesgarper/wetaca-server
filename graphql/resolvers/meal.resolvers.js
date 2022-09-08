@@ -2,6 +2,7 @@ import Meal from '../../models/Meal.js'
 import Order from '../../models/Order.js'
 import { ApolloError } from 'apollo-server'
 import setNewMenu from '../../utils/setNewMenu.js'
+import { getCookingList } from '../../utils/getCookingList.js'
 
 const mealResolvers = {
 
@@ -63,30 +64,12 @@ const mealResolvers = {
 
         getMenu: async () => await Meal.find({ currentlyInMenu: true }),
 
-        getMealsToCook: async (_, args, { currentUser }) => {
+        getMealsToCook: async () => {
 
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+            // if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
 
             const orders = await Order.find({ status: 'Ordered' }).populate('meals.mealID')
-            const cookingList = []
-
-            // util
-
-            orders.forEach(order => {
-                order.meals.forEach(meal => {
-
-                    const mealInCookingList = cookingList.find(elm => elm.meal.name === meal.mealID.name)
-
-                    if (mealInCookingList) {
-                        mealInCookingList.quantity += meal.quantity
-                    } else {
-                        cookingList.push({
-                            meal: meal.mealID,
-                            quantity: meal.quantity
-                        })
-                    }
-                })
-            })
+            const cookingList = getCookingList(orders)
 
             return cookingList
         }
