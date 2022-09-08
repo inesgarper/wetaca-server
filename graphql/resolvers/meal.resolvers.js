@@ -1,6 +1,7 @@
 import Meal from '../../models/Meal.js'
 import Order from '../../models/Order.js'
 import { ApolloError } from 'apollo-server'
+import setNewMenu from '../../utils/setNewMenu.js'
 
 const mealResolvers = {
 
@@ -119,14 +120,27 @@ const mealResolvers = {
 
             if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
 
-            return await Meal.findByIdAndUpdate(mealID, { currentlyInMenu: true }, { new: true })
+            return await Meal.findByIdAndUpdate(mealID, { nextWeekInMenu: true }, { new: true })
         },
 
         removeMealFromMenu: async (_, { mealID }, { currentUser }) => {
 
             if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
 
-            return await Meal.findByIdAndUpdate(mealID, { currentlyInMenu: false }, { new: true })
+            return await Meal.findByIdAndUpdate(mealID, { nextWeekInMenu: false }, { new: true })
+        },
+
+        publishNewMenu: async (_, args, { currentUser }) => {
+
+            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+
+            const mealsCurrentlyInMenu = await Meal.find({ currentlyInMenu: true })
+            const newMealsInMenu = await Meal.find({ nextWeekInMenu: true })
+
+            const menu = setNewMenu(mealsCurrentlyInMenu, newMealsInMenu)
+
+            return menu
+
         }
 
 

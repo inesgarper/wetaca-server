@@ -43,6 +43,7 @@ const mealTypeDefs = gql`
         allergens: Allergens!
         nutritionalValues: NutritionalValues!
         currentlyInMenu: Boolean
+        nextWeekInMenu: Boolean
         lastWeekInMenu: Date
         averageRating: Float!
         id: ID!
