@@ -38,12 +38,13 @@ const mealTypeDefs = gql`
         category: MealCategory!
         weight: Int!
         price: Float!
+        images: Images
         description: String!
         allergens: Allergens!
         nutritionalValues: NutritionalValues!
         currentlyInMenu: Boolean
         lastWeekInMenu: Date
-        popularity: Popularity!
+        averageRating: Float!
         id: ID!
     }
    
@@ -75,9 +76,9 @@ const mealTypeDefs = gql`
         sodium: Float
     }
 
-    type Popularity{
-        averageRating: Float
-        timesOrdered: Int
+    type Images{
+        finals: [String]
+        wip: [String]
     }
 
     type MealToCook {
@@ -95,11 +96,11 @@ const mealTypeDefs = gql`
         category: MealCategory
         weight: Int
         price: Float
+        images: ImagesInput
         description: String
         allergens: AllergensInput
         nutritionalValues: NutritionalValuesInput
         lastWeekInMenu: Date
-        popularity: PopularityInput
     }
 
     input AllergensInput{
@@ -130,9 +131,9 @@ const mealTypeDefs = gql`
         sodium: Float
     }
 
-    input PopularityInput{
-        averageRating: Float
-        timesOrdered: Int
+    input ImagesInput {
+        finals: [String]
+        wip: [String]
     }
 
 

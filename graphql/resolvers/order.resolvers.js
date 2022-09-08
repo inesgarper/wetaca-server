@@ -1,6 +1,7 @@
 import Order from '../../models/Order.js'
 import Subscription from '../../models/Subscription.js'
 import Meal from '../../models/Meal.js'
+import updateOrderPrice from '../../utils/updateOrderPrice.js'
 
 const orderResolvers = {
 
@@ -55,11 +56,11 @@ const orderResolvers = {
 
             const { subscriptionID } = args
             const subscription = await Subscription.findById(subscriptionID)
+            const isFirstOrder = !subscription.baseMenu.maxPrice
 
             // DELIVERY DATE -- pasar a un util 
 
-            const subs = await Subscription.findById(subscriptionID)
-            const { deliveryWeekDay } = subs
+            const { deliveryWeekDay } = subscription
 
             if (deliveryWeekDay === 0) deliveryWeekDay = 7
 
@@ -73,8 +74,9 @@ const orderResolvers = {
             const deliveryDate = new Date(todayDate.setDate(todayDate.getDate() + daysToDeliver))
 
 
+
             // BASE MENU
-            if (!subscription.baseMenu) {
+            if (isFirstOrder) {
 
                 const order = new Order({ subscription: subscriptionID, deliveryDate: { day: deliveryDate } })
                 return order.save()
@@ -108,7 +110,7 @@ const orderResolvers = {
 
             const { orderID, mealID } = args
 
-            const order = await Order.findById(orderID).populate('meals.mealID')
+            const order = await Order.findById(orderID)
 
             if (order.status !== 'Actived') return // lanzar un error. No se puede modificar un pedido si está 'ordered' o 'delivered'
 
@@ -125,7 +127,10 @@ const orderResolvers = {
             }
 
             await order.save()
-            return order.meals
+
+            const updatedOrder = await updateOrderPrice(orderID)
+
+            return updatedOrder.meals
         },
 
         removeMealFromOrder: async (_, args) => {
@@ -138,27 +143,17 @@ const orderResolvers = {
             const meal = order.meals.find(meal => meal.mealID == mealID)
             const mealIndex = order.meals.indexOf(meal) // mirar .findIndexOf
 
-            if (meal.quantity > 1) meal.quantity-- // abrir
-            else if (meal.quantity === 1) order.meals.splice(mealIndex, 1)
+            if (meal.quantity > 1) {
+                meal.quantity--
+            } else if (meal.quantity === 1) {
+                order.meals.splice(mealIndex, 1)
+            }
 
-            order.save()
-            return order.meals
-        },
+            await order.save()
 
-        updateOrderPrice: async (_, args) => { // volver a intentar sacarlo a un util
-            const { orderID } = args
+            const updatedOrder = await updateOrderPrice(orderID)
 
-            const order = await Order.findById(orderID).populate('meals.mealID')
-
-            let price = 0
-
-            order.meals.forEach(meal => {
-                price += (meal.mealID.price * meal.quantity)
-            })
-
-            order.price = parseFloat(price.toFixed(2))
-
-            return await order.save()
+            return updatedOrder.meals
         },
 
         updateDeliveryDate: async (_, args) => {
