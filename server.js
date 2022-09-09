@@ -43,53 +43,38 @@ server.listen().then(({ url }) => {
 })
 
 
-// TESTS
+// // TESTS
 
-const testUser = {
-    _id: '631a3acd1c4d5400e3499e73',
-    role: 'ADMIN'
-}
+// const testUser = {
+//     _id: '631a3acd1c4d5400e3499e73',
+//     role: 'ADMIN'
+// }
 
-export function getContext(models, viewer) {
-    return {
-        ...models,
-        viewer
-    }
-}
+// export function getContext(models, viewer) {
+//     return {
+//         ...models,
+//         viewer
+//     }
+// }
 
-const testServer = new ApolloServer({
-    schema: schemaWithMiddleware,
-    context: {
-        currentUser: testUser
-    }
-})
-
-export default testServer
-
-
-
-
-
-
-
-
-// const server = new ApolloServer({
-//     typeDefs,
-//     resolvers,
-//     context: async ({ req }) => {
-//         const auth = req ? req.headers.authorization : null
-
-//         if (auth && (auth.startsWith('bearer ') || auth.startsWith('Bearer '))) {
-//             const token = auth.substring(7)
-//             const { _id } = jwt.verify(token, 'secret')
-//             const currentUser = await User.findById(_id)
-//             return { currentUser }
-//         }
+// const testServer = new ApolloServer({
+//     schema: schemaWithMiddleware,
+//     context: {
+//         currentUser: testUser
 //     }
 // })
 
-// server.listen().then(({ url }) => {
-//     console.log(`Server ready at ${url}`)
-// })
 
-// export default server
+// // const testServer = () => {
+// //     const server = new ApolloServer({
+// //         schema: schemaWithMiddleware,
+// //         context: {
+// //             currentUser: testUser
+// //         }
+// //     })
+
+// //     // return server.listen()
+// // }
+
+
+// export default testServer

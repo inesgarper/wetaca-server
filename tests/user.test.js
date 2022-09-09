@@ -2,11 +2,20 @@ import { gql } from "apollo-server"
 import mongoose from "mongoose"
 import { typeDefs } from "../graphql/typeDefs"
 import User from "../models/User"
-import testServer from "../server"
+import testServer, { userContext } from "../testServer"
+import { user } from "./helpers"
+
 
 beforeAll(async () => {
-    // await User.findOneAndDelete({ name: 'Test', email: 'test@gmail.com' })
-    await User.findOneAndDelete({ name: 'Test-Delete', email: 'test-delete@gmail.com' })
+
+    await User.deleteMany()
+
+    const newUser = new User(user)
+    await newUser.save()
+
+    userContext._id = newUser.id
+
+    // await User.findOneAndDelete({ name: 'Test-Delete', email: 'test-delete@gmail.com' })
 })
 
 
@@ -147,7 +156,6 @@ describe('DELETE USER', () => {
         expect(foundUser).toBeFalsy()
 
     })
-
 })
 
 // FUNCIONA
@@ -163,7 +171,7 @@ describe('LOGIN', () => {
                 }
             `,
             variables: {
-                email: "test@gmail.com",
+                email: "testuser@gmail.com",
                 password: "password1"
             }
         })
@@ -183,7 +191,7 @@ describe('LOGIN', () => {
             `,
             variables: {
                 email: "",
-                password: "password1"
+                password: "password"
             }
         })
 
@@ -203,8 +211,8 @@ describe('LOGIN', () => {
                 }
             `,
             variables: {
-                email: "test@gmail.com",
-                password: "password11"
+                email: "testuser@gmail.com",
+                password: "password"
             }
         })
 
@@ -260,7 +268,7 @@ describe('UPDATE USER', () => {
     })
 })
 
-// FUNCIONA
+
 describe('GET ALL USERS', () => {
 
     it('Should return an array of users', async () => {
@@ -282,73 +290,36 @@ describe('GET ALL USERS', () => {
 })
 
 // COMPROBAR
+
 describe('GET CURRENT USER', () => {
 
     // it('Should return an error if there is no user logged in', async () => {
 
     // })
 
-    // it('Should return the logged in user', async () => {
+    it('Should return the logged in user', async () => {
 
-    //     const getContext = () => {
-    //         const dataloaders = Object.keys(loaders).reduce((dataloaders, loaderKey) => ({
-    //             ...dataloaders,
-    //             [loaderKey]: loaders[loaderKey].getLoader(),
-    //         }), {});
+        const result = await testServer.executeOperation({
+            query: gql`
+                query{
+                    getCurrentUser {
+                        name
+                        id
+                    }
+                }
+            `
+        })
+        expect(result.data.getCurrentUser.name).toBe('Test')
 
-    //         return {
-    //             ...context,
-    //             req: {},
-    //             dataloaders,
-    //         };
-    //     }
-
-    //     const token = await testServer.executeOperation({
-    //         query: gql`
-    //             mutation {
-    //                 login(
-    //                     email: "test@gmail.com",
-    //                     password: "password1"
-    //                 ){
-    //                     value
-    //                 }
-    //             }
-    //         `
-    //     })
-
-    //     const currentUser = await testServer.executeOperation({
-    //         query: gql`
-    //             query{
-    //                 getCurrentUser{
-    //                     name
-    //                 }
-    //             }
-    //         `,
-    //         context: getContext
-    //         // http: {
-    //         //     headers: {
-    //         //         authorization: `Bearer ${token.data.login.value}`
-    //         //     }
-    //         // }
-    //     })
-
-    //     console.log('el usuario ---------------------------------->', currentUser)
-
-    //     expect(currentUser.data.getCurrentUser.name).toEqual('TestUpdated' || 'Test')
-
-    // })
-
+    })
 })
 
+
 // FUNCIONA
+
 describe('GraphQL Schemas', () => {
 
     it('Should match the GraphQL TypeDefs', () => {
         expect(typeDefs).toMatchSnapshot()
     })
-
-})
-
-afterAll(() => {
-    mongoose.connection.close()
 })

@@ -1,7 +1,6 @@
 import Review from './../../models/Review.js'
-import { AuthenticationError } from 'apollo-server'
-import Meal from '../../models/Meal.js'
 import updateMealRating from '../../utils/updateMealRating.js'
+import { UserInputError } from 'apollo-server'
 
 const reviewResolvers = {
 
@@ -14,6 +13,8 @@ const reviewResolvers = {
         createReview: async (_, { reviewData }, { currentUser }) => {
 
             const { _id } = currentUser
+
+            if (!reviewData.rating) throw new UserInputError('Rating must be provided')
 
             const review = new Review({ ...reviewData, user: _id })
             await review.save()

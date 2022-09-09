@@ -1,42 +1,11 @@
-import { gql } from "apollo-server"
-import { typeDefs } from "../graphql/typeDefs"
-import testServer from "../server"
+import { gql } from 'apollo-server'
+import mongoose from 'mongoose'
+import testServer from '../testServer'
 
-jest.useFakeTimers()
-
-// beforeEach(() => {
-//     jest.setTimeout(200000);
-// });
-
-// describe('CREATE REVIEW', () => {
-//     it('Should return the new review', async () => {
-//         const result = await server.executeOperation({
-//             query: gql`
-//                 mutation($reviewData: ReviewInput!){
-//                     createReview(reviewData: $reviewData) {
-//                         comment
-//                         user{
-//                             name
-//                         }
-//                     }
-//                 }
-//             `,
-//             variables: {
-//                 reviewData: {
-//                     rating: 3.2,
-//                     meal: "630d14cef19d5545b990ec85",
-//                     comment: "Muy rico",
-//                 }
-//             }
-//         })
-
-//         console.log('k esta pasando ??? ----->', result)
-//         expect(result.data.createReview).toBeTruthy()
-//     })
-// })
 
 describe('GET REVIEWS', () => {
     it('Should return an array of reviews', async () => {
+
         const result = await testServer.executeOperation({
             query: gql`
                 query($mealId: ID!){
@@ -53,27 +22,71 @@ describe('GET REVIEWS', () => {
             }
         })
 
-        console.log('k esta pasando ??? ----->', result)
         expect(result.data.getReviews).toBeTruthy()
+        expect(typeof result.data.getReviews.length).toBe('number')
     })
 })
 
+describe('CREATE REVIEW', () => {
+    it('Creates review if provide all necessary inputs', async () => {
 
-// describe('SOMETHING', () => {
-//     it('SOMETHING', async () => {
-//         const result = await server.executeOperation({
-//             query: gql`
-//                 QUERYTYPE {
-//                     QUERYNAME(
-//                         DATA: {
-                            
-//                         }
-//                     ){
-//                         SOMETHING
-//                     }
-//                 }
-//             `
-//         })
-//         expect(result.data.QUERYNAME).toBeTruthy()
-//     })
-// })
+        const result = await testServer.executeOperation({
+            query: gql`
+                mutation($reviewData: ReviewInput!){
+                    createReview(reviewData: $reviewData) {
+                        comment
+                        rating
+                }
+            }
+            `,
+            variables: {
+                reviewData: {
+                    comment: "Delicious!",
+                    meal: "6310833855420c72d0fe5244",
+                    rating: 4
+                }
+            }
+        })
+
+        expect(result.data.createReview).toBeTruthy()
+        expect(result.data.errors).toBeFalsy()
+        expect(result.data.createReview.comment).toBe('Delicious!')
+    })
+
+    // la rating da problemas
+    // it('Throws an error message if rating is not provided', async () => {
+
+    //     const result = await testServer.executeOperation({
+    //         query: gql`
+    //             mutation($reviewData: ReviewInput!){
+    //                 createReview(reviewData: $reviewData) {
+    //                     comment
+    //                     rating
+    //             }
+    //         }
+    //         `,
+    //         variables: {
+    //             reviewData: {
+    //                 comment: "Delicious!",
+    //                 meal: "6310833855420c72d0fe5244",
+    //                 rating: ""
+    //             }
+    //         }
+    //     })
+
+    //     console.log('k esta pasando ??? ----->', result)
+    //     expect(result.data.createReview).toBeFalsy()
+    //     expect(result.data.errors).toBeTruthy()
+    //     expect(result.errors[0].message).toBe('Rating must be provided')
+    // })
+
+    //update meal rating
+
+})
+
+
+
+afterAll(async () => {
+    await testServer?.stop()
+    await mongoose.connection.close()
+})
