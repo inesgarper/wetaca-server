@@ -1,4 +1,4 @@
-export const getCookingList = (orders) => {
+const getCookingList = (orders) => {
 
     const cookingList = []
 
@@ -20,3 +20,5 @@ export const getCookingList = (orders) => {
 
     return cookingList
 }
+
+export default getCookingList

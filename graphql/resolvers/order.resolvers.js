@@ -2,8 +2,9 @@ import Order from '../../models/Order.js'
 import Subscription from '../../models/Subscription.js'
 import Meal from '../../models/Meal.js'
 import { ApolloError } from 'apollo-server'
-import { calculateDeliveryDate, getOrder, getOrders } from '../../utils/guille.js'
+import { getOrder, getOrders } from '../../utils/getOrder.js'
 import updateOrderPrice from '../../utils/updateOrderPrice.js'
+import calculateDeliveryDate from '../../utils/calculateDeliveryDate.js'
 
 const orderResolvers = {
 
@@ -19,41 +20,18 @@ const orderResolvers = {
     },
 
     Query: {
-        getAllOrders: async (_, args, { currentUser }) => {
+        
+        getAllOrders: async () => await Order.find(),
 
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+        getOneOrder: async (_, { orderID }) => await Order.findById(orderID).populate('meals.mealID'),
 
-            return await Order.find()
-        },
+        getNextOrders: async () => await Order.find({ status: 'Ordered' }).populate('meals.mealID'),
 
-        getOneOrder: async (_, { orderID }, { currentUser }) => {
+        getMyActiveOrder: (_, args, { currentUser }) => getOrder(currentUser, 'Actived'),
 
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+        getMyNextOrder: async (_, args, { currentUser }) => getOrder(currentUser, 'Ordered'),
 
-            return await Order.findById(orderID).populate('meals.mealID')
-        },
-
-        getNextOrders: async (_, args, { currentUser }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
-
-            return await Order.find({ status: 'Ordered' }).populate('meals.mealID')
-        },
-
-        getMyActiveOrder: (_, args, { currentUser }) => {
-
-            return getOrder(currentUser, 'Actived')
-        },
-
-        getMyNextOrder: async (_, args, { currentUser }) => {
-
-            return getOrder(currentUser, 'Ordered')
-        },
-
-        getMyDeliveredOrders: async (_, args, { currentUser }) => {
-
-            return getOrders(currentUser, 'Delivered')
-        }
+        getMyDeliveredOrders: async (_, args, { currentUser }) => getOrders(currentUser, 'Delivered')
     },
 
     Mutation: {

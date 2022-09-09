@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import './db/index.js'
 
-import { ApolloServer, ApolloError } from 'apollo-server'
+import { ApolloServer } from 'apollo-server'
 import { typeDefs } from './graphql/typeDefs/index.js'
 import { resolvers } from './graphql/resolvers/index.js'
 import User from './models/User.js'
@@ -9,20 +9,9 @@ import jwt from 'jsonwebtoken'
 
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import { applyMiddleware } from 'graphql-middleware'
+import isAdminMiddleware from './middlewares/isAdmin.js'
+import isAuthenticatedMiddleware from './middlewares/isAuthenticated.js'
 
-
-
-const isAdminMiddleware = {
-    Query: {
-        getMealsToCook: async (resolve, parent, args, context, info) => {
-
-            if (!context.currentUser || context.currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
-
-            const result = await resolve(parent, args, context, info)
-            return result
-        }
-    }
-}
 
 const schema = makeExecutableSchema({
     typeDefs,
@@ -31,7 +20,8 @@ const schema = makeExecutableSchema({
 
 const schemaWithMiddleware = applyMiddleware(
     schema,
-    isAdminMiddleware
+    isAdminMiddleware,
+    isAuthenticatedMiddleware
 )
 
 const server = new ApolloServer({
@@ -52,7 +42,29 @@ server.listen().then(({ url }) => {
     console.log(`Server ready at ${url}`)
 })
 
-export default server
+
+// TESTS
+
+const testUser = {
+    _id: '631a3acd1c4d5400e3499e73',
+    role: 'ADMIN'
+}
+
+export function getContext(models, viewer) {
+    return {
+        ...models,
+        viewer
+    }
+}
+
+const testServer = new ApolloServer({
+    schema: schemaWithMiddleware,
+    context: {
+        currentUser: testUser
+    }
+})
+
+export default testServer
 
 
 

@@ -1,8 +1,7 @@
 import Meal from '../../models/Meal.js'
 import Order from '../../models/Order.js'
-import { ApolloError } from 'apollo-server'
 import setNewMenu from '../../utils/setNewMenu.js'
-import { getCookingList } from '../../utils/getCookingList.js'
+import getCookingList from '../../utils/getCookingList.js'
 
 const mealResolvers = {
 
@@ -32,12 +31,7 @@ const mealResolvers = {
     },
 
     Query: {
-        getAllMeals: async (_, args, { currentUser }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
-
-            return await Meal.find()
-        },
+        getAllMeals: async () => await Meal.find(),
 
         getMealDetails: async (_, { mealID }) => await Meal.findById(mealID),
 
@@ -55,18 +49,11 @@ const mealResolvers = {
             return nutritionalValuesPerPortion
         },
 
-        getMealsByCategory: async (_, { mealCategory }, { currentUser }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
-
-            return await Meal.find({ category: mealCategory })
-        },
+        getMealsByCategory: async (_, { mealCategory }) =>  await Meal.find({ category: mealCategory }),
 
         getMenu: async () => await Meal.find({ currentlyInMenu: true }),
 
         getMealsToCook: async () => {
-
-            // if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
 
             const orders = await Order.find({ status: 'Ordered' }).populate('meals.mealID')
             const cookingList = getCookingList(orders)
@@ -76,46 +63,34 @@ const mealResolvers = {
     },
 
     Mutation: {
-        addMeal: (_, { mealData }, { currentUser }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+        addMeal: (_, { mealData }) => {
 
             const meal = new Meal({ ...mealData })
             return meal.save()
         },
 
-        updateMeal: async (_, { mealID, mealData }, { currentUser }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+        updateMeal: async (_, { mealID, mealData }) => {
 
             return await Meal.findByIdAndUpdate(mealID, { $set: mealData }, { new: true })
         },
 
-        deleteMeal: async (_, { mealID }, { currentUser }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+        deleteMeal: async (_, { mealID }) => {
 
             const deletedMeal = await Meal.findByIdAndDelete(mealID)
             return `The meal ${deletedMeal.name} was successfully deleted!`
         },
 
-        addMealToMenu: async (_, { mealID }, { currentUser }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+        addMealToMenu: async (_, { mealID }) => {
 
             return await Meal.findByIdAndUpdate(mealID, { nextWeekInMenu: true }, { new: true })
         },
 
-        removeMealFromMenu: async (_, { mealID }, { currentUser }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+        removeMealFromMenu: async (_, { mealID }) => {
 
             return await Meal.findByIdAndUpdate(mealID, { nextWeekInMenu: false }, { new: true })
         },
 
-        publishNewMenu: async (_, args, { currentUser }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+        publishNewMenu: async () => {
 
             const mealsCurrentlyInMenu = await Meal.find({ currentlyInMenu: true })
             const newMealsInMenu = await Meal.find({ nextWeekInMenu: true })
@@ -123,10 +98,7 @@ const mealResolvers = {
             const menu = setNewMenu(mealsCurrentlyInMenu, newMealsInMenu)
 
             return menu
-
         }
-
-
     }
 }
 

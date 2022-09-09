@@ -6,20 +6,16 @@ import updateMealRating from '../../utils/updateMealRating.js'
 const reviewResolvers = {
 
     Query: {
-        getReviews: async (_, { mealID }, { currentUser }) => {
 
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
-
-            return await Review.find({ meal: mealID }).populate('meal')
-        }
+        getReviews: async (_, { mealID }) => await Review.find({ meal: mealID }).populate('meal')
     },
 
     Mutation: {
         createReview: async (_, { reviewData }, { currentUser }) => {
 
-            if (!currentUser) throw new AuthenticationError('not authenticated')
+            const { _id } = currentUser
 
-            const review = new Review({ ...reviewData, user: currentUser._id })
+            const review = new Review({ ...reviewData, user: _id })
             await review.save()
 
             updateMealRating(reviewData.meal)

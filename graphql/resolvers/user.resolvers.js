@@ -10,19 +10,9 @@ const userResolvers = {
 
     Query: {
 
-        getCurrentUser: (_, args, { currentUser }) => {
+        getCurrentUser: (_, args, { currentUser }) => currentUser,
 
-            if (!currentUser) throw new ApolloError('Log in required')
-
-            return currentUser
-        },
-
-        getAllUsers: async (_, args, { currentUser }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
-
-            return await User.find()
-        },
+        getAllUsers: async () => await User.find(),
     },
 
     Mutation: {
@@ -91,9 +81,7 @@ const userResolvers = {
             return updatedUser
         },
 
-        deleteUser: async (_, { id }, { currentUser }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') return null
+        deleteUser: async (_, { id }) => {
 
             const deletedUser = await User.findByIdAndDelete(id)
             return `User ${deletedUser.name} ${deletedUser.lastName} was deleted!`

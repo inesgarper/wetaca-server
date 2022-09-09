@@ -1,57 +1,64 @@
 import { gql } from "apollo-server"
+import mongoose from "mongoose"
 import { typeDefs } from "../graphql/typeDefs"
 import User from "../models/User"
-import server from "../server"
+import testServer from "../server"
 
 beforeAll(async () => {
-    await User.findOneAndDelete({ name: 'Test', email: 'test@gmail.com' })
+    // await User.findOneAndDelete({ name: 'Test', email: 'test@gmail.com' })
+    await User.findOneAndDelete({ name: 'Test-Delete', email: 'test-delete@gmail.com' })
 })
 
 
 describe('SIGNUP', () => {
     it('Creates user when providing correct data', async () => {
-        const result = await server.executeOperation({
+
+        const result = await testServer.executeOperation({
             query: gql`
-                mutation {
-                    createUser(
-                        userData: {
-                            name: "Test",
-                            lastName: "González",
-                            email: "test@gmail.com",
-                            password: "password1",
-                            phoneNumber: 123123123,
-                            birthDate: "1997/04/14"
-                        }
-                    ){
+                mutation($userData: UserInput){
+                    createUser(userData: $userData) {
                         name
+                        id
                     }
                 }
-            `
+            `,
+            variables: {
+                userData: {
+                    name: "SignUp",
+                    lastName: "Test",
+                    email: "signuptest@gmail.com",
+                    password: "password1",
+                    phoneNumber: 123123123,
+                    birthDate: "1997/04/14",
+                }
+            }
         })
+
         expect(result.data.createUser).toBeTruthy()
         expect(result.errors).toBeFalsy()
-        expect(result.data.createUser.name).toBe('Test')
+        expect(result.data.createUser.name).toBe('SignUp')
 
     })
 
     it('Throws error if user does not provide all inputs', async () => {
-        const result = await server.executeOperation({
+        const result = await testServer.executeOperation({
             query: gql`
-                mutation {
-                    createUser(
-                        userData: {
-                            name: "",
-                            lastName: "González",
-                            email: "test@gmail.com",
-                            password: "password1",
-                            phoneNumber: 123123123,
-                            birthDate: "1997/04/14"
-                        }
-                    ){
+                mutation($userData: UserInput){
+                    createUser(userData: $userData) {
                         name
                     }
                 }
-            `
+            `,
+            variables: {
+                userData: {
+                    name: "",
+                    lastName: "Test",
+                    email: "signuptest@gmail.com",
+                    password: "password1",
+                    phoneNumber: 123123123,
+                    birthDate: "1997/04/14",
+                }
+            }
         })
 
         expect(result.data.createUser).toBeFalsy()
@@ -61,23 +68,24 @@ describe('SIGNUP', () => {
     })
 
     it('Throws error if email is not valid', async () => {
-        const result = await server.executeOperation({
+        const result = await testServer.executeOperation({
             query: gql`
-                mutation {
-                    createUser(
-                        userData: {
-                            name: "Test",
-                            lastName: "González",
-                            email: "test123gmail.com",
-                            password: "password1",
-                            phoneNumber: 123123123,
-                            birthDate: "1997/04/14"
-                        }
-                    ){
+                mutation($userData: UserInput){
+                    createUser(userData: $userData) {
                         name
                     }
                 }
-            `
+            `,
+            variables: {
+                userData: {
+                    name: "SignUp",
+                    lastName: "Test",
+                    email: "signuptestgmail.com",
+                    password: "password1",
+                    phoneNumber: 123123123,
+                    birthDate: "1997/04/14",
+                }
+            }
         })
 
         expect(result.data.createUser).toBeFalsy()
@@ -87,23 +95,24 @@ describe('SIGNUP', () => {
     })
 
     it('Throws error if email already registered', async () => {
-        const result = await server.executeOperation({
+        const result = await testServer.executeOperation({
             query: gql`
-                mutation {
-                    createUser(
-                        userData: {
-                            name: "Test",
-                            lastName: "González",
-                            email: "test@gmail.com",
-                            password: "password1",
-                            phoneNumber: 123123123,
-                            birthDate: "1997/04/14"
-                        }
-                    ){
+                mutation($userData: UserInput){
+                    createUser(userData: $userData) {
                         name
                     }
                 }
-            `
+            `,
+            variables: {
+                userData: {
+                    name: "SignUp",
+                    lastName: "Test",
+                    email: "signuptest@gmail.com",
+                    password: "password1",
+                    phoneNumber: 123123123,
+                    birthDate: "1997/04/14",
+                }
+            }
         })
 
         expect(result.data.createUser).toBeFalsy()
@@ -111,90 +120,71 @@ describe('SIGNUP', () => {
         expect(result.errors[0].message).toBe('Email already registered')
 
     })
-
 })
 
-
+// FUNCIONA
 describe('DELETE USER', () => {
 
     it('Should delete the user and return confirmation message', async () => {
-        const createdUser = await server.executeOperation({
-            query: gql`
-                mutation {
-                    createUser(
-                        userData: {
-                            name: "Test",
-                            lastName: "González",
-                            email: "test-delete@gmail.com",
-                            password: "password1",
-                            phoneNumber: 123123123,
-                            birthDate: "1997/04/14"
-                        }
-                    ){
-                        name
-                        id
-                    }
-                }
-            `
-        })
 
-        const result = await server.executeOperation({
+        const user = await User.findOne({ email: "signuptest@gmail.com" })
+
+        const result = await testServer.executeOperation({
             query: gql`
-                mutation($deleteUserId: ID!) {
+                mutation($deleteUserId: ID!){
                     deleteUser(id: $deleteUserId)
                 }
             `,
             variables: {
-                deleteUserId: createdUser.data.createUser.id
+                deleteUserId: user.id
             }
         })
 
-        const foundUser = await User.findById(createdUser.data.createUser.id)
+        const foundUser = await User.findById(user.id)
 
         expect(result.data.deleteUser).toBeTruthy()
-        expect(result.data.deleteUser).toBe('User deleted')
+        expect(result.data.deleteUser).toBe('User SignUp Test was deleted!')
         expect(foundUser).toBeFalsy()
 
     })
 
 })
 
-
+// FUNCIONA
 describe('LOGIN', () => {
 
     it('Returns a JWT Token', async () => {
-        const result = await server.executeOperation({
+        const result = await testServer.executeOperation({
             query: gql`
-                mutation {
-                    login(
-                        email: "test@gmail.com",
-                        password: "password1"
-                    ){
+                mutation Login($email: String!, $password: String!) {
+                    login(email: $email, password: $password) {
                         value
                     }
                 }
-            `
+            `,
+            variables: {
+                email: "test@gmail.com",
+                password: "password1"
+            }
         })
-
-        console.log('Prueba de contexto ---------------------------------------->', server.context(result))
-
 
         expect(result.data.login).toBeTruthy()
         expect(result.data.login.value).toBeTruthy()
     })
 
     it('Throws an error if email or password is empty', async () => {
-        const result = await server.executeOperation({
+        const result = await testServer.executeOperation({
             query: gql`
-                mutation {
-                    login(
-                        email: "",
-                        password: "password1"
-                    ){
+                mutation Login($email: String!, $password: String!) {
+                    login(email: $email, password: $password) {
                         value
                     }
                 }
-            `
+            `,
+            variables: {
+                email: "",
+                password: "password1"
+            }
         })
 
         expect(result.data.login).toBeFalsy()
@@ -204,17 +194,18 @@ describe('LOGIN', () => {
     })
 
     it('Throws an error if password is wrong', async () => {
-        const result = await server.executeOperation({
+        const result = await testServer.executeOperation({
             query: gql`
-                mutation {
-                    login(
-                        email: "test@gmail.com",
-                        password: "password11"
-                    ){
+                mutation Login($email: String!, $password: String!) {
+                    login(email: $email, password: $password) {
                         value
                     }
                 }
-            `
+            `,
+            variables: {
+                email: "test@gmail.com",
+                password: "password11"
+            }
         })
 
         expect(result.errors[0].message).toBe('Wrong credentials')
@@ -223,7 +214,7 @@ describe('LOGIN', () => {
 
     // it('Throws an error if email is not registered', async () => {
 
-    //     const result = server.executeOperation({
+    //     const result = testServer.executeOperation({
     //         query: gql`
     //                 mutation {
     //                     login(
@@ -243,23 +234,21 @@ describe('LOGIN', () => {
 
 })
 
+// FUNCIONA
 describe('UPDATE USER', () => {
 
     it('Should return updated user', async () => {
 
-        const foundUser = await User.findOne({ email: 'test@gmail.com' })
-
-        const updatedUser = await server.executeOperation({
+        const updatedUser = await testServer.executeOperation({
             query: gql`
-                mutation($updateUserId: ID!, $user: UserInput ){
-                    updateUser(id: $updateUserId, user: $user) {
+                mutation($userData: UserInput){
+                    updateUser(userData: $userData) {
                         phoneNumber
                     }
                 }
             `,
             variables: {
-                updateUserId: foundUser.id,
-                user: {
+                userData: {
                     phoneNumber: 111222333
                 }
             }
@@ -269,18 +258,14 @@ describe('UPDATE USER', () => {
         expect(updatedUser.errors).toBeFalsy()
 
     })
-
 })
 
+// FUNCIONA
 describe('GET ALL USERS', () => {
-
-    // it('Should return an error if there are no users', async () => {
-
-    // })
 
     it('Should return an array of users', async () => {
 
-        const users = await server.executeOperation({
+        const users = await testServer.executeOperation({
             query: gql`
                 query{
                     getAllUsers{
@@ -294,9 +279,9 @@ describe('GET ALL USERS', () => {
         expect(typeof users.data.getAllUsers.length).toBe('number')
 
     })
-
 })
 
+// COMPROBAR
 describe('GET CURRENT USER', () => {
 
     // it('Should return an error if there is no user logged in', async () => {
@@ -318,7 +303,7 @@ describe('GET CURRENT USER', () => {
     //         };
     //     }
 
-    //     const token = await server.executeOperation({
+    //     const token = await testServer.executeOperation({
     //         query: gql`
     //             mutation {
     //                 login(
@@ -331,7 +316,7 @@ describe('GET CURRENT USER', () => {
     //         `
     //     })
 
-    //     const currentUser = await server.executeOperation({
+    //     const currentUser = await testServer.executeOperation({
     //         query: gql`
     //             query{
     //                 getCurrentUser{
@@ -355,7 +340,7 @@ describe('GET CURRENT USER', () => {
 
 })
 
-
+// FUNCIONA
 describe('GraphQL Schemas', () => {
 
     it('Should match the GraphQL TypeDefs', () => {
@@ -364,6 +349,6 @@ describe('GraphQL Schemas', () => {
 
 })
 
-// afterAll(() => {
-//     server.stop()
-// })
+afterAll(() => {
+    mongoose.connection.close()
+})

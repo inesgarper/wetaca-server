@@ -1,7 +1,7 @@
 import Subscription from './../../models/Subscription.js'
 import Order from './../../models/Order.js'
 import setBaseMenu from '../../utils/setBaseMenu.js'
-import { ApolloError, AuthenticationError } from 'apollo-server'
+import { ApolloError, AuthenticationError, UserInputError } from 'apollo-server'
 
 const subscriptionResolvers = {
 
@@ -21,27 +21,11 @@ const subscriptionResolvers = {
 
     Query: {
 
-        getAllSubs: async () => {
+        getAllSubs: async () => await Subscription.find().populate('user'),
 
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
-
-            const allSubs = await Subscription.find().populate('user')
-            console.log(allSubs)
-            return allSubs
-        },
-
-        getOneUserSubs: async (_, { user }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
-
-            const subs = await Subscription.find({ user })
-
-            return subs
-        },
+        getOneUserSubs: async (_, { user }) => await Subscription.find({ user }).populate('user'),
 
         getMySubs: async (_, args, { currentUser }) => {
-
-            if (!currentUser) throw new AuthenticationError('not authenticated')
 
             const { _id } = currentUser
 
@@ -57,9 +41,7 @@ const subscriptionResolvers = {
 
     Mutation: {
 
-        createSubscription: (_, { subscriptionData }, {currentUser}) => {
-
-            if (!currentUser) throw new AuthenticationError('not authenticated')
+        createSubscription: (_, { subscriptionData }, { currentUser }) => {
 
             const { _id } = currentUser
             const { address, deliveryWeekDay } = subscriptionData
@@ -68,33 +50,40 @@ const subscriptionResolvers = {
             return subscription.save()
         },
 
-        updateStatus: async (_, { subs, status }) => {
+        updateSubscriptionStatus: async (_, { status }, { currentUser }) => {
 
-            if (!currentUser) throw new AuthenticationError('not authenticated')
+            if (status !== 'Actived' && status !== 'Paused' && status !== 'Cancelled') {
+                throw new UserInputError('Status not valid.')
+            }
 
-            const updatedSubs = await Subscription.findByIdAndUpdate(subs, { status }, { new: true })
-            return updatedSubs
+            const { _id } = currentUser
+
+            const updatedSubs = await Subscription.findOne({ user: _id })
+            updatedSubs.status = status
+
+            return updatedSubs.save()
+
         },
 
-        updateDeliveryWeekDay: async (_, { subs, day }) => {
+        updateDeliveryWeekDay: async (_, { day }, { currentUser }) => {
 
-            if (!currentUser) throw new AuthenticationError('not authenticated')
+            const { _id } = currentUser
 
-            const updatedSubs = await Subscription.findByIdAndUpdate(subs, { deliveryWeekDay: day }, { new: true })
-            return updatedSubs
+            if (day === '4' || day === '5') throw new UserInputError('Day not available')
+
+            const updatedSubs = await Subscription.findOne({ user: _id })
+            updatedSubs.deliveryWeekDay = day
+
+            return updatedSubs.save()
         },
 
         deleteSubscription: async (_, { subs }) => {
-
-            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
 
             await Subscription.findByIdAndDelete(subs)
             return 'Subscription deleted'
         },
 
         createBaseMenu: async (_, { orderID }) => {
-
-            if (!currentUser) throw new AuthenticationError('not authenticated')
 
             const order = await Order.findById(orderID).populate('meals.mealID')
 

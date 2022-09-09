@@ -103,13 +103,11 @@ const subscriptionTypeDefs = gql`
             subscriptionData: SubscriptionInput!
         ) : Subscription
 
-        updateStatus(
-            subs: ID!, 
+        updateSubscriptionStatus(
             status: String!
         ): Subscription
 
         updateDeliveryWeekDay(
-            subs: ID!, 
             day: String!
         ): Subscription
 
