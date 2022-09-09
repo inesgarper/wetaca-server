@@ -64,9 +64,9 @@ const mealResolvers = {
 
         getMenu: async () => await Meal.find({ currentlyInMenu: true }),
 
-        getMealsToCook: async () => {
+        getMealsToCook: async (_, args, { currentUser }) => {
 
-            // if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
+            if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
 
             const orders = await Order.find({ status: 'Ordered' }).populate('meals.mealID')
             const cookingList = getCookingList(orders)
@@ -76,7 +76,7 @@ const mealResolvers = {
     },
 
     Mutation: {
-        addMeal: (_, { mealData }, { currentUser }) => {
+        createMeal: (_, { mealData }, { currentUser }) => {
 
             if (!currentUser || currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
 
