@@ -53,7 +53,7 @@ const mealResolvers = {
 
         getMenu: async () => await Meal.find({ currentlyInMenu: true }),
 
-        getMealsToCook: async () => {
+        getMealsToCook: async (_, args, { currentUser }) => {
 
             const orders = await Order.find({ status: 'Ordered' }).populate('meals.mealID')
             const cookingList = getCookingList(orders)
@@ -63,7 +63,7 @@ const mealResolvers = {
     },
 
     Mutation: {
-        addMeal: (_, { mealData }) => {
+        createMeal: (_, { mealData }) => {
 
             const meal = new Meal({ ...mealData })
             return meal.save()

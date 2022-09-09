@@ -166,7 +166,7 @@ const mealTypeDefs = gql`
 
     type Mutation{
         
-        addMeal(
+        createMeal(
             mealData: MealInput
         ): Meal,
 
