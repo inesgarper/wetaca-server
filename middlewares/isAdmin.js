@@ -35,7 +35,7 @@ const isAdminMiddleware = {
 
         deleteSubscription: isAdmin,
 
-        addMeal: isAdmin,
+        createMeal: isAdmin,
         updateMeal: isAdmin,
         deleteMeal: isAdmin,
         addMealToMenu: isAdmin,

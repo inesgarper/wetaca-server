@@ -1,8 +1,10 @@
 import { gql } from "apollo-server"
+import mongoose from "mongoose"
 import { typeDefs } from "../graphql/typeDefs"
 import testServer from "../server"
 
-jest.useFakeTimers()
+// jest.useFakeTimers()
+
 
 // beforeEach(() => {
 //     jest.setTimeout(200000);
@@ -66,7 +68,7 @@ describe('GET REVIEWS', () => {
 //                 QUERYTYPE {
 //                     QUERYNAME(
 //                         DATA: {
-                            
+
 //                         }
 //                     ){
 //                         SOMETHING
@@ -77,3 +79,7 @@ describe('GET REVIEWS', () => {
 //         expect(result.data.QUERYNAME).toBeTruthy()
 //     })
 // })
+
+afterAll(async () => {
+    await mongoose.connection.close()
+})

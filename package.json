@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest --detectOpenHandles",
+    "test": "jest --runInBand --detectOpenHandles --forceExit ./tests",
     "dev": "nodemon server.js"
   },
   "repository": {
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/inesgarper/wetaca-server#readme",
   "dependencies": {
     "apollo-server": "^3.10.1",
+    "babel-jest": "^29.0.2",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.31.0",
     "dotenv": "^16.0.1",
