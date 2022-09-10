@@ -2664,7 +2664,7 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
             "kind": "FieldDefinition",
             "name": {
               "kind": "Name",
-              "value": "addMeal",
+              "value": "createMeal",
             },
             "type": {
               "kind": "NamedType",
@@ -2871,7 +2871,7 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
     ],
     "kind": "Document",
     "loc": {
-      "end": 3750,
+      "end": 3753,
       "start": 0,
     },
   },

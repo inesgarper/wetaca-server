@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-mongoose.connect('mongodb://localhost/wetaca')
+mongoose.connect('mongodb://localhost/wetacaTest')
     .then((x) => {
         console.log(`Connected to MongoDB! Database name: ${x.connections[0].name}`)
     })
