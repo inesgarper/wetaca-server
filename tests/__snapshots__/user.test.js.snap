@@ -1984,23 +1984,6 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
               },
             },
           },
-          {
-            "defaultValue": undefined,
-            "description": undefined,
-            "directives": [],
-            "kind": "InputValueDefinition",
-            "name": {
-              "kind": "Name",
-              "value": "lastWeekInMenu",
-            },
-            "type": {
-              "kind": "NamedType",
-              "name": {
-                "kind": "Name",
-                "value": "Date",
-              },
-            },
-          },
         ],
         "kind": "InputObjectTypeDefinition",
         "name": {
@@ -2871,7 +2854,7 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
     ],
     "kind": "Document",
     "loc": {
-      "end": 3753,
+      "end": 3724,
       "start": 0,
     },
   },

@@ -50,6 +50,7 @@ const initialMeals = [
             fiber: 0.10,
             sodium: 0.10
         },
+        currentlyInMenu: true,
         lastWeekInMenu: new Date(),
         averageRating: 3
     },
@@ -94,6 +95,7 @@ const initialMeals = [
             fiber: 0.10,
             sodium: 0.20
         },
+        currentlyInMenu: false,
         lastWeekInMenu: new Date(),
         averageRating: 3
     }
