@@ -101,7 +101,6 @@ const mealTypeDefs = gql`
         description: String
         allergens: AllergensInput
         nutritionalValues: NutritionalValuesInput
-        lastWeekInMenu: Date
     }
 
     input AllergensInput{
