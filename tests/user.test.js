@@ -14,8 +14,6 @@ beforeAll(async () => {
     await newUser.save()
 
     userContext._id = newUser.id
-
-    // await User.findOneAndDelete({ name: 'Test-Delete', email: 'test-delete@gmail.com' })
 })
 
 
