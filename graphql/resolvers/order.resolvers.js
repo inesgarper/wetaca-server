@@ -20,7 +20,7 @@ const orderResolvers = {
     },
 
     Query: {
-        
+
         getAllOrders: async () => await Order.find(),
 
         getOneOrder: async (_, { orderID }) => await Order.findById(orderID).populate('meals.mealID'),
@@ -78,11 +78,12 @@ const orderResolvers = {
             }
         },
 
-        addMealToOrder: async (_, args) => {
+        addMealToOrder: async (_, { mealID }, { currentUser }) => {
 
-            const { orderID, mealID } = args
+            const { _id } = currentUser
 
-            const order = await Order.findById(orderID)
+            const subscription = await Subscription.findOne({ user: _id })
+            const order = await Order.findOne({ subscription: subscription._id, status: 'Actived' })
 
             const mealIsInOrder = order.meals.find(meal => meal.mealID == mealID)
 
@@ -97,18 +98,20 @@ const orderResolvers = {
 
             await order.save()
 
-            const updatedOrder = await updateOrderPrice(orderID)
+            const updatedOrder = await updateOrderPrice(order._id)
 
             return updatedOrder.meals
         },
 
-        removeMealFromOrder: async (_, args) => {
-            const { orderID, mealID } = args
+        removeMealFromOrder: async (_, { mealID }, { currentUser }) => {
 
-            const order = await Order.findById(orderID)
+            const { _id } = currentUser
+
+            const subscription = await Subscription.findOne({ user: _id })
+            const order = await Order.findOne({ subscription: subscription._id, status: 'Actived' })
 
             const meal = order.meals.find(meal => meal.mealID == mealID)
-            const mealIndex = order.meals.indexOf(meal) // mirar .findIndexOf
+            const mealIndex = order.meals.indexOf(meal)
 
             if (meal.quantity > 1) {
                 meal.quantity--
@@ -118,23 +121,31 @@ const orderResolvers = {
 
             await order.save()
 
-            const updatedOrder = await updateOrderPrice(orderID)
+            const updatedOrder = await updateOrderPrice(order._id)
 
             return updatedOrder.meals
         },
 
-        updateDeliveryDate: async (_, { orderID, deliveryDate }) => {
+        updateDeliveryDate: async (_, { deliveryDate }, { currentUser }) => {
 
-            const order = await Order.findById(orderID)
+            const { _id } = currentUser
+
+            const subscription = await Subscription.findOne({ user: _id })
+            const order = await Order.findOne({ subscription: subscription._id, status: 'Actived' })
+
             order.deliveryDate = deliveryDate
 
             return order.save()
 
         },
 
-        confirmOrder: async (_, { orderID }) => {
+        confirmOrder: async (_, args, { currentUser }) => {
 
-            const order = await Order.findById(orderID)
+            const { _id } = currentUser
+
+            const subscription = await Subscription.findOne({ user: _id })
+            const order = await Order.findOne({ subscription: subscription._id, status: 'Actived' }).populate('meals.mealID')
+
             order.status = 'Ordered'
 
             return order.save()
@@ -143,3 +154,10 @@ const orderResolvers = {
 }
 
 export default orderResolvers
+
+
+// ENCONTRAR ORDER
+// const { _id } = currentUser
+
+// const subscription = await Subscription.findOne({ user: _id })
+// const order = await Order.findOne({ subscription: subscription._id, status: 'Actived' })

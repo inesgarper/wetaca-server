@@ -8,6 +8,59 @@ const user = {
     birthDate: "11-11-1111",
 }
 
+const userSubscription = {
+    role: "ADMIN",
+    name: "Test",
+    lastName: "User",
+    email: "testusersubscription@gmail.com",
+    password: "$2a$10$4U6JBdyhmwmvZfd3Qq9IfOtJM5lFCt7rEe6DrzS7Lj4yoiXNxs69K",
+    phoneNumber: 123456789,
+    birthDate: "11-11-1111",
+}
+
+const baseMenuMeal = {
+    name: 'QUESADA PASIEGA',
+    type: 'DESSERT',
+    ingredients: 'Requesón (con leche pasteurizada), azúcar blanco, huevo, mantequilla, yema, harina de trigo, yogur, limón, impulsor y canela.',
+    category: 'DESSERT',
+    weight: 180,
+    price: 2.99,
+    images: {
+        finals: ['https://static.wetaca.com/products/518/detail/quesada-pasiega_A.jpg',
+            'https://static.wetaca.com/products/518/detail/quesada-pasiega_B.jpg'],
+        wip: ['https://static.wetaca.com/products/518/gallery/quesada-pasiega_A.jpg',
+            'https://static.wetaca.com/products/518/gallery/quesada-pasiega_B.jpg',
+            'https://static.wetaca.com/products/518/gallery/quesada-pasiega_C.jpg'],
+    },
+    description: 'Para este tradicional postre cántabro trituramos el huevo junto con el azúcar. Incorporamos el requesón y perfumamos con ron, piel de limón y canela. Horneamos hasta obtener un bonito color dorado.',
+    allergens: {
+        celery: false,
+        gluten: true,
+        crustaceans: false,
+        eggs: true,
+        fish: false,
+        lupin: false,
+        milk: true,
+        molluscs: false,
+        mustard: false,
+        peanuts: false,
+        sesame: false,
+        soybeans: false,
+        sulphurDioxide: false,
+        sulphites: false,
+    },
+    nutritionalValues: {
+        calories: 253.90,
+        totalFats: 14.90,
+        saturatedFat: 8.60,
+        carbs: 22.50,
+        protein: 8.70,
+        sugar: 21.80,
+        fiber: 0.10,
+        sodium: 0.10
+    }
+}
+
 const initialMeals = [
     {
         name: 'QUESADA PASIEGA',
@@ -101,6 +154,6 @@ const initialMeals = [
     }
 ]
 
-module.exports = { user, initialMeals }
+module.exports = { user, initialMeals, baseMenuMeal, userSubscription }
 
 // Al crear el usuario, hay que update el role a admin, y guardar su id en una variable para pasarla al ctx

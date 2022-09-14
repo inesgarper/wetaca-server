@@ -21,7 +21,7 @@ const subscriptionTypeDefs = gql`
     # Definitions
 
     type Subscription{
-        user: User
+        user: User!
         status: SubscriptionStatus!
         baseMenu: BaseMenu
         address: Address!
@@ -86,7 +86,7 @@ const subscriptionTypeDefs = gql`
 
         getOneUserSubs(
             user: ID!
-        ): [Subscription]
+        ): Subscription
 
         getMySubs: [Subscription]
 
@@ -115,9 +115,7 @@ const subscriptionTypeDefs = gql`
             subs: ID!
         ): String
 
-        createBaseMenu(
-            orderID: ID
-        ): BaseMenu
+        createBaseMenu: BaseMenu
     }
 
 `

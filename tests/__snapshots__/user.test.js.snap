@@ -3257,10 +3257,13 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
               "value": "user",
             },
             "type": {
-              "kind": "NamedType",
-              "name": {
-                "kind": "Name",
-                "value": "User",
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "User",
+                },
               },
             },
           },
@@ -4017,13 +4020,10 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
               "value": "getOneUserSubs",
             },
             "type": {
-              "kind": "ListType",
-              "type": {
-                "kind": "NamedType",
-                "name": {
-                  "kind": "Name",
-                  "value": "Subscription",
-                },
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Subscription",
               },
             },
           },
@@ -4250,25 +4250,7 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
             },
           },
           {
-            "arguments": [
-              {
-                "defaultValue": undefined,
-                "description": undefined,
-                "directives": [],
-                "kind": "InputValueDefinition",
-                "name": {
-                  "kind": "Name",
-                  "value": "orderID",
-                },
-                "type": {
-                  "kind": "NamedType",
-                  "name": {
-                    "kind": "Name",
-                    "value": "ID",
-                  },
-                },
-              },
-            ],
+            "arguments": [],
             "description": undefined,
             "directives": [],
             "kind": "FieldDefinition",
@@ -4295,7 +4277,7 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
     ],
     "kind": "Document",
     "loc": {
-      "end": 1974,
+      "end": 1938,
       "start": 0,
     },
   },
@@ -4457,6 +4439,26 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
               "name": {
                 "kind": "Name",
                 "value": "DeliveryDate",
+              },
+            },
+          },
+          {
+            "arguments": [],
+            "description": undefined,
+            "directives": [],
+            "kind": "FieldDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "id",
+            },
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "ID",
+                },
               },
             },
           },
@@ -4779,23 +4781,6 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
                 "kind": "InputValueDefinition",
                 "name": {
                   "kind": "Name",
-                  "value": "orderID",
-                },
-                "type": {
-                  "kind": "NamedType",
-                  "name": {
-                    "kind": "Name",
-                    "value": "ID",
-                  },
-                },
-              },
-              {
-                "defaultValue": undefined,
-                "description": undefined,
-                "directives": [],
-                "kind": "InputValueDefinition",
-                "name": {
-                  "kind": "Name",
                   "value": "mealID",
                 },
                 "type": {
@@ -4827,23 +4812,6 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
           },
           {
             "arguments": [
-              {
-                "defaultValue": undefined,
-                "description": undefined,
-                "directives": [],
-                "kind": "InputValueDefinition",
-                "name": {
-                  "kind": "Name",
-                  "value": "orderID",
-                },
-                "type": {
-                  "kind": "NamedType",
-                  "name": {
-                    "kind": "Name",
-                    "value": "ID",
-                  },
-                },
-              },
               {
                 "defaultValue": undefined,
                 "description": undefined,
@@ -4889,23 +4857,6 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
                 "kind": "InputValueDefinition",
                 "name": {
                   "kind": "Name",
-                  "value": "orderID",
-                },
-                "type": {
-                  "kind": "NamedType",
-                  "name": {
-                    "kind": "Name",
-                    "value": "ID",
-                  },
-                },
-              },
-              {
-                "defaultValue": undefined,
-                "description": undefined,
-                "directives": [],
-                "kind": "InputValueDefinition",
-                "name": {
-                  "kind": "Name",
                   "value": "deliveryDate",
                 },
                 "type": {
@@ -4933,25 +4884,7 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
             },
           },
           {
-            "arguments": [
-              {
-                "defaultValue": undefined,
-                "description": undefined,
-                "directives": [],
-                "kind": "InputValueDefinition",
-                "name": {
-                  "kind": "Name",
-                  "value": "orderID",
-                },
-                "type": {
-                  "kind": "NamedType",
-                  "name": {
-                    "kind": "Name",
-                    "value": "ID",
-                  },
-                },
-              },
-            ],
+            "arguments": [],
             "description": undefined,
             "directives": [],
             "kind": "FieldDefinition",
@@ -4987,7 +4920,7 @@ exports[`GraphQL Schemas Should match the GraphQL TypeDefs 1`] = `
     ],
     "kind": "Document",
     "loc": {
-      "end": 1363,
+      "end": 1268,
       "start": 0,
     },
   },

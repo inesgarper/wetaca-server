@@ -23,6 +23,7 @@ const orderTypeDefs = gql`
         price: Float
         status: OrderStatus
         deliveryDate: DeliveryDate
+        id: ID!
     }
 
     type OrderMeals{
@@ -71,23 +72,18 @@ const orderTypeDefs = gql`
         createOrder: Order
 
         addMealToOrder(
-            orderID: ID,
             mealID: ID
         ): [OrderMeals]
 
         removeMealFromOrder(
-            orderID: ID,
             mealID: ID
         ): [OrderMeals]
 
         updateDeliveryDate(
-            orderID: ID,
             deliveryDate: DeliveryDateInput
         ): Order
 
-        confirmOrder(
-            orderID: ID,
-        ): Order
+        confirmOrder: Order
     }
 
 

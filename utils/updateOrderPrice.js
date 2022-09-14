@@ -13,7 +13,6 @@ const updateOrderPrice = async (orderID) => {
     order.price = parseFloat(price.toFixed(2))
 
     return await order.save()
-
 }
 
 export default updateOrderPrice

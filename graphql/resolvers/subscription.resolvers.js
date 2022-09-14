@@ -23,7 +23,7 @@ const subscriptionResolvers = {
 
         getAllSubs: async () => await Subscription.find().populate('user'),
 
-        getOneUserSubs: async (_, { user }) => await Subscription.find({ user }).populate('user'),
+        getOneUserSubs: async (_, { user }) => await Subscription.findOne({ user }).populate('user'),
 
         getMySubs: async (_, args, { currentUser }) => {
 
@@ -44,7 +44,16 @@ const subscriptionResolvers = {
         createSubscription: (_, { subscriptionData }, { currentUser }) => {
 
             const { _id } = currentUser
+
+            for (const input in subscriptionData) {
+                for (const addressInput in subscriptionData.address) {
+                    if (subscriptionData.address[addressInput] === '') throw new UserInputError('Provide all inputs')
+                }
+                if (subscriptionData[input] === '') throw new UserInputError('Provide all inputs')
+            }
+
             const { address, deliveryWeekDay } = subscriptionData
+
 
             const subscription = new Subscription({ user: _id, address, deliveryWeekDay })
             return subscription.save()
@@ -83,9 +92,14 @@ const subscriptionResolvers = {
             return 'Subscription deleted'
         },
 
-        createBaseMenu: async (_, { orderID }) => {
+        createBaseMenu: async (_, args, { currentUser }) => {
 
-            const order = await Order.findById(orderID).populate('meals.mealID')
+            const { _id } = currentUser
+
+            const subscription = await Subscription.findOne({ user: _id })
+            const order = await Order.findOne({ subscription: subscription._id, status: 'Actived' }).populate('meals.mealID')
+
+            // const order = await Order.findById(orderID).populate('meals.mealID')
 
             const baseMenu = setBaseMenu(order)
 
