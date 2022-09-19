@@ -1,82 +1,40 @@
-## API Reference
 
-#### SERVER
+# Wetaca
 
-```http
-  AUTH /api
+This is our student version of the real wetaca app. It is a SPA (Single Page Application) created with React,
+which queries data from an API through an Apollo server, using GraphQL as the query language.
+
+
+
+
+## Demo
+
+WORK IN PROGRESS
+
+## Technologies
+JavaScript, Node, Apollo, GraphQL
+## Client Usage
+
+```bash
+  npm i
+  npm start
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `GET` | `/signup` | Signup |
-| `POST` | `/signup` | Signup |
-| `GET` | `/login` | Login |
-| `POST` | `/login` | Login |
-| `POST` | `/logout` | Logout |
 
-```http
-  USERS /api/users
-```
+## CLIENT
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `GET` | `/` | Get All Users |
-| `PUT` | `/editProfile` | Edit User |
-| `DELETE` | `/:user_id/delete` | Delete User |
+TBD
 
-```http
-  MEALS /api/meals/
-```
+## Authors
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `GET` | `/` | Get All Meals | ✅
-| `GET` | `/:meal_id` | Meal's Details | ✅
-| `GET` | `/mealsFilter` | Meal's Filter By Category | ✅
-| `GET` | `/:meal_id/getNutritionalValuesPerPortion` | Meal's Values Per Portion |
-| `POST` | `/create` | Create Meal | ✅
-| `PUT` | `/:meal_id/edit` | Edit Meal | ✅
-| `PUT` | `/:meal_id/addPicture` | Add Meal Picture |
-| `PUT` | `/:meal_id/deletePicture` | Delete Meal Picture |
-| `DELETE` | `/:meal_id/delete` | Delete Meal | ✅
+- Inés García Periáñez - [@inesgarper](https://www.github.com/octokatherine)
+- Guillermo Ávila Ayllón - [@guilleavila](https://www.github.com/octokatherine)
 
 
+## 🔗 Links
+Inés García Periáñez
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/guillermo-%C3%A1vila/)
 
-```http
-  ORDER /api/order/
-```
+Guillermo Ávila Ayylón 
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/inesgarper/)
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `GET` | `/` | Get All Orders | ✅
-| `GET` | `/getActiveOrder` | Get Active Order |
-| `GET`| `/getNextOrder` | Get Next Order |
-| `GET`| `/getDeliveredOrders` | Get Delivered Orders |
-| `POST` | `/create` | Create Order | 
-| `PUT` | `/:order_id/addMeal` | Add Meal to Order | ✅
-| `PUT`| `/:order_id/removeMeal` | Remove Meal from Order | ✅
-| `PUT`| `/:order_id/updateMealQuantity` | Update Meal Quantity | ✅
-
-
-```http
-  SUBSCRIPTIONS /api/subscriptions/
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `GET` | `/` | Get All Subscriptions |
-| `GET` | `/getUserSubscription/:user_id` | Get User's Subscription Details|
-| `GET` | `/getMySubsctiptionDetails` | Subscription's Details |
-| `POST` | `/create` | Create Subscription | // lógica para crear el menú base
-| `PUT`| `/:subscription_id/changeStatus` | Pause or Activate Subscription |
-| `DELETE` | `/:subscription_id/delete` | Cancel Subscription |
-
-
-```http
-  REVIEWS /api/reviews/
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `GET` | `/:meal_id/reviews` | Get All Reviews for One Meal |
-| `POST` | `/create` | Create Rating and Post Comment | // También actualiza el meal rating
