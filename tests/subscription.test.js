@@ -302,6 +302,10 @@ describe('CREATE BASE MENU', () => {
             `,
         })
 
+        expect(result.data.createBaseMenu).toBeTruthy()
+        expect(result.errors).toBeFalsy()
+        expect(result.data.createBaseMenu.meals.total).toBe(1)
+        expect(result.data.createBaseMenu.meals.perCategory.dessert).toBe(1)
 
     })
 })
