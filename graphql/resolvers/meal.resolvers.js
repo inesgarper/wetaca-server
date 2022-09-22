@@ -56,6 +56,13 @@ const mealResolvers = {
     Mutation: {
         createMeal: (_, { mealData }) => {
 
+            // for (const input in mealData) {
+            //     for (const addressInput in subscriptionData.address) {
+            //         if (subscriptionData.address[addressInput] === '') throw new UserInputError('Provide all inputs')
+            //     }
+            //     if (subscriptionData[input] === '') throw new UserInputError('Provide all inputs')
+            // }
+
             const meal = new Meal({ ...mealData, currentlyInMenu: false, nextWeekInMenu: false })
             return meal.save()
         },

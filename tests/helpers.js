@@ -19,7 +19,7 @@ const userSubscription = {
 }
 
 const baseMenuMeal = {
-    name: 'QUESADA PASIEGA',
+    name: 'QUESADA PASIEGA BASE MENU',
     type: 'DESSERT',
     ingredients: 'Requesón (con leche pasteurizada), azúcar blanco, huevo, mantequilla, yema, harina de trigo, yogur, limón, impulsor y canela.',
     category: 'DESSERT',
@@ -154,6 +154,49 @@ const initialMeals = [
     }
 ]
 
-module.exports = { user, initialMeals, baseMenuMeal, userSubscription }
+const newMeal = {
+    name: 'GAZPACHO',
+    type: 'STARTER',
+    ingredients: 'Tomate, agua, pepino, pimiento verde, aceite de oliva, pan de picos, vinagre de jerez, aceite de oliva virgen extra, pasta de tomate, cebolla morada, sal y ajo confitado.',
+    category: 'STARTER',
+    weight: 300,
+    price: 2.99,
+    images: {
+        finals: ['https://static.wetaca.com/products/261/detail/gazpacho_A.jpg',
+            'https://static.wetaca.com/products/261/detail/gazpacho_B.jpg'],
+        wip: ['https://static.wetaca.com/products/261/gallery/gazpacho_A.jpg',
+            'https://static.wetaca.com/products/261/gallery/gazpacho_B.jpg',
+            'https://static.wetaca.com/products/261/gallery/gazpacho_C.jpg'],
+    },
+    description: 'Nuestra sopa fría por excelencia: con aceite de oliva virgen extra y el equilibrio perfecto de hortalizas para comenzar de forma suave y fresca cualquier comida.',
+    allergens: {
+        celery: false,
+        gluten: true,
+        crustaceans: false,
+        eggs: false,
+        fish: false,
+        lupin: false,
+        milk: false,
+        molluscs: false,
+        mustard: false,
+        peanuts: false,
+        sesame: false,
+        soybeans: false,
+        sulphurDioxide: false,
+        sulphites: false,
+    },
+    nutritionalValues: {
+        calories: 113.75,
+        totalFats: 9.49,
+        saturatedFat: 1.60,
+        carbs: 5.95,
+        protein: 1.28,
+        sugar: 2.94,
+        fiber: 1.29,
+        sodium: 1.06
+    }
+}
+
+module.exports = { user, initialMeals, newMeal, baseMenuMeal, userSubscription }
 
 // Al crear el usuario, hay que update el role a admin, y guardar su id en una variable para pasarla al ctx
