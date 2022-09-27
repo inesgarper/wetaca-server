@@ -21,21 +21,16 @@ const subscriptionResolvers = {
 
     Query: {
 
-        getAllSubs: async () => await Subscription.find().populate('user'),
+        getAllSubscriptions: async () => await Subscription.find().populate('user'),
 
-        getOneUserSubs: async (_, { user }) => await Subscription.findOne({ user }).populate('user'),
+        getOneUserSubscription: async (_, { userID }) => await Subscription.findOne({ userID }).populate('user'),
 
-        getMySubs: async (_, args, { currentUser }) => {
+        getMySubcription: async (_, args, { currentUser }) => {
 
             const { _id } = currentUser
 
             const mySubs = await Subscription.find({ user: _id })
             return mySubs
-        },
-
-        getOneSub: async (_, { subs }) => { // BORRAR
-            const subscription = await Subscription.findById(subs)
-            return subscription
         }
     },
 

@@ -82,17 +82,13 @@ const subscriptionTypeDefs = gql`
     
     type Query{
 
-        getAllSubs: [Subscription]
+        getAllSubscriptions: [Subscription]
 
-        getOneUserSubs(
-            user: ID!
+        getOneUserSubscription(
+            userID: ID!
         ): Subscription
 
-        getMySubs: [Subscription]
-
-        getOneSub(
-            subs: ID!
-        ): Subscription
+        getMySubcription: [Subscription]
     }
 
     # Mutations

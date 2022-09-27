@@ -46,7 +46,7 @@ const mealResolvers = {
 
         getMenu: async () => await Meal.find({ currentlyInMenu: true }),
 
-        getMealsToCook: async (_, args, { currentUser }) => {
+        getMealsToCook: async () => {
 
             const orders = await Order.find({ status: 'Ordered' }).populate('meals.mealID')
             return getCookingList(orders)

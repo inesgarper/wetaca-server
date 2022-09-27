@@ -21,11 +21,11 @@ const orderResolvers = {
 
     Query: {
 
-        getAllOrders: async () => await Order.find(),
+        getAllOrders: async () => await Order.find().populate('subscription meals.mealID').populate({ path: 'subscription', populate: [{ path: 'user' }] }),
 
-        getOneOrder: async (_, { orderID }) => await Order.findById(orderID).populate('meals.mealID'),
+        getOneOrder: async (_, { orderID }) => await Order.findById(orderID).populate('subscription meals.mealID').populate({ path: 'subscription', populate: [{ path: 'user' }] }),
 
-        getNextOrders: async () => await Order.find({ status: 'Ordered' }).populate('meals.mealID'),
+        getNextOrders: async () => await Order.find({ status: 'Ordered' }).populate('subscription meals.mealID').populate({ path: 'subscription', populate: [{ path: 'user' }] }),
 
         getMyActiveOrder: (_, args, { currentUser }) => getOrder(currentUser, 'Actived'),
 
