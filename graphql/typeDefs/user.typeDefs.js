@@ -9,8 +9,8 @@ const userTypeDefs = gql`
         lastName: String!
         email: String!
         password: String!
-        phoneNumber: Int!
-        birthDate: Date!
+        phoneNumber: String!
+        birthDate: Date
         paymentMethods: [PaymentMethods]
         id: ID!
     }
@@ -35,7 +35,7 @@ const userTypeDefs = gql`
         lastName: String
         email: String
         password: String
-        phoneNumber: Int
+        phoneNumber: String
         birthDate: Date
     }
 
