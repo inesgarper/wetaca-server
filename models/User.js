@@ -9,19 +9,19 @@ const schema = new Schema(
             default: 'USER'
         },
         name: {
-            type: String,
+            type: String
         },
         lastName: {
-            type: String,
+            type: String
         },
         email: {
-            type: String,
+            type: String
         },
         password: {
-            type: String,
+            type: String
         },
         phoneNumber: {
-            type: Number
+            type: String
         },
         birthDate: {
             type: Date
