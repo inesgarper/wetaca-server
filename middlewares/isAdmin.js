@@ -3,6 +3,8 @@ import { ApolloError } from 'apollo-server'
 
 const isAdmin = async (resolve, parent, args, context, info) => {
 
+    console.log('EL USER DEL SERVIDOR ---', context )
+
     if (!context.currentUser || context.currentUser.role !== 'ADMIN') throw new ApolloError('Not authorizated, needs permissions')
 
     const result = await resolve(parent, args, context, info)
@@ -35,7 +37,7 @@ const isAdminMiddleware = {
 
         deleteSubscription: isAdmin,
 
-        createMeal: isAdmin,
+        // createMeal: isAdmin,
         updateMeal: isAdmin,
         deleteMeal: isAdmin,
         addMealToMenu: isAdmin,
