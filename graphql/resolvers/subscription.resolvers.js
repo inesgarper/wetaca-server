@@ -25,7 +25,7 @@ const subscriptionResolvers = {
 
         getOneUserSubscription: async (_, { userID }) => await Subscription.findOne({ userID }).populate('user'),
 
-        getMySubcription: async (_, args, { currentUser }) => {
+        getMySubscription: async (_, args, { currentUser }) => {
 
             const { _id } = currentUser
 

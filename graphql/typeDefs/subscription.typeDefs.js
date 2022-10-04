@@ -88,7 +88,7 @@ const subscriptionTypeDefs = gql`
             userID: ID!
         ): Subscription
 
-        getMySubcription: [Subscription]
+        getMySubscription: [Subscription]
     }
 
     # Mutations

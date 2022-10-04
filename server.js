@@ -29,10 +29,12 @@ const server = new ApolloServer({
     context: async ({ req }) => {
         const auth = req ? req.headers.authorization : null
 
+
         if (auth && (auth.startsWith('bearer ') || auth.startsWith('Bearer '))) {
             const token = auth.substring(7)
             const { _id } = jwt.verify(token, 'secret')
             const currentUser = await User.findById(_id)
+            console.log('el currentuser ------>', currentUser)
             return { currentUser }
         }
     }

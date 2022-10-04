@@ -15,7 +15,7 @@ const isAuthenticatedMiddleware = {
         getMenu: isAuthenticated,
         getCurrentUser: isAuthenticated,
 
-        getMySubcription: isAuthenticated
+        getMySubscription: isAuthenticated
     },
 
     Mutation: {
