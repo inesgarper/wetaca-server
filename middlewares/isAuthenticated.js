@@ -12,6 +12,7 @@ const isAuthenticatedMiddleware = {
 
     Query: {
 
+        getMenu: isAuthenticated,
         getCurrentUser: isAuthenticated,
 
         getMySubcription: isAuthenticated

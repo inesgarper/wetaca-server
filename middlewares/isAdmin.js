@@ -18,6 +18,8 @@ const isAdminMiddleware = {
         // getAllMeals: isAdmin,
         getMealsByCategory: isAdmin,
         getMealsToCook: isAdmin,
+        getMenu: isAdmin,
+
 
         // getAllSubscriptions: isAdmin,
         // getOneUserSubscription: isAdmin,
@@ -35,7 +37,7 @@ const isAdminMiddleware = {
 
         deleteSubscription: isAdmin,
 
-        createMeal: isAdmin,
+        // createMeal: isAdmin,
         updateMeal: isAdmin,
         deleteMeal: isAdmin,
         addMealToMenu: isAdmin,
