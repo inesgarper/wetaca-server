@@ -81,9 +81,9 @@ const subscriptionResolvers = {
             return updatedSubs.save()
         },
 
-        deleteSubscription: async (_, { subs }) => {
+        deleteSubscription: async (_, { subscriptionID }) => {
 
-            await Subscription.findByIdAndDelete(subs)
+            await Subscription.findByIdAndDelete(subscriptionID)
             return 'Subscription deleted'
         },
 

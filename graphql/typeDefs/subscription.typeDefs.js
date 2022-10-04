@@ -108,7 +108,7 @@ const subscriptionTypeDefs = gql`
         ): Subscription
 
         deleteSubscription(
-            subs: ID!
+            subscriptionID: ID!
         ): String
 
         createBaseMenu: BaseMenu
