@@ -57,25 +57,25 @@ const subscriptionTypeDefs = gql`
 
     type Address {
         street: String!
-        number: Int!
+        number: String!
         city: String!
         province: String!
-        postCode: Int!
+        postCode: String!
     }
 
     # Inputs
 
     input SubscriptionInput{
-        address: AdressInput
+        address: AddressInput
         deliveryWeekDay: DayOfTheWeek
     }
 
-    input AdressInput {
+    input AddressInput {
         street: String!
-        number: Int!
+        number: String!
         city: String!
         province: String!
-        postCode: Int!
+        postCode: String!
     }
 
     # Querys

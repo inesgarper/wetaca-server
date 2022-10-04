@@ -47,7 +47,7 @@ const schema = new Schema(
                 type: String,
             },
             number: {
-                type: Number,
+                type: String,
             },
             city: {
                 type: String,
@@ -56,7 +56,7 @@ const schema = new Schema(
                 type: String
             },
             postCode: {
-                type: Number
+                type: String
             },
         }
     },
