@@ -73,11 +73,11 @@ const orderTypeDefs = gql`
 
         addMealToOrder(
             mealID: ID
-        ): [OrderMeals]
+        ): Order
 
         removeMealFromOrder(
             mealID: ID
-        ): [OrderMeals]
+        ): Order
 
         updateDeliveryDate(
             deliveryDate: DeliveryDateInput

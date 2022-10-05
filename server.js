@@ -34,7 +34,6 @@ const server = new ApolloServer({
             const token = auth.substring(7)
             const { _id } = jwt.verify(token, 'secret')
             const currentUser = await User.findById(_id)
-            console.log('el currentuser ------>', currentUser)
             return { currentUser }
         }
     }

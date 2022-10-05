@@ -100,7 +100,7 @@ const orderResolvers = {
 
             const updatedOrder = await updateOrderPrice(order._id)
 
-            return updatedOrder.meals
+            return updatedOrder
         },
 
         removeMealFromOrder: async (_, { mealID }, { currentUser }) => {
@@ -123,7 +123,7 @@ const orderResolvers = {
 
             const updatedOrder = await updateOrderPrice(order._id)
 
-            return updatedOrder.meals
+            return updatedOrder
         },
 
         updateDeliveryDate: async (_, { deliveryDate }, { currentUser }) => {

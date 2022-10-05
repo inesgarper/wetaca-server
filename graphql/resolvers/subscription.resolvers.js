@@ -38,6 +38,8 @@ const subscriptionResolvers = {
 
         createSubscription: (_, { subscriptionData }, { currentUser }) => {
 
+            console.log('MUTATION CREAR SUB ---', currentUser)
+
             const { _id } = currentUser
 
             for (const input in subscriptionData) {

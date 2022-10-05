@@ -15,22 +15,20 @@ const isAdmin = async (resolve, parent, args, context, info) => {
 const isAdminMiddleware = {
 
     Query: {
-        // getAllUsers: isAdmin,
+        getAllUsers: isAdmin,
 
-        // getAllMeals: isAdmin,
+        getAllMeals: isAdmin,
         getMealsByCategory: isAdmin,
         getMealsToCook: isAdmin,
-        getMenu: isAdmin,
 
-
-        // getAllSubscriptions: isAdmin,
-        // getOneUserSubscription: isAdmin,
+        getAllSubscriptions: isAdmin,
+        getOneUserSubscription: isAdmin,
 
         getReviews: isAdmin,
 
-        // getAllOrders: isAdmin,
-        // getOneOrder: isAdmin,
-        // getNextOrders: isAdmin,
+        getAllOrders: isAdmin,
+        getOneOrder: isAdmin,
+        getNextOrders: isAdmin,
     },
 
     Mutation: {
@@ -39,7 +37,7 @@ const isAdminMiddleware = {
 
         deleteSubscription: isAdmin,
 
-        // createMeal: isAdmin,
+        createMeal: isAdmin,
         updateMeal: isAdmin,
         deleteMeal: isAdmin,
         addMealToMenu: isAdmin,
