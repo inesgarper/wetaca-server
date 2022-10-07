@@ -44,7 +44,7 @@ const mealResolvers = {
 
         getMealsByCategory: async (_, { mealCategory }) => await Meal.find({ category: mealCategory }),
 
-        getMenu: async () => await Meal.find({ currentlyInMenu: true }),
+        getMenu: async (_, args, context) =>await Meal.find({ currentlyInMenu: true }),
 
         getMealsToCook: async () => {
 
@@ -79,7 +79,6 @@ const mealResolvers = {
         },
 
         addMealToMenu: async (_, { mealID }) => {
-
             return await Meal.findByIdAndUpdate(mealID, { nextWeekInMenu: true }, { new: true })
         },
 

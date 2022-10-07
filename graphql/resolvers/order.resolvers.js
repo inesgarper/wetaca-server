@@ -27,11 +27,12 @@ const orderResolvers = {
 
         getNextOrders: async () => await Order.find({ status: 'Ordered' }).populate('subscription meals.mealID').populate({ path: 'subscription', populate: [{ path: 'user' }] }),
 
-        getMyActiveOrder: (_, args, { currentUser }) => getOrder(currentUser, 'Actived'),
+        getMyActiveOrder: (_, { userID }) => getOrder(userID, 'Actived'),
 
         getMyNextOrder: async (_, args, { currentUser }) => getOrder(currentUser, 'Ordered'),
 
         getMyDeliveredOrders: async (_, args, { currentUser }) => getOrders(currentUser, 'Delivered')
+
     },
 
     Mutation: {
@@ -79,6 +80,8 @@ const orderResolvers = {
         },
 
         addMealToOrder: async (_, { mealID }, { currentUser }) => {
+
+            console.log('AÑADO UNA MEAL', currentUser)
 
             const { _id } = currentUser
 

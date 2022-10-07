@@ -56,7 +56,9 @@ const orderTypeDefs = gql`
         
         getNextOrders: [Order],
 
-        getMyActiveOrder: Order,
+        getMyActiveOrder(
+            userID: ID!
+        ): Order,
 
         getMyNextOrder: Order,
 

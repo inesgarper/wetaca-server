@@ -83,6 +83,7 @@ const userTypeDefs = gql`
             email: String!
             password: String!
         ): Token
+
     }
 
 
