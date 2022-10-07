@@ -1,11 +1,11 @@
 import Order from '../models/Order.js'
 import Subscription from '../models/Subscription.js'
 
-export const getOrder = async (currentUser, status) => {
+export const getOrder = async (userID, status) => {
 
-    const { _id } = currentUser
+    // const { _id } = currentUser
 
-    const subscription = await Subscription.findOne({ user: _id })
+    const subscription = await Subscription.findOne({ user: userID })
     const foundOrder = await Order.findOne({ subscription: subscription._id, status }).populate('meals.mealID')
     // console.log('USER ----------------------------------------->', currentUser)
     // console.log('ORDER ----------------------------------------->', foundOrder)

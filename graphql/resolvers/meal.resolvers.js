@@ -86,7 +86,6 @@ const mealResolvers = {
         },
 
         addMealToMenu: async (_, { mealID }) => {
-
             return await Meal.findByIdAndUpdate(mealID, { nextWeekInMenu: true }, { new: true })
         },
 
