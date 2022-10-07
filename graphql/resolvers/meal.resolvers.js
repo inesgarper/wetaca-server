@@ -3,6 +3,7 @@ import Order from '../../models/Order.js'
 import setNewMenu from '../../utils/setNewMenu.js'
 import getCookingList from '../../utils/getCookingList.js'
 import calculatePortionNutritionalValues from '../../utils/calculatePortionNutritionalValues.js'
+import formatMealsByType from '../../utils/formatMealsByType.js'
 
 const mealResolvers = {
 
@@ -32,7 +33,10 @@ const mealResolvers = {
     },
 
     Query: {
-        getAllMeals: async () => await Meal.find(),
+        getAllMeals: async () => {
+            const meals = await Meal.find()
+            return formatMealsByType(meals)
+        },
 
         getMealDetails: async (_, { mealID }) => await Meal.findById(mealID),
 
@@ -44,7 +48,10 @@ const mealResolvers = {
 
         getMealsByCategory: async (_, { mealCategory }) => await Meal.find({ category: mealCategory }),
 
-        getMenu: async () => await Meal.find({ currentlyInMenu: true }),
+        getMenu: async () => {
+            const mealsInMenu = await Meal.find({ currentlyInMenu: true })
+            return formatMealsByType(mealsInMenu)
+        },
 
         getMealsToCook: async () => {
 

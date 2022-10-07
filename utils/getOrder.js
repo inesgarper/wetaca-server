@@ -7,7 +7,8 @@ export const getOrder = async (currentUser, status) => {
 
     const subscription = await Subscription.findOne({ user: _id })
     const foundOrder = await Order.findOne({ subscription: subscription._id, status }).populate('meals.mealID')
-
+    // console.log('USER ----------------------------------------->', currentUser)
+    // console.log('ORDER ----------------------------------------->', foundOrder)
     return foundOrder
 }
 

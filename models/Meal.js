@@ -25,7 +25,8 @@ const schema = new Schema(
         },
         images: {
             finals: {
-                type: [String]
+                type: [String],
+                default: 'https://images.assetsdelivery.com/compings_v2/pavelstasevich/pavelstasevich1811/pavelstasevich181101035.jpg'
             },
             wip: {
                 type: [String]

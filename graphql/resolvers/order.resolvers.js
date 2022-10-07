@@ -27,7 +27,10 @@ const orderResolvers = {
 
         getNextOrders: async () => await Order.find({ status: 'Ordered' }).populate('subscription meals.mealID').populate({ path: 'subscription', populate: [{ path: 'user' }] }),
 
-        getMyActiveOrder: (_, args, { currentUser }) => getOrder(currentUser, 'Actived'),
+        getMyActiveOrder: (_, args, { currentUser }) => {
+            console.log('el current user en la query --->', currentUser)
+            return getOrder(currentUser, 'Actived')
+        },
 
         getMyNextOrder: async (_, args, { currentUser }) => getOrder(currentUser, 'Ordered'),
 

@@ -38,7 +38,7 @@ const mealTypeDefs = gql`
         category: MealCategory!
         weight: Int!
         price: Float!
-        images: Images
+        images: Images!
         description: String!
         allergens: Allergens!
         nutritionalValues: NutritionalValues!
@@ -78,7 +78,7 @@ const mealTypeDefs = gql`
     }
 
     type Images{
-        finals: [String]
+        finals: [String!]!
         wip: [String]
     }
 
@@ -87,6 +87,14 @@ const mealTypeDefs = gql`
         quantity: Float
     }
 
+    type SortedMeals {
+        unique: [Meal]
+        light: [Meal]
+        full: [Meal]
+        veggie: [Meal]
+        starter: [Meal]
+        dessert: [Meal]
+    }
 
     # Inputs
 
@@ -141,7 +149,7 @@ const mealTypeDefs = gql`
 
     type Query{
 
-        getAllMeals: [Meal],
+        getAllMeals: SortedMeals,
 
         getMealDetails(
             mealID: ID
@@ -155,7 +163,7 @@ const mealTypeDefs = gql`
             mealCategory: MealCategory
         ): [Meal],
 
-        getMenu: [Meal],
+        getMenu: SortedMeals,
 
         getMealsToCook: [MealToCook]
     }
